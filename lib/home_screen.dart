@@ -173,6 +173,11 @@ class _HomeScreenState extends State<HomeScreen> {
             _done = false;
             time = 60;
             setState(() {});
+            _pageController.animateToPage(
+            0,
+            duration: const Duration(milliseconds: 300),
+            curve: Curves.easeIn,
+          );
             return;
           }
           int right = 0;

@@ -63,7 +63,7 @@ class FillInTheBlank extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
           border: items[index] == selectedItem
             ? Border.all(
-              color: done && selectedItem != anwser ? Colors.red : Colors.blue,
+              color: !done ? Colors.blue : selectedItem != anwser ? Colors.red : Colors.green,
               width: 1,
             )
             : null,
@@ -76,7 +76,15 @@ class FillInTheBlank extends StatelessWidget {
             ),
           ]
         ),
-        child: Text(items[index], textAlign: TextAlign.center,),
+        child: Text(
+          items[index],
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            color: items[index] == selectedItem
+            ? !done ? Colors.blue : selectedItem != anwser ? Colors.red : Colors.green
+            : null,
+          ),
+        ),
       ),
     );
   }
