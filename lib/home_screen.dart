@@ -1,4 +1,13 @@
+
+
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:test_app/mooks_data/mooks_data.dart';
+import 'package:test_app/widgets/buttons/contained_button.dart';
+import 'package:test_app/widgets/fill_in_the_blank.dart';
+import 'package:test_app/widgets/page_slider.dart';
+import 'package:test_app/widgets/time_count_down_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({ Key? key }) : super(key: key);
@@ -8,9 +17,11 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
-  final _items = <String>['proud', 'determined', 'satisfied'];
-  int? _selectedItem;
+  final _pageController = PageController();
+  int _currentPage = 0;
+  final _result = <String, String>{};
+  bool _done = false;
+  int time = 60;
 
   @override
   void setState(VoidCallback fn) {
@@ -18,10 +29,50 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
+      for (var element in data.questions!) {
+        _result[element.id!] = '';
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: _done || _currentPage == data.questions!.length - 1
+        ? _buildFloatingActionButtonEndPage()
+        : _buildFloatingActionButton(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       appBar: _buildAppBar(),
-      body: _buildBody(),
+      body: PageSlider(
+        pageController: _pageController,
+        onPageChanged: (value) {
+          _currentPage = value;
+          setState(() {});
+        },
+        page: data.questions!.map((e) {
+          return FillInTheBlank(
+            id: e.id!,
+            content: e.content!,
+            items: e.choices!,
+            anwser: e.answer!,
+            done: _done,
+            onSelected: (value) {
+              _result[e.id!] = value;
+              setState(() {});
+            },
+            selectedItem: _result[e.id!] == '' ? null : _result[e.id!],
+          );
+        }).toList(),
+      ),
     );
   }
 
@@ -37,13 +88,20 @@ class _HomeScreenState extends State<HomeScreen> {
     const SizedBox(width: 10),
   ];
 
-  Chip _donotAction() {
-    return const Chip(
-      label: Text(
-        "I don't known",
-        style: TextStyle(color: Colors.white),
+  Widget _donotAction() {
+    return GestureDetector(
+      onTap: () {
+        _pageController.nextPage(duration: const Duration(milliseconds: 300), curve: Curves.easeIn);
+        _currentPage = _pageController.page!.toInt() + 1;
+        setState(() { });
+      },
+      child: const Chip(
+        label: Text(
+          "I don't known",
+          style: TextStyle(color: Colors.white),
+        ),
+        backgroundColor: Colors.blue,
       ),
-      backgroundColor: Colors.blue,
     );
   }
 
@@ -54,71 +112,98 @@ class _HomeScreenState extends State<HomeScreen> {
         side: const BorderSide(width: 1, color: Colors.black),
         borderRadius: BorderRadius.circular(16),
       ),
-      label: const Text('0:49', style: TextStyle(color: Colors.black)),
+      label: CountDownTimer(time, finish: (value) {
+        time = 0;
+        _done = true;
+        setState(() {});
+      }),
     );
   }
 
-  Widget _buildBody() {
+  Widget _buildFloatingActionButton() {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12),
-      child: Column(
-        children: [
-          const SizedBox(height: 20),
-          _content(),
-          const SizedBox(height: 60),
-          Expanded(child: _listAnwser()),
-          const SizedBox(height: 30),
+      child: Row(
+        children: <Widget>[
+          Expanded(
+            child: ContainedButton(
+              text: 'Quay lại',
+              size: const Size(0, 45),
+              radius: 10,
+              color: Colors.white,
+              textColor: Colors.blue,
+              press: () async {
+                _pageController.previousPage(duration: const Duration(milliseconds: 300), curve: Curves.easeIn);
+                _currentPage = _pageController.page!.toInt() - 1;
+                setState(() {});
+              },
+            ),
+          ),
+          const SizedBox(width: 10),
+          Expanded(
+            child: ContainedButton(
+              text: 'Tiếp theo',
+              size: const Size(0, 45),
+              radius: 10,
+              color: Colors.purple,
+              press: () async {
+                _pageController.nextPage(duration: const Duration(milliseconds: 300), curve: Curves.easeIn);
+                _currentPage = _pageController.page!.toInt() + 1;
+                setState(() { });
+              },
+            ),
+          ),
         ],
       ),
     );
   }
 
-  ListView _listAnwser() => ListView.separated(
-    physics: const BouncingScrollPhysics(),
-    itemCount: _items.length,
-    itemBuilder: (BuildContext context, int index) {
-      return _itemAnwser(index);
-    },
-    separatorBuilder: (BuildContext context, int index) {
-      return index == _items.length - 1 ? const SizedBox.shrink() : const SizedBox(height: 20);
-    },
-  );
+  Widget _buildFloatingActionButtonEndPage() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 12),
+      child: ContainedButton(
+        text: _done ? 'Làm lại' : 'Nộp bài',
+        size: const Size(double.infinity, 45),
+        radius: 10,
+        color: Colors.white,
+        textColor: Colors.green,
+        press: () async {
+          log(time.toString());
+          if (_done) {
+            _done = false;
+            time = 60;
+            setState(() {});
+            return;
+          }
+          int right = 0;
+          for (var e in data.questions!) {
+            if (e.answer == _result[e.id!]) right++;
+          }
 
-  Widget _itemAnwser(int index) {
-    return GestureDetector(
-      onTap: () {
-        _selectedItem = index;
-        setState(() {});
-      },
-      child: Container(
-        width: double.infinity,
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 15),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(10),
-          border: index == _selectedItem
-            ? Border.all(
-              color: Colors.blue,
-              width: 1,
-            )
-            : null,
-          boxShadow: [
-            BoxShadow(
-              offset: const Offset(0,3),
-              blurRadius: 6,
-              spreadRadius: 0,
-              color: Colors.grey.shade100,
-            ),
-          ]
-        ),
-        child: Text(_items[index], textAlign: TextAlign.center,),
+          String message = 'Câu trả lời đúng: $right/${data.questions!.length}';
+          await showSimpleDialog(message);
+          _done = true;
+          setState(() {});
+        },
       ),
     );
   }
 
-  Text _content() => const Text(
-    'Choos the best word to complete the sentence: "He was completely ... with the work that we did."',
-    style: TextStyle(color: Colors.blue, fontSize: 18, fontWeight: FontWeight.w500, height: 1.2),
-  );
+  Future<void> showSimpleDialog(String message) async {
+    return await showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          content: Text(message),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(true),
+              child: const Text('OK'),
+            ),
+          ],
+        );
+      },
+    );
+  }
 
 }
