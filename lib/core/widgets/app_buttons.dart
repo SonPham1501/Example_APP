@@ -25,13 +25,13 @@ class AppButtons {
     return TextButton(
       style: TextButton.styleFrom(
         tapTargetSize: tapTargetSize,
-        padding: padding ?? EdgeInsets.all(8),
+        padding: padding ?? const EdgeInsets.all(8),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(borderRadius),
           side: BorderSide(color: borderColor ?? AppColors.border),
         ),
         backgroundColor:
-            loading ? Color(0xffcccccc) : backgroundColor ?? Colors.transparent,
+            loading ? const Color(0xffcccccc) : backgroundColor ?? Colors.transparent,
         minimumSize: customSize ?? _getButtonSize(buttonSize),
       ),
       onPressed: onPressed,
@@ -40,7 +40,7 @@ class AppButtons {
         mainAxisSize: fullWidth ? MainAxisSize.max : MainAxisSize.min,
         children: [
           if (loading) ...[
-            SizedBox(
+            const SizedBox(
               width: 12,
               height: 12,
               child: Center(
@@ -66,7 +66,7 @@ class AppButtons {
                 TextStyle(
                   fontSize: 12.0,
                   fontWeight: FontWeight.bold,
-                  color: loading ? Color(0xff666666) : Colors.white,
+                  color: loading ? const Color(0xff666666) : Colors.white,
                 ),
           ),
         ],
@@ -91,11 +91,11 @@ class AppButtons {
     return TextButton(
       style: TextButton.styleFrom(
         tapTargetSize: tapTargetSize,
-        padding: padding ?? EdgeInsets.all(8),
+        padding: padding ?? const EdgeInsets.all(8),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(borderRadius),
         ),
-        backgroundColor: loading ? Color(0xffcccccc) : backgroundColor,
+        backgroundColor: loading ? const Color(0xffcccccc) : backgroundColor,
         minimumSize: customSize ?? _getButtonSize(buttonSize),
       ),
       onPressed: onPressed,
@@ -103,7 +103,7 @@ class AppButtons {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           if (loading) ...[
-            SizedBox(
+            const SizedBox(
               width: 12,
               height: 12,
               child: Center(
@@ -129,7 +129,7 @@ class AppButtons {
                 TextStyle(
                   fontSize: 12.0,
                   fontWeight: FontWeight.bold,
-                  color: loading ? Color(0xff666666) : Colors.white,
+                  color: loading ? const Color(0xff666666) : Colors.white,
                 ),
           ),
           if (!loading && suffix != null) ...[
@@ -146,11 +146,11 @@ class AppButtons {
   static Size _getButtonSize(AppButtonSize buttonSize) {
     switch (buttonSize) {
       case AppButtonSize.big:
-        return Size(56, 56);
+        return const Size(56, 56);
       case AppButtonSize.normal:
-        return Size(48, 48);
+        return const Size(48, 48);
       default:
-        return Size(32, 32);
+        return const Size(32, 32);
     }
   }
 
@@ -166,12 +166,12 @@ class AppButtons {
     return TextButton(
       style: TextButton.styleFrom(
         tapTargetSize: tapTargetSize,
-        padding: padding ?? EdgeInsets.all(8),
+        padding: padding ?? const EdgeInsets.all(8),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16),
         ),
         backgroundColor: backgroundColor,
-        minimumSize: Size(32, 32),
+        minimumSize: const Size(32, 32),
       ),
       onPressed: onPressed,
       child: Text(

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../../data/mocks/dummy_data.dart';
-import '../../../domain/base_exercise_model.dart';
 import '../widgets/buttons/contained_button.dart';
 import '../widgets/exercise_types/exercise_choices_widget.dart';
 import '../widgets/page_slider.dart';
@@ -104,10 +103,10 @@ class _ExerciseWrapperPageState extends State<ExerciseWrapperPage> {
         _currentPage = _pageController.page!.toInt() + 1;
         setState(() {});
       },
-      child: const Chip(
+      child: Chip(
         label: Text(
           "I don't known",
-          style: TextStyle(color: Colors.white),
+          style: Theme.of(context).textTheme.subtitle1!.copyWith(color: Colors.white),
         ),
         backgroundColor: Colors.blue,
       ),

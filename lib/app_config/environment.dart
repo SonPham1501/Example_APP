@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -5,6 +7,7 @@ import '../core/ultis/helpers/logger.dart';
 import '../injection.dart';
 import 'my_app.dart';
 
+// ignore: constant_identifier_names
 enum EnvType { DEVELOPMENT, STAGING, PRODUCTION, TESTING }
 
 class Environment {

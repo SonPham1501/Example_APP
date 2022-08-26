@@ -22,12 +22,8 @@
 import 'enums/exercise_type_enum.dart';
 
 abstract class TextbookExerciseData {
-  final dynamic audio;
-  final String? paragraph;
-  TextbookExerciseData({
-    required this.audio,
-    this.paragraph,
-  });
+  dynamic audio;
+  String? paragraph;
 }
 
 class BaseExerciseModel<T extends TextbookExerciseData> {

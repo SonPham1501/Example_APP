@@ -1,10 +1,8 @@
-import 'base_exercise_model.dart';
 
 // class ChoicesExerciseData extends BaseExerciseModel {
 //   ChoicesExerciseData({
-//      this.questions=const [],
-//   }) : super();
-//   List<Questions> questions;
+//     List<Questions> questions = const [],
+//   });
 // }
 
 class Data {
