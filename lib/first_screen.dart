@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:test_app/core/widgets/app_buttons.dart';
+import 'package:test_app/features/exercises/domain/base_exercise_model.dart';
+import 'package:test_app/features/exercises/domain/enums/exercise_type_enum.dart';
 import 'package:test_app/injection.dart';
 
 import 'core/config/palette.dart';
+import 'features/exercises/domain/choices.dart';
 import 'features/exercises/presentation/di.dart';
 
 class FirstScreen extends StatelessWidget {
@@ -25,12 +28,19 @@ class FirstScreen extends StatelessWidget {
                 backgroundColor: AppColors.primary,
                 label: 'Choices',
                 onPressed: () {
-                  // appRouter.push(
-                  //   const ExerciseWrapperPage(model: ChoicesExerciseData(),),
-                  // );
                   appRouter.push(
-                    const ExerciseWrapperPage(),
+                    ExerciseWrapperPage(
+                      model: BaseExerciseModel<ChoicesExerciseData>(
+                        data: ChoicesExerciseData(),
+                        dataType: ExerciseTypeEnum.true_false,
+                        index: 9,
+                        title: "Listen to the sentences and circle the word you hear.",
+                      ),
+                    ),
                   );
+                  // appRouter.push(
+                  //   const ExerciseWrapperPage(),
+                  // );
                 },
               ),
               const SizedBox(height: 12),

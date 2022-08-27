@@ -1,21 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:test_app/core/widgets/empty_widget.dart';
+import 'package:test_app/features/exercises/domain/choices.dart';
+import 'package:test_app/features/exercises/domain/enums/exercise_type_enum.dart';
 
 import '../../../data/mocks/dummy_data.dart';
+import '../../../domain/base_exercise_model.dart';
 import '../widgets/buttons/contained_button.dart';
 import '../widgets/exercise_types/exercise_choices_widget.dart';
 import '../widgets/page_slider.dart';
 import '../widgets/time_count_down_widget.dart';
 
 class ExerciseWrapperPage extends StatefulWidget {
-  // final BaseExerciseModel model;
-  // const ExerciseWrapperPage({
-  //   Key? key,
-  //   required this.model,
-  // }) : super(key: key);
-
+  final BaseExerciseModel<ChoicesExerciseData> model;
   const ExerciseWrapperPage({
     Key? key,
+    required this.model,
   }) : super(key: key);
+
+  // const ExerciseWrapperPage({
+  //   Key? key,
+  // }) : super(key: key);
 
   @override
   State<ExerciseWrapperPage> createState() => _ExerciseWrapperPageState();
@@ -58,27 +62,36 @@ class _ExerciseWrapperPageState extends State<ExerciseWrapperPage> {
           : _buildFloatingActionButton(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       appBar: _buildAppBar(),
-      body: PageSlider(
-        pageController: _pageController,
-        onPageChanged: (value) {
-          _currentPage = value;
-          setState(() {});
-        },
-        page: data.questions!.map((e) {
-          //TODO: Phần này lấy từ param truyền vào
-          return ExerciseChoiceWidget(
-            id: e.id!,
-            content: e.content!,
-            items: e.choices!,
-            anwser: e.answer!,
-            done: _done,
-            onSelected: (value) {
-              _result[e.id!] = value;
-              setState(() {});
-            },
-            selectedItem: _result[e.id!] == '' ? null : _result[e.id!],
-          );
-        }).toList(),
+      body: Builder(
+        builder: (context) {
+          switch (widget.model.dataType) {
+            case ExerciseTypeEnum.true_false:
+              return PageSlider(
+                pageController: _pageController,
+                onPageChanged: (value) {
+                  _currentPage = value;
+                  setState(() {});
+                },
+                page: widget.model.data.questions!.map((e) {
+                  //TODO: Phần này lấy từ param truyền vào
+                  return ExerciseChoiceWidget(
+                    id: e.index.toString(),
+                    content: e.content!,
+                    items: e.options!.map((elem) => elem.content!).toList(),
+                    anwser: e.correctOption!,
+                    done: _done,
+                    onSelected: (value) {
+                      // _result[e.index!.toString()] = value;
+                      // setState(() {});
+                    },
+                    //selectedItem: _result[e.id!] == '' ? null : _result[e.id!],
+                  );
+                }).toList(),
+              );
+            default:
+              return const EmptyWidget();
+          }
+        }
       ),
     );
   }

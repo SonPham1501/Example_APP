@@ -1,16 +1,3 @@
-// export interface ITextbookExerciseData {
-//    audio?: FileAttachment;
-//     paragraph?: string;
-//     paragraphs?: string[];
-//     images?: FileAttachment[];
-//     words?: string[];
-//     extraContents?: { value: string, position: string }[];
-//     viewOnly?:boolean;
-//     check(): void;
-//     isValid(): boolean;
-//     // copyFrom(data: ITextbookExerciseData): ITextbookExerciseData;
-// }
-
 // export interface ITextbookExcercise<T extends ITextbookExerciseData = any> {
 //     id?: number;
 //     index: number;
@@ -19,11 +6,36 @@
 //     sectionGroupId: string | null;
 //     data?: T;
 // }
+
 import 'enums/exercise_type_enum.dart';
+import 'file_attachment.dart';
 
 abstract class TextbookExerciseData {
-  dynamic audio;
+  FileAttachment? audio;
   String? paragraph;
+  List<String>? paragraphs, words;
+  List<FileAttachment>? images;
+  // extraContents?: { value: string, position: string }[];
+  bool? viewOnly;
+  void check();
+  bool isValid();
+}
+
+abstract class BaseTextbookExercise {
+    FileAttachment? audio;
+    String? paragraph;
+    List<String>? paragraphs, words;
+    List<FileAttachment>? images;
+    // extraContents?: { value: string, position: string }[];
+    bool? viewOnly;
+    BaseTextbookExercise({
+      this.audio,
+      this.images,
+      this.paragraph,
+      this.paragraphs,
+      this.viewOnly,
+      this.words,
+    });
 }
 
 class BaseExerciseModel<T extends TextbookExerciseData> {

@@ -1,4 +1,5 @@
-import 'package:test_app/features/exercises/domain/data.dart';
+
+import '../../domain/data.dart';
 
 final Data data = Data(questions: [
   Questions(
