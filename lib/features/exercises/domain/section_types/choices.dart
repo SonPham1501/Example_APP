@@ -22,41 +22,21 @@ class ChoicesExerciseData extends BaseTextbookExercise implements IChoicesExerci
     throw UnimplementedError();
   }
 
+  factory ChoicesExerciseData.fromJson(Map<String, dynamic> json) {
+    // TODO: implement fromJson
+    throw UnimplementedError();
+  }
+
+  Map<String, dynamic> toJson() {
+    // TODO: implement toJson
+    throw UnimplementedError();
+  }
+
 
 }
 
 
 //Model này để hấng response
-class Choices {
-  int? index;
-  String? dataType;
-  String? title;
-  Data? data;
-
-  Choices({
-    this.index,
-    this.dataType,
-    this.title,
-    this.data,
-  });
-
-  Choices.fromJson(Map<String, dynamic> json) {
-    index = json['index'] as int?;
-    dataType = json['dataType'] as String?;
-    title = json['title'] as String?;
-    data = (json['data'] as Map<String,dynamic>?) != null ? Data.fromJson(json['data'] as Map<String,dynamic>) : null;
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> json = <String, dynamic>{};
-    json['index'] = index;
-    json['dataType'] = dataType;
-    json['title'] = title;
-    json['data'] = data?.toJson();
-    return json;
-  }
-}
-
 class Data {
   String? content;
   Audio? audio;

@@ -5,7 +5,7 @@ import 'package:test_app/features/exercises/domain/enums/exercise_type_enum.dart
 import 'package:test_app/injection.dart';
 
 import 'core/config/palette.dart';
-import 'features/exercises/domain/choices.dart';
+import 'features/exercises/domain/section_types/choices.dart';
 import 'features/exercises/presentation/di.dart';
 
 class FirstScreen extends StatelessWidget {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test_app/core/widgets/empty_widget.dart';
-import 'package:test_app/features/exercises/domain/choices.dart';
+import 'package:test_app/features/exercises/domain/section_types/choices.dart';
 import 'package:test_app/features/exercises/domain/enums/exercise_type_enum.dart';
 
 import '../../../data/mocks/dummy_data.dart';
@@ -11,7 +11,7 @@ import '../widgets/page_slider.dart';
 import '../widgets/time_count_down_widget.dart';
 
 class ExerciseWrapperPage extends StatefulWidget {
-  final BaseExerciseModel<ChoicesExerciseData> model;
+  final BaseExerciseModel model;
   const ExerciseWrapperPage({
     Key? key,
     required this.model,
@@ -65,14 +65,15 @@ class _ExerciseWrapperPageState extends State<ExerciseWrapperPage> {
       body: Builder(
         builder: (context) {
           switch (widget.model.dataType) {
-            case ExerciseTypeEnum.true_false:
+            case ExerciseTypeEnum.choices:
+              final data = widget.model.data as ChoicesExerciseData;
               return PageSlider(
                 pageController: _pageController,
                 onPageChanged: (value) {
                   _currentPage = value;
                   setState(() {});
                 },
-                page: widget.model.data.questions!.map((e) {
+                page: data.questions!.map((e) {
                   //TODO: Phần này lấy từ param truyền vào
                   return ExerciseChoiceWidget(
                     id: e.index.toString(),
