@@ -3,7 +3,6 @@ import 'package:test_app/core/widgets/empty_widget.dart';
 import 'package:test_app/features/exercises/domain/section_types/choices.dart';
 import 'package:test_app/features/exercises/domain/enums/exercise_type_enum.dart';
 
-import '../../../data/mocks/dummy_data.dart';
 import '../../../domain/base_exercise_model.dart';
 import '../widgets/buttons/contained_button.dart';
 import '../widgets/exercise_types/exercise_choices_widget.dart';
@@ -41,9 +40,7 @@ class _ExerciseWrapperPageState extends State<ExerciseWrapperPage> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      for (var element in data.questions!) {
-        _result[element.id!] = '';
-      }
+      
     });
   }
 
@@ -57,7 +54,8 @@ class _ExerciseWrapperPageState extends State<ExerciseWrapperPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: _done || _currentPage == data.questions!.length - 1
+      floatingActionButton: _done
+      // _currentPage == data.questions!.length - 1
           ? _buildFloatingActionButtonEndPage()
           : _buildFloatingActionButton(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
@@ -74,7 +72,6 @@ class _ExerciseWrapperPageState extends State<ExerciseWrapperPage> {
                   setState(() {});
                 },
                 page: data.questions!.map((e) {
-                  //TODO: Phần này lấy từ param truyền vào
                   return ExerciseChoiceWidget(
                     id: e.index.toString(),
                     content: e.content!,
@@ -207,11 +204,12 @@ class _ExerciseWrapperPageState extends State<ExerciseWrapperPage> {
             return;
           }
           int right = 0;
-          for (var e in data.questions!) {
-            if (e.answer == _result[e.id!]) right++;
-          }
+          // for (var e in data.questions!) {
+          //   if (e.answer == _result[e.id!]) right++;
+          // }
 
-          String message = 'Câu trả lời đúng: $right/${data.questions!.length}';
+          // String message = 'Câu trả lời đúng: $right/${data.questions!.length}';
+          String message = 'Câu trả lời đúng';
           await showSimpleDialog(message);
           _done = true;
           setState(() {});

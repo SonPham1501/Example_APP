@@ -8,8 +8,6 @@
 // }
 
 import 'package:test_app/features/exercises/domain/section_types/choices.dart';
-import 'package:test_app/features/exercises/domain/data.dart';
-
 import 'enums/exercise_type_enum.dart';
 import 'file_attachment.dart';
 import './enums/exercise_type_enum.dart';
@@ -70,7 +68,7 @@ class BaseExerciseModel<T extends TextbookExerciseData> {
     json['index'] = index;
     json['dataType'] = dataType?.enumString;
     json['title'] = title;
-    // json['data'] = data?.toJson();
+    json['data'] = _convertGenericToToJson();
     return json;
   }
 
@@ -83,13 +81,13 @@ class BaseExerciseModel<T extends TextbookExerciseData> {
     }
   }
 
-  // Map<String, dynamic> _convertGenericToToJson() {
-  //   switch (T) {
-  //     case ChoicesExerciseData:
-  //       return ChoicesExerciseData.fromJson(json['data'] as Map<String,dynamic>) as T?;
-  //     default:
-  //       return null;
-  //   }
-  // }
+  Map<String, dynamic>? _convertGenericToToJson() {
+    switch (T) {
+      case ChoicesExerciseData:
+        return (data as ChoicesExerciseData).toJson();
+      default:
+        return null;
+    }
+  }
 
 }

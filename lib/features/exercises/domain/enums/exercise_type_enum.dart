@@ -10,22 +10,22 @@ enum ExerciseTypeEnum {
 }
 
 extension ConvertsExerciseTypeEnum on ExerciseTypeEnum {
-  String get enumString {
+  String? get enumString {
     switch (this) {
       case ExerciseTypeEnum.choices:
         return 'choices';
       default:
-        return 'choices';
+        return null;
     }
   }
 }
 
-ExerciseTypeEnum convertStringToExerciseTypeEnum(String dataType) {
+ExerciseTypeEnum? convertStringToExerciseTypeEnum(String dataType) {
   switch (dataType) {
     case 'choices':
       return ExerciseTypeEnum.choices;
     default:
-      return ExerciseTypeEnum.choices;
+      return null;
   }
 }
 
