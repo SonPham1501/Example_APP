@@ -1,12 +1,4 @@
-// export interface ITextbookExcercise<T extends ITextbookExerciseData = any> {
-//     id?: number;
-//     index: number;
-//     title: string;
-//     dataType: ExerciseTypeEnum;
-//     sectionGroupId: string | null;
-//     data?: T;
-// }
-
+import 'package:test_app/features/exercises/domain/extra_content.dart';
 import 'package:test_app/features/exercises/domain/section_types/choices.dart';
 import 'enums/exercise_type_enum.dart';
 import 'file_attachment.dart';
@@ -17,7 +9,7 @@ abstract class TextbookExerciseData {
   String? paragraph;
   List<String>? paragraphs, words;
   List<FileAttachment>? images;
-  // extraContents?: { value: string, position: string }[];
+  List<ExtraContent>? extraContents;
   bool? viewOnly;
   void check();
   bool isValid();
@@ -28,7 +20,7 @@ abstract class BaseTextbookExercise {
     String? paragraph;
     List<String>? paragraphs, words;
     List<FileAttachment>? images;
-    // extraContents?: { value: string, position: string }[];
+    List<ExtraContent>? extraContents;
     bool? viewOnly;
     BaseTextbookExercise({
       this.audio,

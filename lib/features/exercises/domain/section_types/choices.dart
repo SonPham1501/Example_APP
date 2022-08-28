@@ -38,15 +38,18 @@ class ChoicesExerciseData extends BaseTextbookExercise implements IChoicesExerci
     json['questions'] = questions?.map((e) => e.toJson()).toList();
     return json;
   }
+
   @override
   void check() {
     // TODO: implement check
   }
+
   @override
   bool isValid() {
     // TODO: implement isValid
     throw UnimplementedError();
   }
+
 }
 
 
