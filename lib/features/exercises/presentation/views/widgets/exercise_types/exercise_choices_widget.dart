@@ -21,30 +21,30 @@ class ExerciseChoiceWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return _buildBody();
+    return _buildBody(context);
   }
 
-  Widget _buildBody() {
+  Widget _buildBody(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const SizedBox(height: 20),
-          _content(),
+          _content(context),
           const SizedBox(height: 60),
-          Expanded(child: _listAnwser()),
+          Expanded(child: _listAnwser(context)),
           const SizedBox(height: 30),
         ],
       ),
     );
   }
 
-  ListView _listAnwser() => ListView.separated(
+  ListView _listAnwser(BuildContext context) => ListView.separated(
         physics: const BouncingScrollPhysics(),
         itemCount: items.length,
         itemBuilder: (BuildContext context, int index) {
-          return _itemAnwser(index);
+          return _itemAnwser(context, index);
         },
         separatorBuilder: (BuildContext context, int index) {
           return index == items.length - 1
@@ -53,7 +53,7 @@ class ExerciseChoiceWidget extends StatelessWidget {
         },
       );
 
-  Widget _itemAnwser(int index) {
+  Widget _itemAnwser(BuildContext context, int index) {
     return GestureDetector(
       onTap: done ? null : () => onSelected(items[index]),
       child: Container(
@@ -83,26 +83,20 @@ class ExerciseChoiceWidget extends StatelessWidget {
         child: Text(
           items[index],
           textAlign: TextAlign.center,
-          style: TextStyle(
-            color: items[index] == selectedItem
+          style: Theme.of(context).textTheme.subtitle1!.copyWith(color: items[index] == selectedItem
                 ? !done
                     ? Colors.blue
                     : selectedItem != anwser
                         ? Colors.red
                         : Colors.green
-                : null,
-          ),
+                : null,),
         ),
       ),
     );
   }
 
-  Text _content() => Text(
+  Text _content(BuildContext context) => Text(
         'Câu $id: Choos the best word to complete the sentence: "$content"',
-        style: const TextStyle(
-            color: Colors.blue,
-            fontSize: 18,
-            fontWeight: FontWeight.w500,
-            height: 1.2),
+        style: Theme.of(context).textTheme.bodyText1!.copyWith(color: Colors.blue),
       );
 }

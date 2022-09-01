@@ -16,7 +16,7 @@ class CachedNetworkImagekWidget extends StatelessWidget {
     String url,
   )? placeholder;
 
-  CachedNetworkImagekWidget({
+  const CachedNetworkImagekWidget({
     Key? key,
     required this.imageUrl,
     this.fit = BoxFit.fitWidth,
@@ -33,9 +33,9 @@ class CachedNetworkImagekWidget extends StatelessWidget {
       fit: fit,
       width: width,
       errorWidget: (context, url, error) =>
-          this.errorWidget ?? Icon(Icons.error),
+          errorWidget ?? const Icon(Icons.error),
       imageBuilder: imageBuilder,
-      placeholder: placeholder ?? (_, url) => Icon(Icons.image),
+      placeholder: placeholder ?? (_, url) => const Icon(Icons.image),
     );
   }
 }

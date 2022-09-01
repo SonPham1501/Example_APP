@@ -43,19 +43,19 @@ abstract class BaseBloc<T> with BaseCommonMethodMixin implements IDisposable {
   void onInit() {}
 
   void setLoading() {
-    this._state.add(BlocState.loading());
+    _state.add(const BlocState.loading());
   }
 
   void setSuccess<T>(T data) {
-    this._state.add(BlocState.data(data));
+    _state.add(BlocState.data(data));
   }
 
   void reset() {
-    _state.add(BlocState.init());
+    _state.add(const BlocState.init());
   }
 
   void setError(Failure failure) {
-    this._state.add(BlocState.error(failure));
+    _state.add(BlocState.error(failure));
   }
 
   @override

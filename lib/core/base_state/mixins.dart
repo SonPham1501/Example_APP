@@ -3,7 +3,6 @@ import 'package:dartz/dartz.dart' as dartz;
 
 import '../common/error/failure.dart';
 import '../common/models/api_response/api_list_response_wrapper.dart';
-import '../ultis/ui/dialog_service.dart';
 import '../ultis/ui/services.dart';
 
 class BaseCommonMethodMixin {
@@ -15,7 +14,7 @@ class BaseCommonMethodMixin {
     String? errorMessage,
   ]) {
     either.fold(
-      (l) => pagingController.error = errorMessage ?? this.getErrorMessages(l),
+      (l) => pagingController.error = errorMessage ?? getErrorMessages(l),
       (r) {
         final isLastPage = r.length < limit;
         if (isLastPage) {
@@ -36,7 +35,7 @@ class BaseCommonMethodMixin {
     String? errorMessage,
   ]) {
     either.fold(
-      (l) => pagingController.error = errorMessage ?? this.getErrorMessages(l),
+      (l) => pagingController.error = errorMessage ?? getErrorMessages(l),
       (r) {
         final isLastPage = r.items.length < limit;
         if (isLastPage) {
@@ -137,10 +136,11 @@ class BaseCommonMethodMixin {
     if (failure is ApiFailure) msgText = failure.message;
     if (failure is ServerValidationFailure) {
       msgText = failure.e.body.getMessageAsString();
-    } else if (failure is NoInternetFailure)
+    } else if (failure is NoInternetFailure) {
       msgText = "Tải dữ liệu không thành công, hãy kiểm tra lại kết nối mạng";
-    else if (failure is TimeoutFailure)
+    } else if (failure is TimeoutFailure) {
       msgText = "Thời gian tải quá lâu, vui lòng thử lại";
+    }
     return msgText;
     //SnackBarService.showError(msgText);
   }
@@ -155,10 +155,11 @@ class BaseCommonMethodMixin {
   }) async {
     if (isWarning) {
       MaterialBannerService.showWarningBanner(message: msgText);
-    } else
+    } else {
       MaterialBannerService.showBanner([], msgText);
+    }
     if (autoClose) {
-      await Future.delayed(Duration(seconds: 5));
+      await Future.delayed(const Duration(seconds: 5));
       MaterialBannerService.hideBanner();
     }
   }

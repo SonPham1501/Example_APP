@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:test_app/core/widgets/app_buttons.dart';
 import 'package:test_app/injection.dart';
+import 'package:test_app/features/exercises/data/services/exercise_service.dart';
+import 'package:test_app/routes/app_pages.dart';
 
 import 'core/config/palette.dart';
 import 'features/exercises/presentation/di.dart';
@@ -24,13 +26,16 @@ class FirstScreen extends StatelessWidget {
                 buttonSize: AppButtonSize.big,
                 backgroundColor: AppColors.primary,
                 label: 'Choices',
-                onPressed: () {
-                  // appRouter.push(
-                  //   const ExerciseWrapperPage(model: ChoicesExerciseData(),),
-                  // );
-                  appRouter.push(
-                    const ExerciseWrapperPage(),
+                onPressed: () async {
+                  final baseExerciseModel =
+                      await ExeciseService.getChoicesExerciseData();
+                  appRouter.pushNamed(
+                    Routes.EXERCISE_DETAIL,
+                    arguments: baseExerciseModel,
                   );
+                  // appRouter.push(
+                  //   const ExerciseWrapperPage(),
+                  // );
                 },
               ),
               const SizedBox(height: 12),

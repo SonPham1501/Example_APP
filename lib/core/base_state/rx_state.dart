@@ -6,7 +6,7 @@ class RxValue<T> {
   T get value => _subject.value;
   final BehaviorSubject<T> _subject;
 
-  RxValue(T inital) : this._subject = BehaviorSubject<T>.seeded(inital);
+  RxValue(T inital) : _subject = BehaviorSubject<T>.seeded(inital);
 
   dispose() {
     if (!_subject.isClosed) _subject.close();

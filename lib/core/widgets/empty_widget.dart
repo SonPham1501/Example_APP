@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../config/constants/asset_path.dart';
 
 class EmptyWidget extends StatelessWidget {
   final String? content;

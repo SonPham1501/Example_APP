@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:test_app/core/ultis/helpers/helpers.dart';
 import '../core/config/palette.dart';
 import '../injection.dart';
 import 'app_pages.dart';
@@ -8,6 +7,8 @@ import 'models/models.dart';
 import './router/app_router.dart';
 
 class AppRootWidget extends StatefulWidget {
+  const AppRootWidget({Key? key}) : super(key: key);
+
   //final controller = Get.put(AppRootController(), permanent: true);
   @override
   State<AppRootWidget> createState() => _AppRootWidgetState();
@@ -151,10 +152,11 @@ class BottomNavStyle1 extends StatelessWidget {
   final int selectedIndex;
   final ValueChanged<int> onSelectionChanged;
 
-  BottomNavStyle1({
+  const BottomNavStyle1({
+    Key? key,
     required this.selectedIndex,
     required this.onSelectionChanged,
-  });
+  }) : super(key: key);
 
   Widget _buildItem(BottomNavigationItem item, bool isSelected) {
     return AnimatedContainer(
