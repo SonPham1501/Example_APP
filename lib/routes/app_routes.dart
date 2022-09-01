@@ -8,4 +8,6 @@ abstract class Routes {
   static const APP_ROOT = '/app';
   static const EXERCISE = '/exercise';
   static const EXERCISE_DETAIL = '/exercise/detail';
+  //
+  static const TEST_DOING = '/test/doing';
 }

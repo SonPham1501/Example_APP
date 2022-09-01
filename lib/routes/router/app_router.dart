@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:test_app/first_screen.dart';
 import '../../injection.dart';
+import '../../second_screen.dart';
 import '../app_pages.dart';
 import '../di.dart';
 import '../models/bottom_navigation_item.dart';
