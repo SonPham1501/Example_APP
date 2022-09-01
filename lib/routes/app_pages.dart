@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:test_app/features/exercises/presentation/di.dart';
+import '../features/exercises/presentation/bindings/exercise_wrapper_page_bindings.dart';
 import '../first_screen.dart';
 import 'app_root_binding.dart';
 import 'app_root_widget.dart';
@@ -31,6 +33,12 @@ class AppPages {
       name: Routes.EXERCISE,
       transition: PageTransitionType.fade,
       page: () => const FirstScreen(),
+    ),
+    AppPageRoute(
+      name: Routes.EXERCISE_DETAIL,
+      transition: PageTransitionType.fade,
+      page: () => ExerciseWrapperPage(),
+      binding: ExerciseWrapperPageBindings(),
     ),
   ];
 }

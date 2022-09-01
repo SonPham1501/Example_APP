@@ -20,54 +20,19 @@ class BaseViewController<B extends BaseBloc> extends InheritedWidget {
   }
 
   @override
-  bool updateShouldNotify(BaseViewController old) =>
-      controller != old.controller;
+  bool updateShouldNotify(BaseViewController oldWidget) =>
+      controller != oldWidget.controller;
 }
-
-// abstract class BaseView<B extends BaseBloc> extends StatefulWidget {
-//   /// Sử dụng để wrap statfullwidget mà có basestate với bloc
-//   ///
-//   /// Giống với [GetView] trong [GetX]
-//   BaseView();
-//   onInit() {}
-//   onClosed() {}
-//   @override
-//   State<BaseView> createState() => _BaseViewState<B>(this.build);
-
-//   Widget build(BuildContext context, B controller);
-// }
-
-// class _BaseViewState<B extends BaseBloc> extends BaseState<BaseView, B> {
-//   final Widget Function(BuildContext context, B controller) sourceBuilder;
-//   _BaseViewState(this.sourceBuilder);
-
-//   @override
-//   void initState() {
-//     widget.onInit();
-//     super.initState();
-//   }
-
-//   @override
-//   void dispose() {
-//     widget.onClosed();
-//     super.dispose();
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(child: sourceBuilder(context, controller));
-//   }
-// }
 
 abstract class BaseView<B extends BaseBloc> extends StatefulWidget {
   /// Sử dụng để wrap statfullwidget mà có basestate với bloc
   ///
   /// Giống với [GetView] trong [GetX]
-  BaseView();
+  BaseView({Key? key}) : super(key: key);
   onInit() {}
   onClose() {}
   @override
-  State<BaseView> createState() => _BaseViewState<B>(this.build, controller);
+  State<BaseView> createState() => _BaseViewState<B>(controller);
 
   Widget build(BuildContext context);
 
@@ -75,8 +40,8 @@ abstract class BaseView<B extends BaseBloc> extends StatefulWidget {
 }
 
 class _BaseViewState<B extends BaseBloc> extends BaseState<BaseView, B> {
-  final Widget Function(BuildContext context) sourceBuilder;
-  _BaseViewState(this.sourceBuilder, B controller) : super(controller);
+  //final Widget Function(BuildContext context) sourceBuilder;
+  _BaseViewState(B controller) : super(controller);
 
   @override
   void initState() {
@@ -93,8 +58,8 @@ class _BaseViewState<B extends BaseBloc> extends BaseState<BaseView, B> {
   @override
   Widget build(BuildContext context) {
     return BaseViewController<B>(
-      child: sourceBuilder(context),
-      controller: this.controller,
+      child: widget.build(context),
+      controller: controller,
     );
   }
 }

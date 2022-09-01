@@ -20,12 +20,12 @@ extension ConvertsExerciseTypeEnum on ExerciseTypeEnum {
   }
 }
 
-ExerciseTypeEnum? convertStringToExerciseTypeEnum(String dataType) {
+ExerciseTypeEnum convertStringToExerciseTypeEnum(String dataType) {
   switch (dataType) {
     case 'choices':
       return ExerciseTypeEnum.choices;
     default:
-      return null;
+      return ExerciseTypeEnum.undefined;
   }
 }
 

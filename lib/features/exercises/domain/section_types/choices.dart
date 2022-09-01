@@ -1,17 +1,15 @@
-
 import 'package:test_app/features/exercises/domain/base_exercise_model.dart';
 import 'package:test_app/features/exercises/domain/file_attachment.dart';
 
-abstract class IChoicesExerciseData extends TextbookExerciseData {
-  List<Questions>? questions;
-}
+// abstract class IChoicesExerciseData extends TextbookExerciseData {
+//   List<Questions>? questions;
+// }
 
 //Model này để hấng response
-class ChoicesExerciseData extends BaseTextbookExercise implements IChoicesExerciseData {
+class ChoicesExerciseData extends TextbookExerciseData {
   String? content;
   String? layout;
-  @override
-  List<Questions>? questions;
+  List<ChoiceQuestion>? questions;
 
   ChoicesExerciseData({
     this.content,
@@ -23,10 +21,16 @@ class ChoicesExerciseData extends BaseTextbookExercise implements IChoicesExerci
 
   ChoicesExerciseData.fromJson(Map<String, dynamic> json) {
     content = json['content'] as String?;
-    audio = (json['audio'] as Map<String,dynamic>?) != null ? FileAttachment.fromJson(json['audio'] as Map<String,dynamic>) : null;
-    images = (json['images'] as List?)?.map((dynamic e) => FileAttachment.fromJson(e as Map<String,dynamic>)).toList();
+    audio = (json['audio'] as Map<String, dynamic>?) != null
+        ? FileAttachment.fromJson(json['audio'] as Map<String, dynamic>)
+        : null;
+    images = (json['images'] as List?)
+        ?.map((dynamic e) => FileAttachment.fromJson(e as Map<String, dynamic>))
+        .toList();
     layout = json['layout'] as String?;
-    questions = (json['questions'] as List?)?.map((dynamic e) => Questions.fromJson(e as Map<String,dynamic>)).toList();
+    questions = (json['questions'] as List?)
+        ?.map((dynamic e) => ChoiceQuestion.fromJson(e as Map<String, dynamic>))
+        .toList();
   }
 
   Map<String, dynamic> toJson() {
@@ -39,28 +43,26 @@ class ChoicesExerciseData extends BaseTextbookExercise implements IChoicesExerci
     return json;
   }
 
-  @override
-  void check() {
-    // TODO: implement check
-  }
+  // @override
+  // void check() {
+  //   // TODO: implement check
+  // }
 
-  @override
-  bool isValid() {
-    // TODO: implement isValid
-    throw UnimplementedError();
-  }
-
+  // @override
+  // bool isValid() {
+  //   // TODO: implement isValid
+  //   throw UnimplementedError();
+  // }
 }
 
-
-class Questions {
+class ChoiceQuestion {
   String? content;
   int? index;
   String? correctOption;
   String? layout;
-  List<Options>? options;
+  List<ChoiceQuestionOption>? options;
 
-  Questions({
+  ChoiceQuestion({
     this.content,
     this.index,
     this.correctOption,
@@ -68,12 +70,15 @@ class Questions {
     this.options,
   });
 
-  Questions.fromJson(Map<String, dynamic> json) {
+  ChoiceQuestion.fromJson(Map<String, dynamic> json) {
     content = json['content'] as String?;
     index = json['index'] as int?;
     correctOption = json['correctOption'] as String?;
     layout = json['layout'] as String?;
-    options = (json['options'] as List?)?.map((dynamic e) => Options.fromJson(e as Map<String,dynamic>)).toList();
+    options = (json['options'] as List?)
+        ?.map((dynamic e) =>
+            ChoiceQuestionOption.fromJson(e as Map<String, dynamic>))
+        .toList();
   }
 
   Map<String, dynamic> toJson() {
@@ -87,18 +92,18 @@ class Questions {
   }
 }
 
-class Options {
+class ChoiceQuestionOption {
   String? id;
   int? index;
   String? content;
 
-  Options({
+  ChoiceQuestionOption({
     this.id,
     this.index,
     this.content,
   });
 
-  Options.fromJson(Map<String, dynamic> json) {
+  ChoiceQuestionOption.fromJson(Map<String, dynamic> json) {
     id = json['id'] as String?;
     index = json['index'] as int?;
     content = json['content'] as String?;
@@ -112,4 +117,3 @@ class Options {
     return json;
   }
 }
-

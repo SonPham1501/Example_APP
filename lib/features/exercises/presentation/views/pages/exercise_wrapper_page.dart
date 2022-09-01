@@ -1,123 +1,135 @@
 import 'package:flutter/material.dart';
+import 'package:test_app/core/base_state/base_bloc.dart';
+import 'package:test_app/core/base_state/base_state.dart';
+import 'package:test_app/core/base_state/di.dart';
 import 'package:test_app/core/widgets/empty_widget.dart';
 import 'package:test_app/features/exercises/domain/section_types/choices.dart';
 import 'package:test_app/features/exercises/domain/enums/exercise_type_enum.dart';
 
 import '../../../domain/base_exercise_model.dart';
+import '../../controllers/exercise_wrapper_page_controller.dart';
 import '../widgets/buttons/contained_button.dart';
 import '../widgets/exercise_types/exercise_choices_widget.dart';
 import '../widgets/page_slider.dart';
 import '../widgets/time_count_down_widget.dart';
 
-class ExerciseWrapperPage extends StatefulWidget {
-  final BaseExerciseModel model;
-  const ExerciseWrapperPage({
-    Key? key,
-    required this.model,
-  }) : super(key: key);
+// class ExerciseWrapperPage extends StatefulWidget {
+//   //final BaseTextBookExercise model;
+//   const ExerciseWrapperPage({
+//     Key? key,
+//     //required this.model,
+//   }) : super(key: key);
 
-  // const ExerciseWrapperPage({
-  //   Key? key,
-  // }) : super(key: key);
+//   // const ExerciseWrapperPage({
+//   //   Key? key,
+//   // }) : super(key: key);
+
+//   @override
+//   State<ExerciseWrapperPage> createState() => _ExerciseWrapperPageState();
+// }
+
+class ExerciseWrapperPage extends BaseView<ExerciseWrapperPageController> {
+  //   extends BaseState<ExerciseWrapperPage, ExerciseWrapperPageController> {
+  // _ExerciseWrapperPageState() : super(ExerciseWrapperPageController());
+  // @override
+  // void setState(VoidCallback fn) {
+  //   if (mounted) super.setState(fn);
+  // }
 
   @override
-  State<ExerciseWrapperPage> createState() => _ExerciseWrapperPageState();
-}
+  void onInit() {
+    controller.initUserSelection();
+    super.onInit();
 
-class _ExerciseWrapperPageState extends State<ExerciseWrapperPage> {
-  final _pageController = PageController();
-  int _currentPage = 0;
-  final _result = <String, String>{};
-  bool _done = false;
-  int time = 60;
-
-  @override
-  void setState(VoidCallback fn) {
-    if (mounted) super.setState(fn);
+    //   WidgetsBinding.instance.addPostFrameCallback((_) {});
   }
 
   @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      
-    });
-  }
-
-  @override
-  void dispose() {
-    // widget.model.dataType
-    _pageController.dispose();
-    super.dispose();
+  void onClose() {
+    super.onClose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: _done
-      // _currentPage == data.questions!.length - 1
-          ? _buildFloatingActionButtonEndPage()
-          : _buildFloatingActionButton(),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      appBar: _buildAppBar(),
-      body: Builder(
-        builder: (context) {
-          switch (widget.model.dataType) {
-            case ExerciseTypeEnum.choices:
-              final data = widget.model.data as ChoicesExerciseData;
-              return PageSlider(
-                pageController: _pageController,
-                onPageChanged: (value) {
-                  _currentPage = value;
-                  setState(() {});
-                },
-                page: data.questions!.map((e) {
-                  return ExerciseChoiceWidget(
-                    id: e.index.toString(),
-                    content: e.content!,
-                    items: e.options!.map((elem) => elem.content!).toList(),
-                    anwser: e.correctOption!,
-                    done: _done,
-                    onSelected: (value) {
-                      // _result[e.index!.toString()] = value;
-                      // setState(() {});
-                    },
-                    //selectedItem: _result[e.id!] == '' ? null : _result[e.id!],
-                  );
-                }).toList(),
-              );
-            default:
-              return const EmptyWidget();
-          }
-        }
+      floatingActionButton: BaseStreamWidget<bool>(
+        stream: controller.doneSteam,
+        builder: (context, snapshot) {
+          return snapshot
+              ? _buildFloatingActionButtonEndPage()
+              : _buildFloatingActionButton();
+        },
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      appBar: _buildAppBar(context),
+      body: Builder(builder: (context) {
+        switch (controller.model.dataType) {
+          case ExerciseTypeEnum.choices:
+            final data = controller.model.data as ChoicesExerciseData;
+
+            return PageSlider(
+              pageController: controller.pageController,
+              onPageChanged: controller.onPageChanged,
+              page: List.generate((data.questions ?? []).length, (qIndex) {
+                final _q = data.questions![qIndex];
+                return BaseStreamWidget<bool>(
+                  stream: controller.doneSteam,
+                  builder: (context, isDone) {
+                    return BaseStreamWidget<List<String?>>(
+                      stream: controller.userSelectionsStream,
+                      builder: (context, selectedItem) {
+                        return ExerciseChoiceWidget(
+                          id: _q.index.toString(),
+                          content: _q.content ?? "",
+                          items: _q.options
+                                  ?.map((elem) => elem.content ?? "")
+                                  .toList() ??
+                              [],
+                          anwser: _q.correctOption ?? "",
+                          done: isDone,
+                          onSelected: (v) => controller.onSelectItem(qIndex, v),
+                          selectedItem: controller.userSelections[qIndex],
+                        );
+                      },
+                    );
+                  },
+                );
+              }),
+            );
+          default:
+            return const EmptyWidget();
+        }
+      }),
     );
   }
 
-  AppBar _buildAppBar() => AppBar(
+  AppBar _buildAppBar(BuildContext context) => AppBar(
         // leading: const Icon(Icons.close, color: Colors.blue),
-        actions: _actionAppBar,
+        actions: _actionAppBar(context),
       );
 
-  List<Widget> get _actionAppBar => [
-        _donotAction(),
+  List<Widget> _actionAppBar(BuildContext context) => [
+        _donotAction(context),
         const SizedBox(width: 10),
         _downTime(),
         const SizedBox(width: 10),
       ];
 
-  Widget _donotAction() {
+  Widget _donotAction(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        _pageController.nextPage(
-            duration: const Duration(milliseconds: 300), curve: Curves.easeIn);
-        _currentPage = _pageController.page!.toInt() + 1;
-        setState(() {});
+        controller.pageController.nextPage(
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeIn,
+        );
       },
       child: Chip(
         label: Text(
           "I don't known",
-          style: Theme.of(context).textTheme.subtitle1!.copyWith(color: Colors.white),
+          style: Theme.of(context)
+              .textTheme
+              .subtitle1!
+              .copyWith(color: Colors.white),
         ),
         backgroundColor: Colors.blue,
       ),
@@ -131,10 +143,8 @@ class _ExerciseWrapperPageState extends State<ExerciseWrapperPage> {
         side: const BorderSide(width: 1, color: Colors.black),
         borderRadius: BorderRadius.circular(16),
       ),
-      label: CountDownTimer(time, finish: (value) {
-        time = 0;
-        _done = true;
-        setState(() {});
+      label: CountDownTimer(controller.time, finish: (value) {
+        controller.onTimeEnd();
       }),
     );
   }
@@ -152,11 +162,12 @@ class _ExerciseWrapperPageState extends State<ExerciseWrapperPage> {
               color: Colors.white,
               textColor: Colors.blue,
               press: () async {
-                _pageController.previousPage(
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.easeIn);
-                _currentPage = _pageController.page!.toInt() - 1;
-                setState(() {});
+                controller.pageController.previousPage(
+                  duration: const Duration(milliseconds: 300),
+                  curve: Curves.easeIn,
+                );
+                //  _currentPage = _pageController.page!.toInt() - 1;
+                //  setState(() {});
               },
             ),
           ),
@@ -168,11 +179,12 @@ class _ExerciseWrapperPageState extends State<ExerciseWrapperPage> {
               radius: 10,
               color: Colors.purple,
               press: () async {
-                _pageController.nextPage(
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.easeIn);
-                _currentPage = _pageController.page!.toInt() + 1;
-                setState(() {});
+                controller.pageController.nextPage(
+                  duration: const Duration(milliseconds: 300),
+                  curve: Curves.easeIn,
+                );
+                // _currentPage = _pageController.page!.toInt() + 1;
+                //setState(() {});
               },
             ),
           ),
@@ -185,40 +197,17 @@ class _ExerciseWrapperPageState extends State<ExerciseWrapperPage> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12),
       child: ContainedButton(
-        text: _done ? 'Làm lại' : 'Nộp bài',
+        text: 'Làm lại',
         size: const Size(double.infinity, 45),
         radius: 10,
         color: Colors.white,
         textColor: Colors.green,
-        press: () async {
-          //log(time.toString());
-          if (_done) {
-            _done = false;
-            time = 60;
-            setState(() {});
-            _pageController.animateToPage(
-              0,
-              duration: const Duration(milliseconds: 300),
-              curve: Curves.easeIn,
-            );
-            return;
-          }
-          int right = 0;
-          // for (var e in data.questions!) {
-          //   if (e.answer == _result[e.id!]) right++;
-          // }
-
-          // String message = 'Câu trả lời đúng: $right/${data.questions!.length}';
-          String message = 'Câu trả lời đúng';
-          await showSimpleDialog(message);
-          _done = true;
-          setState(() {});
-        },
+        press: controller.replay,
       ),
     );
   }
 
-  Future<void> showSimpleDialog(String message) async {
+  Future<void> showSimpleDialog(String message, BuildContext context) async {
     return await showDialog<void>(
       context: context,
       builder: (BuildContext context) {
