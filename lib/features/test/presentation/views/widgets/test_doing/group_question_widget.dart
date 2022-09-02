@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:test_app/features/test/domain/enums/test_question_type_enum.dart';
+import '../../../../../../core/base_state/widgets/base_stream_widet.dart';
 import '../../../../../../core/config/app_text_style.dart';
 import '../../../../../../core/config/palette.dart';
 import '../../../../../../core/widgets/quill_content/quill_content_widget.dart';
 import '../../../../domain/models/test/test_type/test_type.dart';
 import '../../../controllers/test_doing_page_controller.dart';
+import '../test_question_types/test_question_complete_paragraph_widget.dart';
 import 'test_content_audio_widget.dart';
 import 'test_content_image_widget.dart';
 
@@ -50,11 +53,12 @@ class _GroupQuestionWidgetState extends State<GroupQuestionWidget>
               ),
             ),
           ),
-          if ((widget.section.audios ?? []).length > 0) ...[
+          if ((widget.section.audios ?? []).isNotEmpty) ...[
             const SizedBox(height: 16),
             TestContentAudioWidget(widget.section.audios!),
           ],
-          if (widget.section.paragraph?.operations != null) ...[
+          if ((widget.section.type != TestQuestionTypeEnum.CompleteParagraph) &&
+              (widget.section.paragraph?.operations != null)) ...[
             const SizedBox(
               height: 8,
             ),
@@ -63,12 +67,22 @@ class _GroupQuestionWidgetState extends State<GroupQuestionWidget>
               fontSize: DefaultTextStyle.of(context).style.fontSize,
             ),
           ],
-          if ((widget.section.images ?? []).length > 0) ...[
+          if ((widget.section.images ?? []).isNotEmpty) ...[
             const SizedBox(
               height: 16,
             ),
             TestContentImageWidget(widget.section.images!),
           ],
+          // if (widget.section.type ==
+          //     TestQuestionTypeEnum.CompleteParagraph) ...[
+          //   BaseStreamWidget<Map<String, List<String>>>(
+          //     stream: widget.controller.userSelects.stream,
+          //     builder: (context, selections) {
+          //       final selectedAnswerIds = selections[_question.id] ?? [];
+          //       return TestQuestionCompleteParagraphWidget();
+          //     },
+          //   ),
+          // ]
         ],
       ),
     );

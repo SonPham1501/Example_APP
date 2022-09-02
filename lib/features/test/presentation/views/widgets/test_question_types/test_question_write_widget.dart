@@ -45,7 +45,7 @@ class _TestQuestionWriteWidgetState extends State<TestQuestionWriteWidget> {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        if ((widget.question.name?.operations ?? []).length > 0) ...[
+        if ((widget.question.name?.operations ?? []).isNotEmpty) ...[
           QuillContentWidget(
             widget.question.name?.operations ?? [],
             fontSize: DefaultTextStyle.of(context).style.fontSize,
@@ -81,7 +81,7 @@ class _TestQuestionWriteWidgetState extends State<TestQuestionWriteWidget> {
           // minFontSize: 18,
           // maxFontSize: 20,
 
-          onChanged: this.widget.onAnswering,
+          onChanged: widget.onAnswering,
           enableSuggestions: false,
           maxLines: 3,
           minLines: 1,
@@ -89,7 +89,7 @@ class _TestQuestionWriteWidgetState extends State<TestQuestionWriteWidget> {
             fontSize: (DefaultTextStyle.of(context).style.fontSize ?? 16) + 2,
             color: AppColors.primary,
           ),
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
             contentPadding: EdgeInsets.symmetric(vertical: 6, horizontal: 0),
             isDense: true,
           ),

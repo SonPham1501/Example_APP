@@ -1,4 +1,4 @@
-export './choices_answer_widget.dart';
+export '../test_question_types/test_question_choices_widget.dart';
 export './group_question_widget.dart';
 export './question_widget.dart';
 export './test_content_image_widget.dart';

@@ -5,6 +5,7 @@ import '../../../../domain/enums/test_question_type_enum.dart';
 import '../../../../domain/models/test/test_type/test_type.dart';
 import '../../../controllers/test_doing_page_controller.dart';
 import '../test_question_types/test_question_input_widget.dart';
+import '../test_question_types/test_question_true_false_widget.dart';
 import '../test_question_types/test_question_write_widget.dart';
 import 'index.dart';
 
@@ -51,8 +52,7 @@ class QuestionWidget extends StatelessWidget {
             const SizedBox(
               height: 16,
             ),
-          ] else if ((_question.type == TestQuestionTypeEnum.Choices) ||
-              (_question.type == TestQuestionTypeEnum.TrueFalse)) ...[
+          ] else if (_question.type == TestQuestionTypeEnum.Choices) ...[
             const Divider(
               color: AppColors.text400,
               height: 48,
@@ -61,11 +61,32 @@ class QuestionWidget extends StatelessWidget {
               stream: controller.userSelects.stream,
               builder: (context, selections) {
                 final selectedAnswerIds = selections[_question.id] ?? [];
-                return QuestionAnswersWidget(
-                  onSelect: (answerId) =>
-                      controller.selectAnswer(_question.id, answerId),
-                  answers: _question.answers,
-                  selectedAnswerIds: selectedAnswerIds,
+                return TestQuestionChoicesWidget(
+                  question: _question,
+                  questionIndex: index,
+                  onAnswering: (val) =>
+                      controller.answering(_question.id, [val]),
+                  answered: selectedAnswerIds,
+                );
+              },
+            ),
+          ] else if (_question.type == TestQuestionTypeEnum.TrueFalse) ...[
+            const Divider(
+              color: AppColors.text400,
+              height: 48,
+            ),
+            BaseStreamWidget<Map<String, List<String>>>(
+              stream: controller.userSelects.stream,
+              builder: (context, selections) {
+                final selectedAnswerIds = selections[_question.id] ?? [];
+                return TestQuestionTrueFalseWidget(
+                  question: _question,
+                  questionIndex: index,
+                  onAnswering: (val) =>
+                      controller.answering(_question.id, [val]),
+                  answered: [
+                    selectedAnswerIds.isNotEmpty ? selectedAnswerIds.first : ''
+                  ],
                 );
               },
             )
@@ -78,9 +99,9 @@ class QuestionWidget extends StatelessWidget {
                   question: _question,
                   questionIndex: index,
                   onAnswering: (val) =>
-                      this.controller.answering(_question.id, [val]),
+                      controller.answering(_question.id, [val]),
                   answered: [
-                    selectedAnswerIds.length > 0 ? selectedAnswerIds.first : ''
+                    selectedAnswerIds.isNotEmpty ? selectedAnswerIds.first : ''
                   ],
                 );
               },

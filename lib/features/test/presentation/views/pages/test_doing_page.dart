@@ -16,7 +16,7 @@ import '../../../../../core/widgets/layouts/adaptive_loading_widget.dart';
 import '../../../domain/enums/test_question_type_enum.dart';
 import '../../../domain/models/test/test_type/test_type.dart';
 import '../../controllers/test_doing_page_controller.dart';
-import '../widgets/test_doing/choices_answer_widget.dart';
+import '../widgets/test_question_types/test_question_choices_widget.dart';
 import '../widgets/test_doing/circle_character_widget.dart';
 import '../widgets/test_doing/group_question_widget.dart';
 import '../widgets/test_doing/question_widget.dart';

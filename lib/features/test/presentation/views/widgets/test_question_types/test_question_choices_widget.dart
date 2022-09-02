@@ -1,39 +1,78 @@
 import 'package:flutter/material.dart';
+import '../../../../../../core/config/app_text_style.dart';
 import '../../../../../../core/config/palette.dart';
 import '../../../../../../core/widgets/layouts/cached_image_network_widget.dart';
 import '../../../../../../core/widgets/quill_content/quill_content_widget.dart';
 import '../../../../domain/models/test/test_type/test_type.dart';
-import 'circle_character_widget.dart';
+import '../test_doing/circle_character_widget.dart';
+import 'base_test_question_widget.dart';
 
-class QuestionAnswersWidget extends StatelessWidget {
-  final List<String> selectedAnswerIds;
-  final List<TestQuestionAnswerType> answers;
-  final ValueChanged<String> onSelect;
-  const QuestionAnswersWidget({
-    this.selectedAnswerIds = const [],
-    required this.onSelect,
-    required this.answers,
-    Key? key,
-  }) : super(key: key);
+class TestQuestionChoicesWidget extends BaseTestQuestionWidget {
+  // final List<String> selectedAnswerIds;
+  // final List<TestQuestionAnswerType> answers;
+  // final ValueChanged<String> onSelect;
+  const TestQuestionChoicesWidget({
+    required super.question,
+    required super.questionIndex,
+    required super.answered,
+    required super.onAnswering,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
     //print(selectedAnswerIds);
-    return ListView.separated(
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
-      itemCount: answers.length,
-      itemBuilder: (BuildContext ctx, int index) => InkWell(
-        onTap: () => this.onSelect(answers[index].id),
-        child: ChoiceAnswerWidget(
-          index: index,
-          answer: answers[index],
-          selected: selectedAnswerIds.contains(answers[index].id),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        if ((question.name?.operations ?? []).isNotEmpty) ...[
+          QuillContentWidget(
+            question.name?.operations ?? [],
+            fontSize: DefaultTextStyle.of(context).style.fontSize,
+            fontWeight: FontWeight.w500,
+            prefix: TextSpan(
+              text: "${questionIndex + 1}. ",
+              style: AppTextStyle.w700(
+                color: AppColors.primary,
+                fontFamily: 'Roboto',
+                lineHeight: 1.5,
+                fontSize: DefaultTextStyle.of(context).style.fontSize,
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 12,
+          ),
+        ] else ...[
+          Text(
+            "Câu ${questionIndex + 1}",
+            style: AppTextStyle.w700(
+              fontSize: 18,
+              color: AppColors.text900,
+            ),
+          ),
+          const SizedBox(
+            height: 12,
+          ),
+        ],
+        ListView.separated(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          itemCount: question.answers.length,
+          itemBuilder: (BuildContext ctx, int index) => InkWell(
+            onTap: () => onAnswering(question.answers[index].id),
+            child: ChoiceAnswerWidget(
+              index: index,
+              answer: question.answers[index],
+              selected: answered.contains(question.answers[index].id),
+            ),
+          ),
+          separatorBuilder: (ctx, index) => const SizedBox(
+            height: 16,
+          ),
         ),
-      ),
-      separatorBuilder: (ctx, index) => const SizedBox(
-        height: 16,
-      ),
+      ],
     );
   }
 }

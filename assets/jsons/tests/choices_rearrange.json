@@ -1,1063 +1,1061 @@
 {
-    "test": {
-      "id": 158,
-      "testId": 1164,
-      "testVersion": 2,
-      "testType": "test",
-      "title": "Bài tập dạng choice + rearrange",
-      "duration": 15,
-      "grade": "sixthGrade",
-      "totalQuestions": 18,
-      "systemRewardPoint": 300,
-      "createdAt": "2022-09-01T23:21:43.9026556+07:00",
-      "sections": [
+  "id": 158,
+  "testId": 1164,
+  "testVersion": 2,
+  "testType": "test",
+  "title": "Bài tập dạng choice + rearrange",
+  "duration": 15,
+  "grade": "sixthGrade",
+  "totalQuestions": 18,
+  "systemRewardPoint": 300,
+  "createdAt": "2022-09-01T23:21:43.9026556+07:00",
+  "sections": [
+    {
+      "id": 3612,
+      "type": "choices",
+      "name": {
+        "operations": [
+          {
+            "content": "Chọn đáp án chính xác",
+            "type": "text"
+          }
+        ],
+        "html": "Chọn đáp án chính xác"
+      },
+      "totalScore": 5,
+      "questions": [
         {
-          "id": 3612,
-          "type": "choices",
+          "id": "8d43baac-03a5-44a3-80d0-2a6bfab296e2",
           "name": {
             "operations": [
               {
-                "content": "Chọn đáp án chính xác",
+                "content": "What was the matter with him? He........ a toothache",
                 "type": "text"
               }
             ],
-            "html": "Chọn đáp án chính xác"
+            "html": "What was the matter with him? He........ a toothache"
           },
-          "totalScore": 5,
-          "questions": [
+          "type": "choices",
+          "layout": "default",
+          "testSectionId": 3612,
+          "score": 0.5555555820465088,
+          "answers": [
             {
-              "id": "8d43baac-03a5-44a3-80d0-2a6bfab296e2",
-              "name": {
+              "id": "60544372",
+              "content": {
                 "operations": [
                   {
-                    "content": "What was the matter with him? He........ a toothache",
+                    "content": "to have",
                     "type": "text"
                   }
                 ],
-                "html": "What was the matter with him? He........ a toothache"
+                "html": "to have"
               },
-              "type": "choices",
-              "layout": "default",
-              "testSectionId": 3612,
-              "score": 0.5555555820465088,
-              "answers": [
-                {
-                  "id": "60544372",
-                  "content": {
-                    "operations": [
-                      {
-                        "content": "to have",
-                        "type": "text"
-                      }
-                    ],
-                    "html": "to have"
-                  },
-                  "isCorrect": false
-                },
-                {
-                  "id": "07105324",
-                  "content": {
-                    "operations": [
-                      {
-                        "content": "have",
-                        "type": "text"
-                      }
-                    ],
-                    "html": "have"
-                  },
-                  "isCorrect": false
-                },
-                {
-                  "id": "12532276",
-                  "content": {
-                    "operations": [
-                      {
-                        "content": "has",
-                        "type": "text"
-                      }
-                    ],
-                    "html": "has"
-                  },
-                  "isCorrect": false
-                },
-                {
-                  "id": "11363267",
-                  "content": {
-                    "operations": [
-                      {
-                        "content": "had",
-                        "type": "text"
-                      }
-                    ],
-                    "html": "had"
-                  },
-                  "isCorrect": false
-                }
-              ],
+              "isCorrect": false
+            },
+            {
+              "id": "07105324",
+              "content": {
+                "operations": [
+                  {
+                    "content": "have",
+                    "type": "text"
+                  }
+                ],
+                "html": "have"
+              },
+              "isCorrect": false
+            },
+            {
+              "id": "12532276",
+              "content": {
+                "operations": [
+                  {
+                    "content": "has",
+                    "type": "text"
+                  }
+                ],
+                "html": "has"
+              },
+              "isCorrect": false
+            },
+            {
+              "id": "11363267",
+              "content": {
+                "operations": [
+                  {
+                    "content": "had",
+                    "type": "text"
+                  }
+                ],
+                "html": "had"
+              },
+              "isCorrect": false
+            }
+          ],
+          "images": [
+            {
+              "id": "12827",
+              "path": "https://d3mxw47to60ina.cloudfront.net/942e61c0-81ea-40e7-8030-f2221c492852/images/2022/06/1656124001-8fGB1is8a2.png",
+              "contentType": "image/png"
+            }
+          ]
+        },
+        {
+          "id": "790a1274-b5d5-4abd-b9b9-00cd3c0f9a4a",
+          "name": {
+            "operations": [
+              {
+                "content": "What subject is he......... now? Vietnamese.",
+                "type": "text"
+              }
+            ],
+            "html": "What subject is he......... now? Vietnamese."
+          },
+          "type": "choices",
+          "layout": "imageOptions",
+          "testSectionId": 3612,
+          "score": 0.5555555820465088,
+          "answers": [
+            {
+              "id": "64551402",
+              "content": {
+                "operations": [
+                  {
+                    "content": "to learn",
+                    "type": "text"
+                  }
+                ],
+                "html": "to learn"
+              },
+              "isCorrect": false,
               "images": [
                 {
-                  "id": "12827",
-                  "path": "https://d3mxw47to60ina.cloudfront.net/942e61c0-81ea-40e7-8030-f2221c492852/images/2022/06/1656124001-8fGB1is8a2.png",
+                  "id": "12831",
+                  "path": "https://d3mxw47to60ina.cloudfront.net/942e61c0-81ea-40e7-8030-f2221c492852/images/2022/06/1656124452-xsrVQzEpGe.png",
                   "contentType": "image/png"
                 }
               ]
             },
             {
-              "id": "790a1274-b5d5-4abd-b9b9-00cd3c0f9a4a",
-              "name": {
+              "id": "65131122",
+              "content": {
                 "operations": [
                   {
-                    "content": "What subject is he......... now? Vietnamese.",
+                    "content": "learn",
                     "type": "text"
                   }
                 ],
-                "html": "What subject is he......... now? Vietnamese."
+                "html": "learn"
               },
-              "type": "choices",
-              "layout": "imageOptions",
-              "testSectionId": 3612,
-              "score": 0.5555555820465088,
-              "answers": [
+              "isCorrect": false,
+              "images": [
                 {
-                  "id": "64551402",
-                  "content": {
-                    "operations": [
-                      {
-                        "content": "to learn",
-                        "type": "text"
-                      }
-                    ],
-                    "html": "to learn"
-                  },
-                  "isCorrect": false,
-                  "images": [
-                    {
-                      "id": "12831",
-                      "path": "https://d3mxw47to60ina.cloudfront.net/942e61c0-81ea-40e7-8030-f2221c492852/images/2022/06/1656124452-xsrVQzEpGe.png",
-                      "contentType": "image/png"
-                    }
-                  ]
-                },
-                {
-                  "id": "65131122",
-                  "content": {
-                    "operations": [
-                      {
-                        "content": "learn",
-                        "type": "text"
-                      }
-                    ],
-                    "html": "learn"
-                  },
-                  "isCorrect": false,
-                  "images": [
-                    {
-                      "id": "18371",
-                      "path": "https://d3mxw47to60ina.cloudfront.net/942e61c0-81ea-40e7-8030-f2221c492852/images/2022/09/1662048109-7DZF9eT2yF.jpg",
-                      "contentType": "image/jpeg"
-                    }
-                  ]
-                },
-                {
-                  "id": "22465647",
-                  "content": {
-                    "operations": [
-                      {
-                        "content": "learning",
-                        "type": "text"
-                      }
-                    ],
-                    "html": "learning"
-                  },
-                  "isCorrect": false,
-                  "images": [
-                    {
-                      "id": "18373",
-                      "path": "https://d3mxw47to60ina.cloudfront.net/942e61c0-81ea-40e7-8030-f2221c492852/images/2022/09/1662048116-RGbeVpuXbF.png",
-                      "contentType": "image/png"
-                    }
-                  ]
-                },
-                {
-                  "id": "36460264",
-                  "content": {
-                    "operations": [
-                      {
-                        "content": "learned",
-                        "type": "text"
-                      }
-                    ],
-                    "html": "learned"
-                  },
-                  "isCorrect": false,
-                  "images": [
-                    {
-                      "id": "18376",
-                      "path": "https://d3mxw47to60ina.cloudfront.net/942e61c0-81ea-40e7-8030-f2221c492852/images/2022/09/1662048122-KxgtorvJtf.png",
-                      "contentType": "image/png"
-                    }
-                  ]
+                  "id": "18371",
+                  "path": "https://d3mxw47to60ina.cloudfront.net/942e61c0-81ea-40e7-8030-f2221c492852/images/2022/09/1662048109-7DZF9eT2yF.jpg",
+                  "contentType": "image/jpeg"
                 }
               ]
             },
             {
-              "id": "0d7aa935-e342-4eef-949a-e6da617faee6",
-              "name": {
+              "id": "22465647",
+              "content": {
                 "operations": [
                   {
-                    "content": "............ did she go yesterday morning? She went to the bookshop.",
+                    "content": "learning",
                     "type": "text"
                   }
                 ],
-                "html": "............ did she go yesterday morning? She went to the bookshop."
+                "html": "learning"
               },
-              "type": "choices",
-              "layout": "default",
-              "testSectionId": 3612,
-              "score": 0.5555555820465088,
-              "answers": [
+              "isCorrect": false,
+              "images": [
                 {
-                  "id": "56000722",
-                  "content": {
-                    "operations": [
-                      {
-                        "content": "What",
-                        "type": "text"
-                      }
-                    ],
-                    "html": "What"
-                  },
-                  "isCorrect": false
-                },
-                {
-                  "id": "25450043",
-                  "content": {
-                    "operations": [
-                      {
-                        "content": "Where",
-                        "type": "text"
-                      }
-                    ],
-                    "html": "Where"
-                  },
-                  "isCorrect": false
-                },
-                {
-                  "id": "06677252",
-                  "content": {
-                    "operations": [
-                      {
-                        "content": "When",
-                        "type": "text"
-                      }
-                    ],
-                    "html": "When"
-                  },
-                  "isCorrect": false
-                },
-                {
-                  "id": "74571251",
-                  "content": {
-                    "operations": [
-                      {
-                        "content": "Why",
-                        "type": "text"
-                      }
-                    ],
-                    "html": "Why"
-                  },
-                  "isCorrect": false
+                  "id": "18373",
+                  "path": "https://d3mxw47to60ina.cloudfront.net/942e61c0-81ea-40e7-8030-f2221c492852/images/2022/09/1662048116-RGbeVpuXbF.png",
+                  "contentType": "image/png"
                 }
               ]
             },
             {
-              "id": "111f0190-8bcf-4c8b-a117-ebc5c2322e0a",
-              "name": {
+              "id": "36460264",
+              "content": {
                 "operations": [
                   {
-                    "content": "Are you free........ the evening? Yes, I am.",
+                    "content": "learned",
                     "type": "text"
                   }
                 ],
-                "html": "Are you free........ the evening? Yes, I am."
+                "html": "learned"
               },
-              "type": "choices",
-              "layout": "default",
-              "testSectionId": 3612,
-              "score": 0.5555555820465088,
-              "answers": [
+              "isCorrect": false,
+              "images": [
                 {
-                  "id": "41262015",
-                  "content": {
-                    "operations": [
-                      {
-                        "content": "in",
-                        "type": "text"
-                      }
-                    ],
-                    "html": "in"
-                  },
-                  "isCorrect": false
-                },
-                {
-                  "id": "26431126",
-                  "content": {
-                    "operations": [
-                      {
-                        "content": "on",
-                        "type": "text"
-                      }
-                    ],
-                    "html": "on"
-                  },
-                  "isCorrect": false
-                },
-                {
-                  "id": "47706755",
-                  "content": {
-                    "operations": [
-                      {
-                        "content": "at",
-                        "type": "text"
-                      }
-                    ],
-                    "html": "at"
-                  },
-                  "isCorrect": false
-                },
-                {
-                  "id": "67631603",
-                  "content": {
-                    "operations": [
-                      {
-                        "content": "to",
-                        "type": "text"
-                      }
-                    ],
-                    "html": "to"
-                  },
-                  "isCorrect": false
-                }
-              ]
-            },
-            {
-              "id": "701480ab-06da-423f-aad7-df886c1403d5",
-              "name": {
-                "operations": [
-                  {
-                    "content": "She is going to......... television tonight.",
-                    "type": "text"
-                  }
-                ],
-                "html": "She is going to......... television tonight."
-              },
-              "type": "choices",
-              "layout": "default",
-              "testSectionId": 3612,
-              "score": 0.5555555820465088,
-              "answers": [
-                {
-                  "id": "00432570",
-                  "content": {
-                    "operations": [
-                      {
-                        "content": "sing",
-                        "type": "text"
-                      }
-                    ],
-                    "html": "sing"
-                  },
-                  "isCorrect": false
-                },
-                {
-                  "id": "43506312",
-                  "content": {
-                    "operations": [
-                      {
-                        "content": "play",
-                        "type": "text"
-                      }
-                    ],
-                    "html": "play"
-                  },
-                  "isCorrect": false
-                },
-                {
-                  "id": "35651307",
-                  "content": {
-                    "operations": [
-                      {
-                        "content": "stay",
-                        "type": "text"
-                      }
-                    ],
-                    "html": "stay"
-                  },
-                  "isCorrect": false
-                },
-                {
-                  "id": "11735403",
-                  "content": {
-                    "operations": [
-                      {
-                        "content": "watch",
-                        "type": "text"
-                      }
-                    ],
-                    "html": "watch"
-                  },
-                  "isCorrect": false
-                }
-              ]
-            },
-            {
-              "id": "935abe40-cb94-4358-9764-de27b504fee6",
-              "name": {
-                "operations": [
-                  {
-                    "content": "............ is that ? It's my teacher.",
-                    "type": "text"
-                  }
-                ],
-                "html": "............ is that ? It's my teacher."
-              },
-              "type": "choices",
-              "layout": "default",
-              "testSectionId": 3612,
-              "score": 0.5555555820465088,
-              "answers": [
-                {
-                  "id": "01332005",
-                  "content": {
-                    "operations": [
-                      {
-                        "content": "What",
-                        "type": "text"
-                      }
-                    ],
-                    "html": "What"
-                  },
-                  "isCorrect": false
-                },
-                {
-                  "id": "35225122",
-                  "content": {
-                    "operations": [
-                      {
-                        "content": "Who",
-                        "type": "text"
-                      }
-                    ],
-                    "html": "Who"
-                  },
-                  "isCorrect": false
-                },
-                {
-                  "id": "61544275",
-                  "content": {
-                    "operations": [
-                      {
-                        "content": "Where",
-                        "type": "text"
-                      }
-                    ],
-                    "html": "Where"
-                  },
-                  "isCorrect": false
-                },
-                {
-                  "id": "42074404",
-                  "content": {
-                    "operations": [
-                      {
-                        "content": "How",
-                        "type": "text"
-                      }
-                    ],
-                    "html": "How"
-                  },
-                  "isCorrect": false
-                }
-              ]
-            },
-            {
-              "id": "d36f780b-d9f6-4e41-9eec-e228ba9b497b",
-              "name": {
-                "operations": [
-                  {
-                    "content": "Does she like sandwiches ?......................",
-                    "type": "text"
-                  }
-                ],
-                "html": "Does she like sandwiches ?......................"
-              },
-              "type": "choices",
-              "layout": "default",
-              "testSectionId": 3612,
-              "score": 0.5555555820465088,
-              "answers": [
-                {
-                  "id": "50570027",
-                  "content": {
-                    "operations": [
-                      {
-                        "content": "Yes, she do",
-                        "type": "text"
-                      }
-                    ],
-                    "html": "Yes, she do"
-                  },
-                  "isCorrect": false
-                },
-                {
-                  "id": "45743405",
-                  "content": {
-                    "operations": [
-                      {
-                        "content": "Yes, she is",
-                        "type": "text"
-                      }
-                    ],
-                    "html": "Yes, she is"
-                  },
-                  "isCorrect": false
-                },
-                {
-                  "id": "33631276",
-                  "content": {
-                    "operations": [
-                      {
-                        "content": "Yes, she does",
-                        "type": "text"
-                      }
-                    ],
-                    "html": "Yes, she does"
-                  },
-                  "isCorrect": false
-                },
-                {
-                  "id": "71204422",
-                  "content": {
-                    "operations": [
-                      {
-                        "content": "Yes, she like",
-                        "type": "text"
-                      }
-                    ],
-                    "html": "Yes, she like"
-                  },
-                  "isCorrect": false
-                }
-              ]
-            },
-            {
-              "id": "48e57129-c876-454c-ae51-29bd7b0110ad",
-              "name": {
-                "operations": [
-                  {
-                    "content": "This is Mai.............. mother is a doctor.",
-                    "type": "text"
-                  }
-                ],
-                "html": "This is Mai.............. mother is a doctor."
-              },
-              "type": "choices",
-              "layout": "default",
-              "testSectionId": 3612,
-              "score": 0.5555555820465088,
-              "answers": [
-                {
-                  "id": "41175420",
-                  "content": {
-                    "operations": [
-                      {
-                        "content": "his",
-                        "type": "text"
-                      }
-                    ],
-                    "html": "his"
-                  },
-                  "isCorrect": false
-                },
-                {
-                  "id": "01105223",
-                  "content": {
-                    "operations": [
-                      {
-                        "content": "she",
-                        "type": "text"
-                      }
-                    ],
-                    "html": "she"
-                  },
-                  "isCorrect": false
-                },
-                {
-                  "id": "12553640",
-                  "content": {
-                    "operations": [
-                      {
-                        "content": "her",
-                        "type": "text"
-                      }
-                    ],
-                    "html": "her"
-                  },
-                  "isCorrect": false
-                },
-                {
-                  "id": "47302074",
-                  "content": {
-                    "operations": [
-                      {
-                        "content": "his",
-                        "type": "text"
-                      }
-                    ],
-                    "html": "his"
-                  },
-                  "isCorrect": false
-                }
-              ]
-            },
-            {
-              "id": "4b5de38b-22aa-46fc-9307-25960eef3fdb",
-              "name": {
-                "operations": [
-                  {
-                    "content": "She............. a banana.",
-                    "type": "text"
-                  }
-                ],
-                "html": "She............. a banana."
-              },
-              "type": "choices",
-              "layout": "default",
-              "testSectionId": 3612,
-              "score": 0.5555555820465088,
-              "answers": [
-                {
-                  "id": "60045370",
-                  "content": {
-                    "operations": [
-                      {
-                        "content": "wants",
-                        "type": "text"
-                      }
-                    ],
-                    "html": "wants"
-                  },
-                  "isCorrect": false
-                },
-                {
-                  "id": "31605663",
-                  "content": {
-                    "operations": [
-                      {
-                        "content": "want",
-                        "type": "text"
-                      }
-                    ],
-                    "html": "want"
-                  },
-                  "isCorrect": false
-                },
-                {
-                  "id": "27665127",
-                  "content": {
-                    "operations": [
-                      {
-                        "content": "to want",
-                        "type": "text"
-                      }
-                    ],
-                    "html": "to want"
-                  },
-                  "isCorrect": false
-                },
-                {
-                  "id": "07743715",
-                  "content": {
-                    "operations": [
-                      {
-                        "content": "wantes",
-                        "type": "text"
-                      }
-                    ],
-                    "html": "wantes"
-                  },
-                  "isCorrect": false
-                }
-              ]
-            },
-            {
-              "id": "d5e26559-e1ce-45a8-9d1f-0bf6c7dfcb24",
-              "name": {
-                "operations": [
-                  {
-                    "content": "What is it ? It is................",
-                    "type": "text"
-                  }
-                ],
-                "html": "What is it ? It is................"
-              },
-              "type": "choices",
-              "layout": "default",
-              "testSectionId": 3612,
-              "score": 0.5555555820465088,
-              "answers": [
-                {
-                  "id": "70113130",
-                  "content": {
-                    "operations": [
-                      {
-                        "content": "eraser",
-                        "type": "text"
-                      }
-                    ],
-                    "html": "eraser"
-                  },
-                  "isCorrect": false
-                },
-                {
-                  "id": "26021363",
-                  "content": {
-                    "operations": [
-                      {
-                        "content": "an eraser",
-                        "type": "text"
-                      }
-                    ],
-                    "html": "an eraser"
-                  },
-                  "isCorrect": false
-                },
-                {
-                  "id": "57110462",
-                  "content": {
-                    "operations": [
-                      {
-                        "content": "erasers",
-                        "type": "text"
-                      }
-                    ],
-                    "html": "erasers"
-                  },
-                  "isCorrect": false
-                },
-                {
-                  "id": "76304450",
-                  "content": {
-                    "operations": [
-                      {
-                        "content": "a eraser",
-                        "type": "text"
-                      }
-                    ],
-                    "html": "a eraser"
-                  },
-                  "isCorrect": false
+                  "id": "18376",
+                  "path": "https://d3mxw47to60ina.cloudfront.net/942e61c0-81ea-40e7-8030-f2221c492852/images/2022/09/1662048122-KxgtorvJtf.png",
+                  "contentType": "image/png"
                 }
               ]
             }
           ]
         },
         {
-          "id": 3613,
-          "type": "rearrange",
+          "id": "0d7aa935-e342-4eef-949a-e6da617faee6",
           "name": {
             "operations": [
               {
-                "content": "Sắp xếp lại câu",
+                "content": "............ did she go yesterday morning? She went to the bookshop.",
                 "type": "text"
               }
             ],
-            "html": "<p>Sắp xếp lại câu</p>"
+            "html": "............ did she go yesterday morning? She went to the bookshop."
           },
-          "totalScore": 5,
-          "questions": [
+          "type": "choices",
+          "layout": "default",
+          "testSectionId": 3612,
+          "score": 0.5555555820465088,
+          "answers": [
             {
-              "id": "dbc65fb4-af7e-4569-ba6e-2e2dcf43a429",
-              "name": {
+              "id": "56000722",
+              "content": {
                 "operations": [
                   {
-                    "content": "friends/ chatted/ with/ yesterday/ I/ my",
+                    "content": "What",
                     "type": "text"
                   }
                 ],
-                "html": "<p>friends/ chatted/ with/ yesterday/ I/ my</p>"
+                "html": "What"
               },
-              "type": "rearrange",
-              "layout": "default",
-              "note": {
-                "operations": [],
-                "html": ""
-              },
-              "testSectionId": 3613,
-              "score": 0.5555555820465088,
-              "answers": [
-                {
-                  "id": "46177265",
-                  "content": {
-                    "operations": [
-                      {
-                        "content": "I chatted with my friends yesterday",
-                        "type": "text"
-                      }
-                    ],
-                    "html": "<p>I chatted with my friends yesterday</p>"
-                  },
-                  "isCorrect": false
-                }
-              ]
+              "isCorrect": false
             },
             {
-              "id": "cf041dab-e750-4236-8190-87771b51027b",
-              "name": {
+              "id": "25450043",
+              "content": {
                 "operations": [
                   {
-                    "content": "you/ play/ Did/ last/ hide and seek/ Sunday?",
+                    "content": "Where",
                     "type": "text"
                   }
                 ],
-                "html": "you/ play/ Did/ last/ hide and seek/ Sunday?"
+                "html": "Where"
               },
-              "type": "rearrange",
-              "layout": "default",
-              "note": {
-                "operations": [],
-                "html": ""
-              },
-              "testSectionId": 3613,
-              "score": 0.5555555820465088,
-              "answers": [
-                {
-                  "id": "62563241",
-                  "content": {
-                    "operations": [
-                      {
-                        "content": "Did you play hide and seek last Sunday?",
-                        "type": "text"
-                      }
-                    ],
-                    "html": "Did you play hide and seek last Sunday?"
-                  },
-                  "isCorrect": false
-                }
-              ]
+              "isCorrect": false
             },
             {
-              "id": "10b792d5-d76a-4494-b6cb-91231da2c76c",
-              "name": {
+              "id": "06677252",
+              "content": {
                 "operations": [
                   {
-                    "content": "on TV/ watched/ cartoons/ Mai/ week/ last",
+                    "content": "When",
                     "type": "text"
                   }
                 ],
-                "html": "on TV/ watched/ cartoons/ Mai/ week/ last"
+                "html": "When"
               },
-              "type": "rearrange",
-              "layout": "default",
-              "note": {
-                "operations": [],
-                "html": ""
-              },
-              "testSectionId": 3613,
-              "score": 0.5555555820465088,
-              "answers": [
-                {
-                  "id": "36141017",
-                  "content": {
-                    "operations": [
-                      {
-                        "content": "Mai watched cartoons on TV last week",
-                        "type": "text"
-                      }
-                    ],
-                    "html": "Mai watched cartoons on TV last week"
-                  },
-                  "isCorrect": false
-                }
-              ]
+              "isCorrect": false
             },
             {
-              "id": "428798e5-1245-4ce5-ab39-3bfd3c6679f6",
-              "name": {
+              "id": "74571251",
+              "content": {
                 "operations": [
                   {
-                    "content": "had/ We/ and/ drink/ nice food/ at/ last/ party/ Sunday/ Mai's",
+                    "content": "Why",
                     "type": "text"
                   }
                 ],
-                "html": "had/ We/ and/ drink/ nice food/ at/ last/ party/ Sunday/ Mai's"
+                "html": "Why"
               },
-              "type": "rearrange",
-              "layout": "default",
-              "note": {
-                "operations": [],
-                "html": ""
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": "111f0190-8bcf-4c8b-a117-ebc5c2322e0a",
+          "name": {
+            "operations": [
+              {
+                "content": "Are you free........ the evening? Yes, I am.",
+                "type": "text"
+              }
+            ],
+            "html": "Are you free........ the evening? Yes, I am."
+          },
+          "type": "choices",
+          "layout": "default",
+          "testSectionId": 3612,
+          "score": 0.5555555820465088,
+          "answers": [
+            {
+              "id": "41262015",
+              "content": {
+                "operations": [
+                  {
+                    "content": "in",
+                    "type": "text"
+                  }
+                ],
+                "html": "in"
               },
-              "testSectionId": 3613,
-              "score": 0.5555555820465088,
-              "answers": [
-                {
-                  "id": "07576713",
-                  "content": {
-                    "operations": [
-                      {
-                        "content": "We had nice food and drink at Mai's party last Sunday",
-                        "type": "text"
-                      }
-                    ],
-                    "html": "We had nice food and drink at Mai's party last Sunday"
-                  },
-                  "isCorrect": false
-                }
-              ]
+              "isCorrect": false
             },
             {
-              "id": "5a6f98cc-2829-4a0b-8146-b304f8610dbc",
-              "name": {
+              "id": "26431126",
+              "content": {
                 "operations": [
                   {
-                    "content": "did/ What/ do/ in/ yesterday/ they/ the park?",
+                    "content": "on",
                     "type": "text"
                   }
                 ],
-                "html": "did/ What/ do/ in/ yesterday/ they/ the park?"
+                "html": "on"
               },
-              "type": "rearrange",
-              "layout": "default",
-              "note": {
-                "operations": [],
-                "html": ""
-              },
-              "testSectionId": 3613,
-              "score": 0.5555555820465088,
-              "answers": [
-                {
-                  "id": "75470463",
-                  "content": {
-                    "operations": [
-                      {
-                        "content": "What did they do in the part yesterday?",
-                        "type": "text"
-                      }
-                    ],
-                    "html": "What did they do in the part yesterday?"
-                  },
-                  "isCorrect": false
-                }
-              ]
+              "isCorrect": false
             },
             {
-              "id": "99c26885-780d-4095-9320-6492c9f33c2e",
-              "name": {
+              "id": "47706755",
+              "content": {
                 "operations": [
                   {
-                    "content": "went/ He/ cinema/ last night/ to/ parents/ with/ his",
+                    "content": "at",
                     "type": "text"
                   }
                 ],
-                "html": "went/ He/ cinema/ last night/ to/ parents/ with/ his"
+                "html": "at"
               },
-              "type": "rearrange",
-              "layout": "default",
-              "note": {
-                "operations": [],
-                "html": ""
-              },
-              "testSectionId": 3613,
-              "score": 0.5555555820465088,
-              "answers": [
-                {
-                  "id": "26501501",
-                  "content": {
-                    "operations": [
-                      {
-                        "content": "He went to cinema with his parents last night",
-                        "type": "text"
-                      }
-                    ],
-                    "html": "He went to cinema with his parents last night"
-                  },
-                  "isCorrect": false
-                }
-              ]
+              "isCorrect": false
             },
             {
-              "id": "91a73085-78f3-42ba-bfb6-dbdad699b159",
-              "name": {
+              "id": "67631603",
+              "content": {
                 "operations": [
                   {
-                    "content": "Wednesday/ she/ book/ bought/ a/ at/ comic/ the bookshop/ last",
+                    "content": "to",
                     "type": "text"
                   }
                 ],
-                "html": "Wednesday/ she/ book/ bought/ a/ at/ comic/ the bookshop/ last"
+                "html": "to"
               },
-              "type": "rearrange",
-              "layout": "default",
-              "note": {
-                "operations": [],
-                "html": ""
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": "701480ab-06da-423f-aad7-df886c1403d5",
+          "name": {
+            "operations": [
+              {
+                "content": "She is going to......... television tonight.",
+                "type": "text"
+              }
+            ],
+            "html": "She is going to......... television tonight."
+          },
+          "type": "choices",
+          "layout": "default",
+          "testSectionId": 3612,
+          "score": 0.5555555820465088,
+          "answers": [
+            {
+              "id": "00432570",
+              "content": {
+                "operations": [
+                  {
+                    "content": "sing",
+                    "type": "text"
+                  }
+                ],
+                "html": "sing"
               },
-              "testSectionId": 3613,
-              "score": 0.5555555820465088,
-              "answers": [
-                {
-                  "id": "27336073",
-                  "content": {
-                    "operations": [
-                      {
-                        "content": "She bought a comic book at the bookshop last Wednesday",
-                        "type": "text"
-                      }
-                    ],
-                    "html": "She bought a comic book at the bookshop last Wednesday"
-                  },
-                  "isCorrect": false
-                }
-              ]
+              "isCorrect": false
             },
             {
-              "id": "40312b49-ff3b-460f-aa6a-21335fb8ea4c",
-              "name": {
+              "id": "43506312",
+              "content": {
                 "operations": [
                   {
-                    "content": "Last/ festival/ had/ school/ sports/ my/ Friday",
+                    "content": "play",
                     "type": "text"
                   }
                 ],
-                "html": "Last/ festival/ had/ school/ sports/ my/ Friday"
+                "html": "play"
               },
-              "type": "rearrange",
-              "layout": "default",
-              "note": {
-                "operations": [],
-                "html": ""
+              "isCorrect": false
+            },
+            {
+              "id": "35651307",
+              "content": {
+                "operations": [
+                  {
+                    "content": "stay",
+                    "type": "text"
+                  }
+                ],
+                "html": "stay"
               },
-              "testSectionId": 3613,
-              "score": 0.5555555820465088,
-              "answers": [
-                {
-                  "id": "13107611",
-                  "content": {
-                    "operations": [
-                      {
-                        "content": "My school had Sports Festival last Friday",
-                        "type": "text"
-                      }
-                    ],
-                    "html": "My school had Sports Festival last Friday"
-                  },
-                  "isCorrect": false
-                }
-              ]
+              "isCorrect": false
+            },
+            {
+              "id": "11735403",
+              "content": {
+                "operations": [
+                  {
+                    "content": "watch",
+                    "type": "text"
+                  }
+                ],
+                "html": "watch"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": "935abe40-cb94-4358-9764-de27b504fee6",
+          "name": {
+            "operations": [
+              {
+                "content": "............ is that ? It's my teacher.",
+                "type": "text"
+              }
+            ],
+            "html": "............ is that ? It's my teacher."
+          },
+          "type": "choices",
+          "layout": "default",
+          "testSectionId": 3612,
+          "score": 0.5555555820465088,
+          "answers": [
+            {
+              "id": "01332005",
+              "content": {
+                "operations": [
+                  {
+                    "content": "What",
+                    "type": "text"
+                  }
+                ],
+                "html": "What"
+              },
+              "isCorrect": false
+            },
+            {
+              "id": "35225122",
+              "content": {
+                "operations": [
+                  {
+                    "content": "Who",
+                    "type": "text"
+                  }
+                ],
+                "html": "Who"
+              },
+              "isCorrect": false
+            },
+            {
+              "id": "61544275",
+              "content": {
+                "operations": [
+                  {
+                    "content": "Where",
+                    "type": "text"
+                  }
+                ],
+                "html": "Where"
+              },
+              "isCorrect": false
+            },
+            {
+              "id": "42074404",
+              "content": {
+                "operations": [
+                  {
+                    "content": "How",
+                    "type": "text"
+                  }
+                ],
+                "html": "How"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": "d36f780b-d9f6-4e41-9eec-e228ba9b497b",
+          "name": {
+            "operations": [
+              {
+                "content": "Does she like sandwiches ?......................",
+                "type": "text"
+              }
+            ],
+            "html": "Does she like sandwiches ?......................"
+          },
+          "type": "choices",
+          "layout": "default",
+          "testSectionId": 3612,
+          "score": 0.5555555820465088,
+          "answers": [
+            {
+              "id": "50570027",
+              "content": {
+                "operations": [
+                  {
+                    "content": "Yes, she do",
+                    "type": "text"
+                  }
+                ],
+                "html": "Yes, she do"
+              },
+              "isCorrect": false
+            },
+            {
+              "id": "45743405",
+              "content": {
+                "operations": [
+                  {
+                    "content": "Yes, she is",
+                    "type": "text"
+                  }
+                ],
+                "html": "Yes, she is"
+              },
+              "isCorrect": false
+            },
+            {
+              "id": "33631276",
+              "content": {
+                "operations": [
+                  {
+                    "content": "Yes, she does",
+                    "type": "text"
+                  }
+                ],
+                "html": "Yes, she does"
+              },
+              "isCorrect": false
+            },
+            {
+              "id": "71204422",
+              "content": {
+                "operations": [
+                  {
+                    "content": "Yes, she like",
+                    "type": "text"
+                  }
+                ],
+                "html": "Yes, she like"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": "48e57129-c876-454c-ae51-29bd7b0110ad",
+          "name": {
+            "operations": [
+              {
+                "content": "This is Mai.............. mother is a doctor.",
+                "type": "text"
+              }
+            ],
+            "html": "This is Mai.............. mother is a doctor."
+          },
+          "type": "choices",
+          "layout": "default",
+          "testSectionId": 3612,
+          "score": 0.5555555820465088,
+          "answers": [
+            {
+              "id": "41175420",
+              "content": {
+                "operations": [
+                  {
+                    "content": "his",
+                    "type": "text"
+                  }
+                ],
+                "html": "his"
+              },
+              "isCorrect": false
+            },
+            {
+              "id": "01105223",
+              "content": {
+                "operations": [
+                  {
+                    "content": "she",
+                    "type": "text"
+                  }
+                ],
+                "html": "she"
+              },
+              "isCorrect": false
+            },
+            {
+              "id": "12553640",
+              "content": {
+                "operations": [
+                  {
+                    "content": "her",
+                    "type": "text"
+                  }
+                ],
+                "html": "her"
+              },
+              "isCorrect": false
+            },
+            {
+              "id": "47302074",
+              "content": {
+                "operations": [
+                  {
+                    "content": "his",
+                    "type": "text"
+                  }
+                ],
+                "html": "his"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": "4b5de38b-22aa-46fc-9307-25960eef3fdb",
+          "name": {
+            "operations": [
+              {
+                "content": "She............. a banana.",
+                "type": "text"
+              }
+            ],
+            "html": "She............. a banana."
+          },
+          "type": "choices",
+          "layout": "default",
+          "testSectionId": 3612,
+          "score": 0.5555555820465088,
+          "answers": [
+            {
+              "id": "60045370",
+              "content": {
+                "operations": [
+                  {
+                    "content": "wants",
+                    "type": "text"
+                  }
+                ],
+                "html": "wants"
+              },
+              "isCorrect": false
+            },
+            {
+              "id": "31605663",
+              "content": {
+                "operations": [
+                  {
+                    "content": "want",
+                    "type": "text"
+                  }
+                ],
+                "html": "want"
+              },
+              "isCorrect": false
+            },
+            {
+              "id": "27665127",
+              "content": {
+                "operations": [
+                  {
+                    "content": "to want",
+                    "type": "text"
+                  }
+                ],
+                "html": "to want"
+              },
+              "isCorrect": false
+            },
+            {
+              "id": "07743715",
+              "content": {
+                "operations": [
+                  {
+                    "content": "wantes",
+                    "type": "text"
+                  }
+                ],
+                "html": "wantes"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": "d5e26559-e1ce-45a8-9d1f-0bf6c7dfcb24",
+          "name": {
+            "operations": [
+              {
+                "content": "What is it ? It is................",
+                "type": "text"
+              }
+            ],
+            "html": "What is it ? It is................"
+          },
+          "type": "choices",
+          "layout": "default",
+          "testSectionId": 3612,
+          "score": 0.5555555820465088,
+          "answers": [
+            {
+              "id": "70113130",
+              "content": {
+                "operations": [
+                  {
+                    "content": "eraser",
+                    "type": "text"
+                  }
+                ],
+                "html": "eraser"
+              },
+              "isCorrect": false
+            },
+            {
+              "id": "26021363",
+              "content": {
+                "operations": [
+                  {
+                    "content": "an eraser",
+                    "type": "text"
+                  }
+                ],
+                "html": "an eraser"
+              },
+              "isCorrect": false
+            },
+            {
+              "id": "57110462",
+              "content": {
+                "operations": [
+                  {
+                    "content": "erasers",
+                    "type": "text"
+                  }
+                ],
+                "html": "erasers"
+              },
+              "isCorrect": false
+            },
+            {
+              "id": "76304450",
+              "content": {
+                "operations": [
+                  {
+                    "content": "a eraser",
+                    "type": "text"
+                  }
+                ],
+                "html": "a eraser"
+              },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3613,
+      "type": "rearrange",
+      "name": {
+        "operations": [
+          {
+            "content": "Sắp xếp lại câu",
+            "type": "text"
+          }
+        ],
+        "html": "<p>Sắp xếp lại câu</p>"
+      },
+      "totalScore": 5,
+      "questions": [
+        {
+          "id": "dbc65fb4-af7e-4569-ba6e-2e2dcf43a429",
+          "name": {
+            "operations": [
+              {
+                "content": "friends/ chatted/ with/ yesterday/ I/ my",
+                "type": "text"
+              }
+            ],
+            "html": "<p>friends/ chatted/ with/ yesterday/ I/ my</p>"
+          },
+          "type": "rearrange",
+          "layout": "default",
+          "note": {
+            "operations": [],
+            "html": ""
+          },
+          "testSectionId": 3613,
+          "score": 0.5555555820465088,
+          "answers": [
+            {
+              "id": "46177265",
+              "content": {
+                "operations": [
+                  {
+                    "content": "I chatted with my friends yesterday",
+                    "type": "text"
+                  }
+                ],
+                "html": "<p>I chatted with my friends yesterday</p>"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": "cf041dab-e750-4236-8190-87771b51027b",
+          "name": {
+            "operations": [
+              {
+                "content": "you/ play/ Did/ last/ hide and seek/ Sunday?",
+                "type": "text"
+              }
+            ],
+            "html": "you/ play/ Did/ last/ hide and seek/ Sunday?"
+          },
+          "type": "rearrange",
+          "layout": "default",
+          "note": {
+            "operations": [],
+            "html": ""
+          },
+          "testSectionId": 3613,
+          "score": 0.5555555820465088,
+          "answers": [
+            {
+              "id": "62563241",
+              "content": {
+                "operations": [
+                  {
+                    "content": "Did you play hide and seek last Sunday?",
+                    "type": "text"
+                  }
+                ],
+                "html": "Did you play hide and seek last Sunday?"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": "10b792d5-d76a-4494-b6cb-91231da2c76c",
+          "name": {
+            "operations": [
+              {
+                "content": "on TV/ watched/ cartoons/ Mai/ week/ last",
+                "type": "text"
+              }
+            ],
+            "html": "on TV/ watched/ cartoons/ Mai/ week/ last"
+          },
+          "type": "rearrange",
+          "layout": "default",
+          "note": {
+            "operations": [],
+            "html": ""
+          },
+          "testSectionId": 3613,
+          "score": 0.5555555820465088,
+          "answers": [
+            {
+              "id": "36141017",
+              "content": {
+                "operations": [
+                  {
+                    "content": "Mai watched cartoons on TV last week",
+                    "type": "text"
+                  }
+                ],
+                "html": "Mai watched cartoons on TV last week"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": "428798e5-1245-4ce5-ab39-3bfd3c6679f6",
+          "name": {
+            "operations": [
+              {
+                "content": "had/ We/ and/ drink/ nice food/ at/ last/ party/ Sunday/ Mai's",
+                "type": "text"
+              }
+            ],
+            "html": "had/ We/ and/ drink/ nice food/ at/ last/ party/ Sunday/ Mai's"
+          },
+          "type": "rearrange",
+          "layout": "default",
+          "note": {
+            "operations": [],
+            "html": ""
+          },
+          "testSectionId": 3613,
+          "score": 0.5555555820465088,
+          "answers": [
+            {
+              "id": "07576713",
+              "content": {
+                "operations": [
+                  {
+                    "content": "We had nice food and drink at Mai's party last Sunday",
+                    "type": "text"
+                  }
+                ],
+                "html": "We had nice food and drink at Mai's party last Sunday"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": "5a6f98cc-2829-4a0b-8146-b304f8610dbc",
+          "name": {
+            "operations": [
+              {
+                "content": "did/ What/ do/ in/ yesterday/ they/ the park?",
+                "type": "text"
+              }
+            ],
+            "html": "did/ What/ do/ in/ yesterday/ they/ the park?"
+          },
+          "type": "rearrange",
+          "layout": "default",
+          "note": {
+            "operations": [],
+            "html": ""
+          },
+          "testSectionId": 3613,
+          "score": 0.5555555820465088,
+          "answers": [
+            {
+              "id": "75470463",
+              "content": {
+                "operations": [
+                  {
+                    "content": "What did they do in the part yesterday?",
+                    "type": "text"
+                  }
+                ],
+                "html": "What did they do in the part yesterday?"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": "99c26885-780d-4095-9320-6492c9f33c2e",
+          "name": {
+            "operations": [
+              {
+                "content": "went/ He/ cinema/ last night/ to/ parents/ with/ his",
+                "type": "text"
+              }
+            ],
+            "html": "went/ He/ cinema/ last night/ to/ parents/ with/ his"
+          },
+          "type": "rearrange",
+          "layout": "default",
+          "note": {
+            "operations": [],
+            "html": ""
+          },
+          "testSectionId": 3613,
+          "score": 0.5555555820465088,
+          "answers": [
+            {
+              "id": "26501501",
+              "content": {
+                "operations": [
+                  {
+                    "content": "He went to cinema with his parents last night",
+                    "type": "text"
+                  }
+                ],
+                "html": "He went to cinema with his parents last night"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": "91a73085-78f3-42ba-bfb6-dbdad699b159",
+          "name": {
+            "operations": [
+              {
+                "content": "Wednesday/ she/ book/ bought/ a/ at/ comic/ the bookshop/ last",
+                "type": "text"
+              }
+            ],
+            "html": "Wednesday/ she/ book/ bought/ a/ at/ comic/ the bookshop/ last"
+          },
+          "type": "rearrange",
+          "layout": "default",
+          "note": {
+            "operations": [],
+            "html": ""
+          },
+          "testSectionId": 3613,
+          "score": 0.5555555820465088,
+          "answers": [
+            {
+              "id": "27336073",
+              "content": {
+                "operations": [
+                  {
+                    "content": "She bought a comic book at the bookshop last Wednesday",
+                    "type": "text"
+                  }
+                ],
+                "html": "She bought a comic book at the bookshop last Wednesday"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": "40312b49-ff3b-460f-aa6a-21335fb8ea4c",
+          "name": {
+            "operations": [
+              {
+                "content": "Last/ festival/ had/ school/ sports/ my/ Friday",
+                "type": "text"
+              }
+            ],
+            "html": "Last/ festival/ had/ school/ sports/ my/ Friday"
+          },
+          "type": "rearrange",
+          "layout": "default",
+          "note": {
+            "operations": [],
+            "html": ""
+          },
+          "testSectionId": 3613,
+          "score": 0.5555555820465088,
+          "answers": [
+            {
+              "id": "13107611",
+              "content": {
+                "operations": [
+                  {
+                    "content": "My school had Sports Festival last Friday",
+                    "type": "text"
+                  }
+                ],
+                "html": "My school had Sports Festival last Friday"
+              },
+              "isCorrect": false
             }
           ]
         }
       ]
     }
-  }
+  ]
+}
