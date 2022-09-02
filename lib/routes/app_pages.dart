@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:test_app/features/exercises/presentation/di.dart';
+import 'package:test_app/features/test/presentation/bindings/test_doing_bindings.dart';
+import 'package:test_app/features/test/presentation/views/pages/test_doing_page.dart';
 import '../features/exercises/presentation/bindings/exercise_wrapper_page_bindings.dart';
 import '../first_screen.dart';
 import 'app_root_binding.dart';
@@ -39,6 +41,13 @@ class AppPages {
       transition: PageTransitionType.fade,
       page: () => ExerciseWrapperPage(),
       binding: ExerciseWrapperPageBindings(),
+    ),
+    //
+    AppPageRoute(
+      name: Routes.TEST_DOING,
+      transition: PageTransitionType.fade,
+      page: () => TestDoingPage(),
+      binding: TestDoingBindings(),
     ),
   ];
 }

@@ -1,6 +1,8 @@
 import 'package:test_app/features/exercises/domain/base_exercise_model.dart';
 import 'package:test_app/features/exercises/domain/file_attachment.dart';
 
+import '../../../../core/common/models/file_attachment/file_attachment.dart';
+
 // abstract class IChoicesExerciseData extends TextbookExerciseData {
 //   List<Questions>? questions;
 // }

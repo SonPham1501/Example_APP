@@ -1,0 +1,587 @@
+{
+    "id": 28,
+    "testId": 1186,
+    "title": "Bài tập true false + complete paragraph",
+    "totalQuestions": 13,
+    "duration": 15,
+    "createdAt": "2022-05-30T10:55:16.353574",
+    "grade": "sixthGrade",
+    "author": null,
+    "sections": [
+        {
+            "id": 3743,
+            "type": "trueFalse",
+            "extraData": "{\"type\": \"write\"}",
+            "words": null,
+            "name": {
+                "operations": [
+                    {
+                        "content": "Read the passage and decide if the statements are True (T) or False (F).",
+                        "type": "text",
+                        "attributes": null
+                    }
+                ]
+            },
+            "note": null,
+            "paragraph": {
+                "operations": [
+                    {
+                        "content": "Miss Lien lives in a small house in Hanoi. She teaches English at a school there. She usually has breakfast at seven in the morning and she has lunch at twelve o'clock in the canteen of the school. She teaches her students in the morning. She teaches them dialogues on Wednesdays and Fridays. On Mondays, she teaches them grammar. In the evening, she usually stays at home and listens to music. She sometimes goes to the movie theatre. She always goes to bed at ten o'clock.",
+                        "type": "text",
+                        "attributes": null
+                    }
+                ]
+            },
+            "images": null,
+            "audios": null,
+            "questions": [
+                {
+                    "id": "749adec3-4ed6-46d2-8d92-62a4ca624fb2",
+                    "name": {
+                        "operations": [
+                            {
+                                "content": "Miss Lien lives in a big house and teaches English at a school in Hanoi.",
+                                "type": "text",
+                                "attributes": null
+                            }
+                        ]
+                    },
+                    "extraData": null,
+                    "type": "trueFalse",
+                    "note": {
+                        "operations": []
+                    },
+                    "testSectionId": 3743,
+                    "images": null,
+                    "audios": null,
+                    "answers": [
+                        {
+                            "id": "07542323",
+                            "content": {
+                                "operations": [
+                                    {
+                                        "content": "True",
+                                        "type": "text",
+                                        "attributes": null
+                                    }
+                                ]
+                            },
+                            "detail": null,
+                            "isCorrect": false,
+                            "hint": null
+                        },
+                        {
+                            "id": "54337201",
+                            "content": {
+                                "operations": [
+                                    {
+                                        "content": "False",
+                                        "type": "text",
+                                        "attributes": null
+                                    }
+                                ]
+                            },
+                            "detail": null,
+                            "isCorrect": true,
+                            "hint": null
+                        }
+                    ]
+                },
+                {
+                    "id": "7d282077-1849-462c-ac39-c9cb50f3c639",
+                    "name": {
+                        "operations": [
+                            {
+                                "content": "She usually has breakfast at 7.30 in the morning and has lunch at home at 12 o'clock.",
+                                "type": "text",
+                                "attributes": null
+                            }
+                        ]
+                    },
+                    "extraData": null,
+                    "type": "trueFalse",
+                    "note": {
+                        "operations": []
+                    },
+                    "testSectionId": 3743,
+                    "images": null,
+                    "audios": null,
+                    "answers": [
+                        {
+                            "id": "51160025",
+                            "content": {
+                                "operations": [
+                                    {
+                                        "content": "True",
+                                        "type": "text",
+                                        "attributes": null
+                                    }
+                                ]
+                            },
+                            "detail": null,
+                            "isCorrect": false,
+                            "hint": null
+                        },
+                        {
+                            "id": "32502152",
+                            "content": {
+                                "operations": [
+                                    {
+                                        "content": "False",
+                                        "type": "text",
+                                        "attributes": null
+                                    }
+                                ]
+                            },
+                            "detail": null,
+                            "isCorrect": true,
+                            "hint": null
+                        }
+                    ]
+                },
+                {
+                    "id": "7e09571b-a8b5-4d1a-a8e4-f19057e40c42",
+                    "name": {
+                        "operations": [
+                            {
+                                "content": "She teaches her students dialogues on Mondays, Wednesdays and Fridays.",
+                                "type": "text",
+                                "attributes": null
+                            }
+                        ]
+                    },
+                    "extraData": null,
+                    "type": "trueFalse",
+                    "note": {
+                        "operations": []
+                    },
+                    "testSectionId": 3743,
+                    "images": null,
+                    "audios": null,
+                    "answers": [
+                        {
+                            "id": "60520215",
+                            "content": {
+                                "operations": [
+                                    {
+                                        "content": "True",
+                                        "type": "text",
+                                        "attributes": null
+                                    }
+                                ]
+                            },
+                            "detail": null,
+                            "isCorrect": false,
+                            "hint": null
+                        },
+                        {
+                            "id": "23117205",
+                            "content": {
+                                "operations": [
+                                    {
+                                        "content": "False",
+                                        "type": "text",
+                                        "attributes": null
+                                    }
+                                ]
+                            },
+                            "detail": null,
+                            "isCorrect": true,
+                            "hint": null
+                        }
+                    ]
+                },
+                {
+                    "id": "531d0fba-3dae-4210-8c94-452b438b093f",
+                    "name": {
+                        "operations": [
+                            {
+                                "content": "She usually stays at home in the evening and goes to bed at 9.",
+                                "type": "text",
+                                "attributes": null
+                            }
+                        ]
+                    },
+                    "extraData": null,
+                    "type": "trueFalse",
+                    "note": {
+                        "operations": []
+                    },
+                    "testSectionId": 3743,
+                    "images": null,
+                    "audios": null,
+                    "answers": [
+                        {
+                            "id": "67726725",
+                            "content": {
+                                "operations": [
+                                    {
+                                        "content": "True",
+                                        "type": "text",
+                                        "attributes": null
+                                    }
+                                ]
+                            },
+                            "detail": null,
+                            "isCorrect": false,
+                            "hint": null
+                        },
+                        {
+                            "id": "01350274",
+                            "content": {
+                                "operations": [
+                                    {
+                                        "content": "False",
+                                        "type": "text",
+                                        "attributes": null
+                                    }
+                                ]
+                            },
+                            "detail": null,
+                            "isCorrect": true,
+                            "hint": null
+                        }
+                    ]
+                },
+                {
+                    "id": "90b119ad-cd40-4bf5-9031-30f99a575a99",
+                    "name": {
+                        "operations": [
+                            {
+                                "content": "Sometimes she goes to the movie theatre.",
+                                "type": "text",
+                                "attributes": null
+                            }
+                        ]
+                    },
+                    "extraData": null,
+                    "type": "trueFalse",
+                    "note": {
+                        "operations": []
+                    },
+                    "testSectionId": 3743,
+                    "images": null,
+                    "audios": null,
+                    "answers": [
+                        {
+                            "id": "52673356",
+                            "content": {
+                                "operations": [
+                                    {
+                                        "content": "True",
+                                        "type": "text",
+                                        "attributes": null
+                                    }
+                                ]
+                            },
+                            "detail": null,
+                            "isCorrect": true,
+                            "hint": null
+                        },
+                        {
+                            "id": "20241454",
+                            "content": {
+                                "operations": [
+                                    {
+                                        "content": "False",
+                                        "type": "text",
+                                        "attributes": null
+                                    }
+                                ]
+                            },
+                            "detail": null,
+                            "isCorrect": false,
+                            "hint": null
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 3744,
+            "type": "completeParagraph",
+            "extraData": "{\"type\": \"selections\"}",
+            "words": [
+                "student",
+                "old",
+                "thin",
+                "thick",
+                "short",
+                "walks",
+                "plays",
+                "gets"
+            ],
+            "name": {
+                "operations": [
+                    {
+                        "content": "Chọn đáp án chính xác",
+                        "type": "text",
+                        "attributes": null
+                    }
+                ]
+            },
+            "note": null,
+            "paragraph": {
+                "operations": [
+                    {
+                        "content": "Hoang is a (1) ________ He’s twelve years (2) ________ He’s tall and (3) ________ His face is (4) ________ and his hair is (5) ________ and black. He (6) ________ at school in the morning and (7) ________ football in the afternoon. He (8) ________ good marks in class.",
+                        "type": "text",
+                        "attributes": null
+                    }
+                ]
+            },
+            "images": null,
+            "audios": null,
+            "questions": [
+                {
+                    "id": "ef8b9170-887a-434c-9662-eac3017896ea",
+                    "name": {
+                        "operations": []
+                    },
+                    "extraData": null,
+                    "type": "completeParagraph",
+                    "note": {
+                        "operations": []
+                    },
+                    "testSectionId": 3744,
+                    "images": null,
+                    "audios": null,
+                    "answers": [
+                        {
+                            "id": "54436321",
+                            "content": {
+                                "operations": [
+                                    {
+                                        "content": "student",
+                                        "type": "text",
+                                        "attributes": null
+                                    }
+                                ]
+                            },
+                            "detail": null,
+                            "isCorrect": true,
+                            "hint": null
+                        }
+                    ]
+                },
+                {
+                    "id": "539f9096-8748-4222-bbf6-ad70b437d0c6",
+                    "name": {
+                        "operations": []
+                    },
+                    "extraData": null,
+                    "type": "completeParagraph",
+                    "note": {
+                        "operations": []
+                    },
+                    "testSectionId": 3744,
+                    "images": null,
+                    "audios": null,
+                    "answers": [
+                        {
+                            "id": "76540657",
+                            "content": {
+                                "operations": [
+                                    {
+                                        "content": "old",
+                                        "type": "text",
+                                        "attributes": null
+                                    }
+                                ]
+                            },
+                            "detail": null,
+                            "isCorrect": true,
+                            "hint": null
+                        }
+                    ]
+                },
+                {
+                    "id": "3d0d3b76-c5e6-4a9c-9c74-64da854a30c2",
+                    "name": {
+                        "operations": []
+                    },
+                    "extraData": null,
+                    "type": "completeParagraph",
+                    "note": {
+                        "operations": []
+                    },
+                    "testSectionId": 3744,
+                    "images": null,
+                    "audios": null,
+                    "answers": [
+                        {
+                            "id": "36636016",
+                            "content": {
+                                "operations": [
+                                    {
+                                        "content": "thin",
+                                        "type": "text",
+                                        "attributes": null
+                                    }
+                                ]
+                            },
+                            "detail": null,
+                            "isCorrect": true,
+                            "hint": null
+                        }
+                    ]
+                },
+                {
+                    "id": "f3464dc6-19e1-458c-baff-928d6f0c4008",
+                    "name": {
+                        "operations": []
+                    },
+                    "extraData": null,
+                    "type": "completeParagraph",
+                    "note": {
+                        "operations": []
+                    },
+                    "testSectionId": 3744,
+                    "images": null,
+                    "audios": null,
+                    "answers": [
+                        {
+                            "id": "66243767",
+                            "content": {
+                                "operations": [
+                                    {
+                                        "content": "thick",
+                                        "type": "text",
+                                        "attributes": null
+                                    }
+                                ]
+                            },
+                            "detail": null,
+                            "isCorrect": true,
+                            "hint": null
+                        }
+                    ]
+                },
+                {
+                    "id": "2208b924-544f-4f07-82d1-29a3c0d50a7a",
+                    "name": {
+                        "operations": []
+                    },
+                    "extraData": null,
+                    "type": "completeParagraph",
+                    "note": {
+                        "operations": []
+                    },
+                    "testSectionId": 3744,
+                    "images": null,
+                    "audios": null,
+                    "answers": [
+                        {
+                            "id": "24125126",
+                            "content": {
+                                "operations": [
+                                    {
+                                        "content": "short",
+                                        "type": "text",
+                                        "attributes": null
+                                    }
+                                ]
+                            },
+                            "detail": null,
+                            "isCorrect": true,
+                            "hint": null
+                        }
+                    ]
+                },
+                {
+                    "id": "9780118c-d34a-4b5a-ab7a-51d72ae616d2",
+                    "name": {
+                        "operations": []
+                    },
+                    "extraData": null,
+                    "type": "completeParagraph",
+                    "note": {
+                        "operations": []
+                    },
+                    "testSectionId": 3744,
+                    "images": null,
+                    "audios": null,
+                    "answers": [
+                        {
+                            "id": "41031224",
+                            "content": {
+                                "operations": [
+                                    {
+                                        "content": "walks",
+                                        "type": "text",
+                                        "attributes": null
+                                    }
+                                ]
+                            },
+                            "detail": null,
+                            "isCorrect": true,
+                            "hint": null
+                        }
+                    ]
+                },
+                {
+                    "id": "8574c1ea-ab5c-4f69-8420-ef482c2d8fca",
+                    "name": {
+                        "operations": []
+                    },
+                    "extraData": null,
+                    "type": "completeParagraph",
+                    "note": {
+                        "operations": []
+                    },
+                    "testSectionId": 3744,
+                    "images": null,
+                    "audios": null,
+                    "answers": [
+                        {
+                            "id": "24352306",
+                            "content": {
+                                "operations": [
+                                    {
+                                        "content": "plays",
+                                        "type": "text",
+                                        "attributes": null
+                                    }
+                                ]
+                            },
+                            "detail": null,
+                            "isCorrect": true,
+                            "hint": null
+                        }
+                    ]
+                },
+                {
+                    "id": "9e5c3148-ae48-487a-aa29-da165438726b",
+                    "name": {
+                        "operations": []
+                    },
+                    "extraData": null,
+                    "type": "completeParagraph",
+                    "note": {
+                        "operations": []
+                    },
+                    "testSectionId": 3744,
+                    "images": null,
+                    "audios": null,
+                    "answers": [
+                        {
+                            "id": "70621043",
+                            "content": {
+                                "operations": [
+                                    {
+                                        "content": "gets",
+                                        "type": "text",
+                                        "attributes": null
+                                    }
+                                ]
+                            },
+                            "detail": null,
+                            "isCorrect": true,
+                            "hint": null
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

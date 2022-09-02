@@ -1,0 +1,349 @@
+{
+    "id": 157,
+    "testId": 141,
+    "testVersion": 10,
+    "testType": "test",
+    "title": "Bài tập input & write",
+    "duration": 15,
+    "grade": "sixthGrade",
+    "totalQuestions": 9,
+    "systemRewardPoint": 300,
+    "createdAt": "2022-09-01T22:58:22.991409",
+    "sections": [
+      {
+        "id": 180,
+        "extraData": "{\"type\": \"write\"}",
+        "type": "input",
+        "name": {
+          "operations": [
+            {
+              "content": "Fill the blank",
+              "type": "text"
+            }
+          ],
+          "html": "<p>Fill the blank</p>"
+        },
+        "totalScore": 5,
+        "questions": [
+          {
+            "id": "46affa17-4a37-4587-a018-09c3ea749f62",
+            "extraData": "{\"type\": \"write\"}",
+            "name": {
+              "operations": [
+                {
+                  "content": "China is the most ___________country in the world with more than 1,4 billion people.(population)",
+                  "type": "text"
+                }
+              ],
+              "html": "<p>China is the most ___________country in the world with more than 1,4 billion people.(population)</p>"
+            },
+            "type": "input",
+            "layout": "default",
+            "testSectionId": 180,
+            "score": 1.1111111640930176,
+            "answers": [
+              {
+                "id": "57243412",
+                "content": {
+                  "operations": [
+                    {
+                      "content": "populated",
+                      "type": "text"
+                    }
+                  ],
+                  "html": "populated"
+                },
+                "isCorrect": false
+              }
+            ]
+          },
+          {
+            "id": "a88516b8-4507-4c7a-823e-1d689f13d6e5",
+            "extraData": "{\"type\": \"write\"}",
+            "name": {
+              "operations": [
+                {
+                  "content": "According to World Air Quality, China is ___________more than Vietnam. (pollution)",
+                  "type": "text"
+                }
+              ],
+              "html": "According to World Air Quality, China is ___________more than Vietnam. (pollution)"
+            },
+            "type": "input",
+            "layout": "default",
+            "testSectionId": 180,
+            "score": 1.1111111640930176,
+            "answers": [
+              {
+                "id": "01611743",
+                "content": {
+                  "operations": [
+                    {
+                      "content": "polluted",
+                      "type": "text"
+                    }
+                  ],
+                  "html": "polluted"
+                },
+                "isCorrect": false
+              }
+            ]
+          },
+          {
+            "id": "67f4284e-b683-4408-a34e-566cd445b449",
+            "extraData": "{\"type\": \"write\"}",
+            "name": {
+              "operations": [
+                {
+                  "content": "The downtown area of Shanghai is always ___________with hundreds of people, visitors, cars, buses and taxis. (crowd)",
+                  "type": "text"
+                }
+              ],
+              "html": "The downtown area of Shanghai is always ___________with hundreds of people, visitors, cars, buses and taxis. (crowd)"
+            },
+            "type": "input",
+            "layout": "default",
+            "testSectionId": 180,
+            "score": 1.1111111640930176,
+            "answers": [
+              {
+                "id": "74574365",
+                "content": {
+                  "operations": [
+                    {
+                      "content": "crowded",
+                      "type": "text"
+                    }
+                  ],
+                  "html": "crowded"
+                },
+                "isCorrect": false
+              }
+            ]
+          },
+          {
+            "id": "cf85702b-e7f2-4480-80e3-7a5a028c327d",
+            "extraData": "{\"type\": \"write\"}",
+            "name": {
+              "operations": [
+                {
+                  "content": "Living in the countryside is more ___________than in big cities. (peace)",
+                  "type": "text"
+                }
+              ],
+              "html": "Living in the countryside is more ___________than in big cities. (peace)"
+            },
+            "type": "input",
+            "layout": "default",
+            "testSectionId": 180,
+            "score": 1.1111111640930176,
+            "answers": [
+              {
+                "id": "66745223",
+                "content": {
+                  "operations": [
+                    {
+                      "content": "peaceful",
+                      "type": "text"
+                    }
+                  ],
+                  "html": "peaceful"
+                },
+                "isCorrect": false
+              }
+            ]
+          },
+          {
+            "id": "decf4efa-0529-429c-8dd8-4dbfefafe46f",
+            "extraData": "{\"type\": \"write\"}",
+            "name": {
+              "operations": [
+                {
+                  "content": "Beijing, the capital of China, is an interesting city; it has the most popular tourist attractions and the ___________restaurants and cafes in the country. (good)",
+                  "type": "text"
+                }
+              ],
+              "html": "Beijing, the capital of China, is an interesting city; it has the most popular tourist attractions and the ___________restaurants and cafes in the country. (good)"
+            },
+            "type": "input",
+            "layout": "default",
+            "testSectionId": 180,
+            "score": 1.1111111640930176,
+            "answers": [
+              {
+                "id": "67102266",
+                "content": {
+                  "operations": [
+                    {
+                      "content": "best",
+                      "type": "text"
+                    }
+                  ],
+                  "html": "best"
+                },
+                "isCorrect": false
+              }
+            ]
+          },
+          {
+            "id": "85254c52-6365-4199-8c01-c01e656df47c",
+            "extraData": "{\"type\": \"write\"}",
+            "name": {
+              "operations": [
+                {
+                  "content": "It’s___________to live in big cities than in the countryside. (noise)",
+                  "type": "text"
+                }
+              ],
+              "html": "It’s___________to live in big cities than in the countryside. (noise)"
+            },
+            "type": "input",
+            "layout": "default",
+            "testSectionId": 180,
+            "score": 1.1111111640930176,
+            "answers": [
+              {
+                "id": "14245406",
+                "content": {
+                  "operations": [
+                    {
+                      "content": "noisier",
+                      "type": "text"
+                    }
+                  ],
+                  "html": "noisier"
+                },
+                "isCorrect": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 181,
+        "extraData": "{\"hasHint\": false, \"answerFirst\": false}",
+        "type": "write",
+        "name": {
+          "operations": [
+            {
+              "content": "Rewrite the following sentences without changing the meaning.",
+              "type": "text"
+            }
+          ],
+          "html": "<p>Rewrite the following sentences without changing the meaning.</p>"
+        },
+        "totalScore": 5,
+        "questions": [
+          {
+            "id": "52427d1c-ea26-4ca9-80a3-220586d31d43",
+            "extraData": "{}",
+            "name": {
+              "operations": [
+                {
+                  "content": "We need to bring flash lights to see at night.",
+                  "type": "text"
+                }
+              ],
+              "html": "<p>We need to bring flash lights to see at night.</p>"
+            },
+            "type": "write",
+            "layout": "default",
+            "testSectionId": 181,
+            "score": 1.1111111640930176,
+            "answers": [
+              {
+                "id": "52052335",
+                "content": {
+                  "operations": [
+                    {
+                      "content": "We need to bring flash lights so we see at night.",
+                      "type": "text"
+                    }
+                  ],
+                  "html": "We need to bring flash lights so we see at night."
+                },
+                "isCorrect": false
+              },
+              {
+                "id": "63575216",
+                "content": {
+                  "operations": [
+                    {
+                      "content": "we can see at night.",
+                      "type": "text"
+                    }
+                  ],
+                  "html": "we can see at night."
+                },
+                "isCorrect": false
+              }
+            ]
+          },
+          {
+            "id": "48cab2b6-f2bd-4422-83eb-d86ca3577249",
+            "extraData": "{}",
+            "name": {
+              "operations": [
+                {
+                  "content": "It’s not a good idea to go diving along because it’s quite dangerous.",
+                  "type": "text"
+                }
+              ],
+              "html": "<p>It’s not a good idea to go diving along because it’s quite dangerous.</p>"
+            },
+            "type": "write",
+            "layout": "default",
+            "testSectionId": 181,
+            "score": 1.1111111640930176,
+            "answers": [
+              {
+                "id": "04512542",
+                "content": {
+                  "operations": [
+                    {
+                      "content": "You shouldn’t go diving alone because it’s quite dangerous.",
+                      "type": "text"
+                    }
+                  ],
+                  "html": "You shouldn’t go diving alone because it’s quite dangerous."
+                },
+                "isCorrect": false
+              }
+            ]
+          },
+          {
+            "id": "b34dc77f-8f34-4729-a4ea-c031346e0ba0",
+            "extraData": "{}",
+            "name": {
+              "operations": [
+                {
+                  "content": "It’s a good idea to have a guidebook before you visit a city.",
+                  "type": "text"
+                }
+              ],
+              "html": "<p>It’s a good idea to have a guidebook before you visit a city.</p>"
+            },
+            "type": "write",
+            "layout": "default",
+            "testSectionId": 181,
+            "score": 1.1111111640930176,
+            "answers": [
+              {
+                "id": "32323000",
+                "content": {
+                  "operations": [
+                    {
+                      "content": "You should have a guidebook before you visit a city.",
+                      "type": "text"
+                    }
+                  ],
+                  "html": "You should have a guidebook before you visit a city."
+                },
+                "isCorrect": false
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }

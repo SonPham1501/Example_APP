@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:test_app/features/exercises/domain/extra_content.dart';
 import 'package:test_app/features/exercises/domain/section_types/choices.dart';
+import '../../../core/common/models/file_attachment/file_attachment.dart';
 import 'enums/exercise_type_enum.dart';
 import 'file_attachment.dart';
 import './enums/exercise_type_enum.dart';
