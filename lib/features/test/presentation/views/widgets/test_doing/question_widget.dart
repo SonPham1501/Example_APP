@@ -31,6 +31,7 @@ class QuestionWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: 20,
+        vertical: 12,
       ),
       child: Column(
         //mainAxisSize: MainAxisSize.max,
@@ -51,13 +52,13 @@ class QuestionWidget extends StatelessWidget {
               },
             ),
             const SizedBox(
-              height: 16,
+              height: 12,
             ),
           ] else if (_question.type == TestQuestionTypeEnum.Choices) ...[
-            const Divider(
-              color: AppColors.text400,
-              height: 48,
-            ),
+            // const Divider(
+            //   color: AppColors.text400,
+            //   height: 48,
+            // ),
             BaseStreamWidget<Map<String, List<String>>>(
               stream: controller.userSelects.stream,
               builder: (context, selections) {
@@ -72,10 +73,10 @@ class QuestionWidget extends StatelessWidget {
               },
             ),
           ] else if (_question.type == TestQuestionTypeEnum.TrueFalse) ...[
-            const Divider(
-              color: AppColors.text400,
-              height: 48,
-            ),
+            // const Divider(
+            //   color: AppColors.text400,
+            //   height: 48,
+            // ),
             BaseStreamWidget<Map<String, List<String>>>(
               stream: controller.userSelects.stream,
               builder: (context, selections) {
@@ -90,7 +91,8 @@ class QuestionWidget extends StatelessWidget {
                   ],
                 );
               },
-            )
+            ),
+            const SizedBox(height: 12),
           ] else if (_question.type == TestQuestionTypeEnum.Write) ...[
             BaseStreamWidget<Map<String, List<String>>>(
               stream: controller.userSelects.stream,

@@ -56,6 +56,7 @@ class TestButtonShape extends StatelessWidget {
         title,
         style: AppTextStyle.w500(
           color: selected ? AppColors.primary : AppColors.text900,
+          fontSize: DefaultTextStyle.of(context).style.fontSize,
         ),
       ),
     );

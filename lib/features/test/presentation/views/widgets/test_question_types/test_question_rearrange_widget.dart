@@ -90,8 +90,10 @@ class _TestQuestionRearrangeWidgetState
               Text(
                 "Câu ${widget.questionIndex + 1}",
                 style: AppTextStyle.w700(
+                  color: AppColors.primary,
+                  fontFamily: 'Roboto',
+                  lineHeight: 1.5,
                   fontSize: DefaultTextStyle.of(context).style.fontSize,
-                  color: AppColors.text900,
                 ),
               ),
               const SizedBox(

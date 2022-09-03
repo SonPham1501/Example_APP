@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_countdown_timer/countdown_controller.dart';
 import '../../../../core/base_state/base_bloc.dart';
 import '../../../../core/base_state/rx_state.dart';
@@ -21,23 +22,10 @@ class TestDoingPageController extends BaseBloc<TestArchivedType> {
   final _currentIndex = RxState<int>(0);
 
   RxValue<int> get currentIndex => _currentIndex.value;
-  // final _currentSlideQuestion = new RxState<TestQuestionSlideModel?>(null);
-
-  // RxValue<TestQuestionSlideModel?> get currentSlideQuestion =>
-  //     _currentSlideQuestion.value;
 
   final TestArchivedType test;
 
-  final PageController pageController = PageController();
-  bool get isLastSlide => currentIndex.value == test.sections.length - 1;
-
-  bool get isFirstSlide => currentIndex.value == 0;
-
-  List<TestQuestionSlideModel> _testSlideData = [];
-
-  List<TestQuestionSlideModel> get testSlideData => _testSlideData;
-
-  final _userSelects = RxState<Map<String, List<String>>>(new Map());
+  final _userSelects = RxState<Map<String, List<String>>>({});
 
   RxValue<Map<String, List<String>>> get userSelects => _userSelects.value;
 
@@ -53,6 +41,7 @@ class TestDoingPageController extends BaseBloc<TestArchivedType> {
 
   @override
   void onInit() {
+    // tabController = TabController(length: test.sections.length, vsync: this);
     init();
     super.onInit();
     //loadTest();
@@ -67,13 +56,13 @@ class TestDoingPageController extends BaseBloc<TestArchivedType> {
     _userSelects.close();
     _totalAnswered.close();
     // _currentSlideQuestion.close();
-    pageController.dispose();
+    //pageController.dispose();
     super.dispose();
   }
 
   void init() async {
     _initUserSelections(test);
-    _initSlideModels(test);
+    //_initSlideModels(test);
     final _duration = test.duration * 60;
     countDownController = CountdownController(
       duration: Duration(seconds: _duration),
@@ -148,14 +137,14 @@ class TestDoingPageController extends BaseBloc<TestArchivedType> {
   }
 
   void selectIndex(TestQuestionSlideModel val) {
-    final slideIndex = testSlideData.indexOf(val);
+    //final slideIndex = testSlideData.indexOf(val);
     if (expanded.value) _expanded.emit(false);
 
-    pageController.animateToPage(
-      slideIndex,
-      curve: Curves.linear,
-      duration: const Duration(milliseconds: 500),
-    );
+    // pageController.animateToPage(
+    //   slideIndex,
+    //   curve: Curves.linear,
+    //   duration: const Duration(milliseconds: 500),
+    // );
   }
 
   void onSlideChanged(int index) {
@@ -165,18 +154,18 @@ class TestDoingPageController extends BaseBloc<TestArchivedType> {
   void nextSlide() {
     //if (!isLastSlide)
 
-    pageController.nextPage(
-      curve: Curves.linear,
-      duration: const Duration(milliseconds: 300),
-    );
+    // pageController.nextPage(
+    //   curve: Curves.linear,
+    //   duration: const Duration(milliseconds: 300),
+    // );
   }
 
   void previousSlide() {
     // if (!isFirstSlide)
-    pageController.previousPage(
-      curve: Curves.linear,
-      duration: const Duration(milliseconds: 300),
-    );
+    // pageController.previousPage(
+    //   curve: Curves.linear,
+    //   duration: const Duration(milliseconds: 300),
+    // );
   }
 
   void pauseCountDown() {}
@@ -203,44 +192,40 @@ class TestDoingPageController extends BaseBloc<TestArchivedType> {
     _userSelects.emit(tmp);
     _totalAnswered.emit(userSelects.value.values
         .toList()
-        .where((element) => element.where((e) => e.length > 0).length > 0)
+        .where((element) => element.where((e) => e.isNotEmpty).isNotEmpty)
         .length);
   }
 
   void answering(String questionId, List<String> val) {
-    if (val.length == 0) {
+    if (val.isEmpty) {
       userSelects.value.update(questionId, (value) => val);
-    } else
+    } else {
       userSelects.value.update(questionId, (value) => val);
+    }
 
     _userSelects.emit(userSelects.value);
 
-    _totalAnswered.emit(this
-        .userSelects
-        .value
-        .values
+    _totalAnswered.emit(userSelects.value.values
         .toList()
-        .where((element) => element.where((e) => e.length > 0).length > 0)
+        .where((element) => element.where((e) => e.isNotEmpty).isNotEmpty)
         .length);
   }
 
   void onMatchAnswering(String questionId, String? val) {
-    if ((val == null) || (val.length == 0)) {
+    if ((val == null) || (val.isEmpty)) {
       userSelects.value.update(questionId, (value) => []);
-    } else
+    } else {
       userSelects.value.update(questionId, (value) => [val]);
+    }
 
-    _totalAnswered.emit(this
-        .userSelects
-        .value
-        .values
+    _totalAnswered.emit(userSelects.value.values
         .toList()
-        .where((element) => element.length > 0)
+        .where((element) => element.isNotEmpty)
         .length);
   }
 
   _initUserSelections(TestArchivedType t) {
-    Map<String, List<String>> tmp = new Map();
+    Map<String, List<String>> tmp = Map();
     for (var i = 0; i < t.sections.length; i++) {
       var s = t.sections[i];
       for (var j = 0; j < s.questions.length; j++) {
@@ -251,37 +236,35 @@ class TestDoingPageController extends BaseBloc<TestArchivedType> {
     _userSelects.emit(tmp);
   }
 
-  _initSlideModels(TestArchivedType t) {
-    for (var i = 0; i < t.sections.length; i++) {
-      var s = t.sections[i];
-      // expandableControllers
-      //     .add(new ExpandableController(initialExpanded: true));
-      if (s.type == TestQuestionTypeEnum.Match) {
-        _testSlideData.add(
-          TestQuestionSlideModel(
-            sectionIndex: i,
-            questionIndex: 0,
-            section: s,
-            question: s.questions.first,
-          ),
-        );
-      } else {
-        for (var j = 0; j < s.questions.length; j++) {
-          var q = s.questions[j];
-          _testSlideData.add(
-            TestQuestionSlideModel(
-              sectionIndex: i,
-              questionIndex: j,
-              question: q,
-            ),
-          );
-        }
-      }
-    }
-    // if (testSlideData.length > 0) {
-    //   _currentSlideQuestion.emit(testSlideData[0]);
-    // }
-  }
+  // _initSlideModels(TestArchivedType t) {
+  //   for (var i = 0; i < t.sections.length; i++) {
+  //     var s = t.sections[i];
+  //     // expandableControllers
+  //     //     .add(new ExpandableController(initialExpanded: true));
+  //     if (s.type == TestQuestionTypeEnum.Match) {
+  //       _testSlideData.add(
+  //         TestQuestionSlideModel(
+  //           sectionIndex: i,
+  //           questionIndex: 0,
+  //           section: s,
+  //           question: s.questions.first,
+  //         ),
+  //       );
+  //     } else {
+  //       for (var j = 0; j < s.questions.length; j++) {
+  //         var q = s.questions[j];
+  //         _testSlideData.add(
+  //           TestQuestionSlideModel(
+  //             sectionIndex: i,
+  //             questionIndex: j,
+  //             question: q,
+  //           ),
+  //         );
+  //       }
+  //     }
+  //   }
+  // }
+
 }
 
 class TestQuestionSlideModel {
