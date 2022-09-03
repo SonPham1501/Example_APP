@@ -5,9 +5,11 @@ import '../../../../../../core/config/palette.dart';
 import '../../../../domain/models/test/quill_content/quill_content.dart';
 import '../../../../domain/models/test/test_type/test_type.dart';
 
+typedef ParagraphInputChanged<T> = void Function(int index, T value);
+
 class TestQuestionCompleteParagraphWidget extends StatelessWidget {
   final TestSectionType section;
-  final ValueChanged<List<String>> onAnswering;
+  final ParagraphInputChanged<String> onAnswering;
   final List<String> answered;
   TestQuestionCompleteParagraphWidget({
     Key? key,
@@ -28,7 +30,7 @@ class TestQuestionCompleteParagraphWidget extends StatelessWidget {
 
 class _InputLineWidget extends StatelessWidget {
   final TestSectionType section;
-  final ValueChanged<List<String>> onAnswering;
+  final ParagraphInputChanged<String> onAnswering;
   final List<String> answered;
   _InputLineWidget({
     Key? key,
@@ -41,15 +43,20 @@ class _InputLineWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Builder(builder: (context) {
       final operators = _getOperators(getPlainText(section.paragraph));
-      int totalInputs =
-          operators.where((element) => element.type == 'input').length;
+      final _inputs =
+          operators.where((element) => element.type == 'input').toList();
       List<String> _answered = [];
-      if (answered.length != totalInputs) {
-        _answered = List.filled(totalInputs, '');
-        onAnswering(_answered);
+
+      if (answered.length != _inputs.length) {
+        for (var i = 0; i < _inputs.length; i++) {
+          _answered.add('');
+          onAnswering(_inputs[i].index ?? 0, '');
+        }
       } else {
         _answered = [...answered];
       }
+      // int totalInputs =
+      //     operators.where((element) => element.type == 'input').length;
 
       // Xlogger.d(operators);
       return RichText(
@@ -67,8 +74,10 @@ class _InputLineWidget extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.only(left: 2, right: 2),
                     child: _TextFieldWidget(
-                      onAnswering: (value) => onAnswering(_onUpdateAnswer(
-                          _answered, value, operators[index].index ?? 0)),
+                      onAnswering: (value) => onAnswering(
+                        operators[index].index ?? 0,
+                        value,
+                      ),
                       answered: _answered[operators[index].index ?? 0],
                     ),
                   ),
@@ -83,10 +92,10 @@ class _InputLineWidget extends StatelessWidget {
     });
   }
 
-  _onUpdateAnswer(List<String> answers, String value, int index) {
-    answers[index] = value;
-    return answers;
-  }
+  // _onUpdateAnswer(List<String> answers, String value, int index) {
+  //   answers[index] = value;
+  //   return answers;
+  // }
 
   getPlainText(QuillContent? value) {
     if (value == null) return "";
@@ -176,18 +185,22 @@ class __TextFieldWidgetState extends State<_TextFieldWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      controller: _textController,
-      enableSuggestions: false,
-      onChanged: this.widget.onAnswering,
-      style: AppTextStyle.w600(
-        fontSize: DefaultTextStyle.of(context).style.fontSize,
-        color: AppColors.primary,
-      ),
-      decoration: InputDecoration(
-        contentPadding: EdgeInsets.zero,
-        isDense: true,
-        constraints: BoxConstraints(maxWidth: 140, minWidth: 80),
+    return ConstrainedBox(
+      constraints: const BoxConstraints(minWidth: 48),
+      child: IntrinsicWidth(
+        child: TextField(
+          controller: _textController,
+          enableSuggestions: false,
+          onChanged: widget.onAnswering,
+          style: AppTextStyle.w600(
+            fontSize: DefaultTextStyle.of(context).style.fontSize,
+            color: AppColors.primary,
+          ),
+          decoration: const InputDecoration(
+            contentPadding: EdgeInsets.zero,
+            isDense: true,
+          ),
+        ),
       ),
     );
   }

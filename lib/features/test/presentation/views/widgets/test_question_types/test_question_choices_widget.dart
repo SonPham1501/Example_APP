@@ -42,7 +42,7 @@ class TestQuestionChoicesWidget extends BaseTestQuestionWidget {
             ),
           ),
           const SizedBox(
-            height: 12,
+            height: 16,
           ),
         ] else ...[
           Text(
@@ -53,7 +53,7 @@ class TestQuestionChoicesWidget extends BaseTestQuestionWidget {
             ),
           ),
           const SizedBox(
-            height: 12,
+            height: 16,
           ),
         ],
         ListView.separated(
@@ -92,20 +92,20 @@ class ChoiceAnswerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
-      duration: const Duration(milliseconds: 300),
-      padding: const EdgeInsets.all(16),
+      duration: const Duration(milliseconds: 100),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       decoration: BoxDecoration(
-        color: selected ? Color(0xffF1F3FF) : Color(0xffF8F7FA),
+        color: selected ? const Color(0xffF1F3FF) : const Color(0xffF8F7FA),
         borderRadius: BorderRadius.circular(10),
         border: Border.all(
-          color: selected ? AppColors.primary : AppColors.border,
+          color: selected ? AppColors.primary : Colors.transparent,
           width: 1,
         ),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
-            color: Color(0xff112A50).withOpacity(.01),
-            spreadRadius: 10,
-            blurRadius: 4,
+            color: Color.fromRGBO(0, 0, 0, 0.05),
+            spreadRadius: 1,
+            blurRadius: 0,
             offset: Offset(0, 0),
           ),
         ],
@@ -117,7 +117,7 @@ class ChoiceAnswerWidget extends StatelessWidget {
         children: [
           CircleCharacterWidget(
             text: getLabelFromIndex(index),
-            border: Border.all(color: Color(0xffD7D6DB)),
+            border: Border.all(color: const Color(0xffD7D6DB)),
             titleTextStyle: TextStyle(
               color: selected ? Colors.white : Colors.black,
               fontWeight: FontWeight.w700,
@@ -128,7 +128,7 @@ class ChoiceAnswerWidget extends StatelessWidget {
             backgroundColor: selected ? AppColors.primary : Colors.transparent,
           ),
           const SizedBox(
-            width: 16,
+            width: 12,
           ),
           QuillContentWidget(
             answer.content?.operations ?? [],
@@ -136,7 +136,7 @@ class ChoiceAnswerWidget extends StatelessWidget {
             fontSize: DefaultTextStyle.of(context).style.fontSize,
             //fontWeight: FontWeight.w400,
           ),
-          if ((answer.images ?? []).length > 0) ...[
+          if ((answer.images ?? []).isNotEmpty) ...[
             const SizedBox(
               width: 16,
             ),

@@ -69,7 +69,7 @@ class AppTextStyle {
     return TextStyle(
       fontSize: fontSize ?? 14,
       fontWeight: FontWeight.w700,
-      color: color ?? Color(0xFF363853),
+      color: color ?? const Color(0xFF363853),
       fontFamily: fontFamily,
       height: lineHeight,
     );

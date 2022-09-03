@@ -5,6 +5,7 @@ import '../../../../domain/enums/test_question_type_enum.dart';
 import '../../../../domain/models/test/test_type/test_type.dart';
 import '../../../controllers/test_doing_page_controller.dart';
 import '../test_question_types/test_question_input_widget.dart';
+import '../test_question_types/test_question_rearrange_widget.dart';
 import '../test_question_types/test_question_true_false_widget.dart';
 import '../test_question_types/test_question_write_widget.dart';
 import 'index.dart';
@@ -109,21 +110,25 @@ class QuestionWidget extends StatelessWidget {
             const SizedBox(
               height: 24,
             ),
-            // BaseStreamWidget<Map<String, List<String>>>(
-            //   stream: controller.userSelects.stream,
-            //   builder: (context, selections) {
-            //     final selectedAnswerIds = selections[_question.id] ?? [];
-            //     return WriteAnswerBoxWidget(
-            //       onSubmit: (val) {
-            //         // print(val);
-            //         this.controller.answering(_question.id, val);
-            //       },
-            //       answered: selectedAnswerIds.length > 0
-            //           ? selectedAnswerIds.first
-            //           : '',
-            //     );
-            //   },
-            // ),
+          ] else if (_question.type == TestQuestionTypeEnum.Rearrange) ...[
+            BaseStreamWidget<Map<String, List<String>>>(
+              stream: controller.userSelects.stream,
+              builder: (context, selections) {
+                final selectedAnswerIds = selections[_question.id] ?? [];
+                return TestQuestionRearrangeWidget(
+                  question: _question,
+                  questionIndex: index,
+                  onAnswering: (val) =>
+                      controller.answering(_question.id, [val]),
+                  answered: [
+                    selectedAnswerIds.isNotEmpty ? selectedAnswerIds.first : ''
+                  ],
+                );
+              },
+            ),
+            const SizedBox(
+              height: 24,
+            ),
           ]
         ],
       ),

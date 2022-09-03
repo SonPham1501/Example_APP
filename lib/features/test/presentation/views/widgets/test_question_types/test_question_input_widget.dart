@@ -118,11 +118,11 @@ class _InputLineWidget extends StatelessWidget {
       int totalInputs =
           operators.where((element) => element.type == 'input').length;
       List<String> _answered = [];
-      if (this.answered.length != totalInputs) {
+      if (answered.length != totalInputs) {
         _answered = List.filled(totalInputs, '');
-        this.onAnswering(_answered);
+        onAnswering(_answered);
       } else {
-        _answered = [...this.answered];
+        _answered = [...answered];
       }
 
       // Xlogger.d(operators);
@@ -141,14 +141,15 @@ class _InputLineWidget extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.only(left: 2, right: 2),
                     child: _TextFieldWidget(
-                      onAnswering: (value) => this.onAnswering(_onUpdateAnswer(
+                      onAnswering: (value) => onAnswering(_onUpdateAnswer(
                           _answered, value, operators[index].index ?? 0)),
                       answered: _answered[operators[index].index ?? 0],
                     ),
                   ),
                 );
-              } else
+              } else {
                 return TextSpan(text: operators[index].value);
+              }
             },
           ),
         ),
@@ -249,18 +250,23 @@ class __TextFieldWidgetState extends State<_TextFieldWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      controller: _textController,
-      enableSuggestions: false,
-      onChanged: this.widget.onAnswering,
-      style: AppTextStyle.w600(
-        fontSize: DefaultTextStyle.of(context).style.fontSize,
-        color: AppColors.primary,
-      ),
-      decoration: InputDecoration(
-        contentPadding: EdgeInsets.zero,
-        isDense: true,
-        constraints: BoxConstraints(maxWidth: 140, minWidth: 80),
+    return ConstrainedBox(
+      constraints: const BoxConstraints(minWidth: 48),
+      child: IntrinsicWidth(
+        child: TextField(
+          controller: _textController,
+          enableSuggestions: false,
+          onChanged: widget.onAnswering,
+          style: AppTextStyle.w600(
+            fontSize: DefaultTextStyle.of(context).style.fontSize,
+            color: AppColors.primary,
+          ),
+          decoration: const InputDecoration(
+            contentPadding: EdgeInsets.zero,
+            isDense: true,
+            // constraints: BoxConstraints(maxWidth: 140, minWidth: 80),
+          ),
+        ),
       ),
     );
   }

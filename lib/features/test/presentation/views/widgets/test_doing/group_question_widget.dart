@@ -73,16 +73,34 @@ class _GroupQuestionWidgetState extends State<GroupQuestionWidget>
             ),
             TestContentImageWidget(widget.section.images!),
           ],
-          // if (widget.section.type ==
-          //     TestQuestionTypeEnum.CompleteParagraph) ...[
-          //   BaseStreamWidget<Map<String, List<String>>>(
-          //     stream: widget.controller.userSelects.stream,
-          //     builder: (context, selections) {
-          //       final selectedAnswerIds = selections[_question.id] ?? [];
-          //       return TestQuestionCompleteParagraphWidget();
-          //     },
-          //   ),
-          // ]
+          if (widget.section.type ==
+              TestQuestionTypeEnum.CompleteParagraph) ...[
+            BaseStreamWidget<Map<String, List<String>>>(
+              stream: widget.controller.userSelects.stream,
+              builder: (context, selections) {
+                List<String> _answered = [];
+                final _selectedAnswerIds =
+                    widget.section.questions.map((e) => e.id).toList();
+                for (var i = 0; i < _selectedAnswerIds.length; i++) {
+                  final _id = _selectedAnswerIds[i];
+                  if (selections.containsKey(_id)) {
+                    if (selections[_id]!.isNotEmpty) {
+                      _answered.add(selections[_id]!.first);
+                    } else {
+                      _answered.add('');
+                    }
+                  }
+                }
+                // selections[_question.id] ?? [];
+                return TestQuestionCompleteParagraphWidget(
+                  section: widget.section,
+                  onAnswering: (index, value) => widget.controller
+                      .answering(widget.section.questions[index].id, [value]),
+                  answered: _answered,
+                );
+              },
+            ),
+          ]
         ],
       ),
     );
