@@ -43,29 +43,49 @@ class TestQuestionChooseMistakeWidget extends BaseTestQuestionWidget {
                   _data.parts.length,
                   (index) {
                     if (_data.parts[index].type == 'underlined') {
+                      final _indexType = _data.parts[index].indexType;
+                      final _selected =
+                          answered.contains(question.answers[_indexType].id);
                       return WidgetSpan(
                         child: GestureDetector(
                           onTap: () {
+                            //Xlogger.d(question.answers[_indexType]);
+                            onAnswering(question.answers[_indexType].id);
                             // onAnswering(question
                             //     .answers[_data.parts[index].indexType].id);
                           },
                           child: Container(
-                            //   decoration: BoxDecoration(),
-                            padding: const EdgeInsets.only(left: 2, right: 2),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8),
+                              color: _selected ? const Color(0xffF1F3FF) : null,
+                              border: _selected
+                                  ? Border.all(
+                                      color: AppColors.primary.withOpacity(.5),
+                                    )
+                                  : null,
+                            ),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: _selected ? 4 : 2,
+                                vertical: _selected ? 2 : 0),
                             child: Text(
-                              "(${String.fromCharCode(_data.parts[index].indexType + 65)}) " +
+                              "(${String.fromCharCode(_indexType + 65)}) " +
                                   _data.parts[index].value,
                               style:
                                   DefaultTextStyle.of(context).style.copyWith(
                                         fontWeight: FontWeight.w700,
-                                        color: AppColors.text900,
+                                        color: _selected
+                                            ? AppColors.primary
+                                            : AppColors.text900,
                                       ),
                             ),
                           ),
                         ),
                       );
                     } else {
-                      return TextSpan(text: _data.parts[index].value);
+                      return TextSpan(
+                        text: _data.parts[index].value,
+                        style: DefaultTextStyle.of(context).style,
+                      );
                     }
                   },
                 ),

@@ -7,6 +7,7 @@ import '../../../../../../core/widgets/quill_content/quill_content_widget.dart';
 import '../../../../domain/models/test/test_type/test_type.dart';
 import '../../../controllers/test_doing_page_controller.dart';
 import '../test_question_types/test_question_complete_paragraph_widget.dart';
+import '../test_question_types/test_question_match_widget.dart';
 import 'test_content_audio_widget.dart';
 import 'test_content_image_widget.dart';
 
@@ -101,6 +102,16 @@ class _GroupQuestionWidgetState extends State<GroupQuestionWidget>
                 );
               },
             ),
+          ] else if (widget.section.type == TestQuestionTypeEnum.Match) ...[
+            const SizedBox(
+              height: 16,
+            ),
+            TestQuestionMatchWidget(
+              section: widget.section,
+              onAnswering: (index, value) => widget.controller.answering(
+                  widget.section.questions[index].id,
+                  value == null ? [] : [value]),
+            )
           ]
         ],
       ),

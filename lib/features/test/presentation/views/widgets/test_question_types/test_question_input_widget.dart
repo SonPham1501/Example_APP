@@ -20,33 +20,27 @@ class TestQuestionInputWidget extends StatelessWidget {
   final textController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
+    return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "${questionIndex + 1}.",
-              style: DefaultTextStyle.of(context).style.copyWith(
-                    height: 2,
-                    fontFamily: 'Roboto',
-                    color: AppColors.primary,
-                    fontWeight: FontWeight.w700,
-                  ),
-            ),
-            const SizedBox(
-              width: 5,
-            ),
-            Expanded(
-              child: _InputLineWidget(
-                question: question,
-                onAnswering: onAnswering,
-                answered: answered,
+        Text(
+          "${questionIndex + 1}.",
+          style: DefaultTextStyle.of(context).style.copyWith(
+                height: 2,
+                fontFamily: 'Roboto',
+                color: AppColors.primary,
+                fontWeight: FontWeight.w700,
               ),
-            ),
-          ],
+        ),
+        const SizedBox(
+          width: 5,
+        ),
+        Expanded(
+          child: _InputLineWidget(
+            question: question,
+            onAnswering: onAnswering,
+            answered: answered,
+          ),
         ),
       ],
     );

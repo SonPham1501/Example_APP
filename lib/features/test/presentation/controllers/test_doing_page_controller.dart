@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_countdown_timer/countdown_controller.dart';
+import 'package:test_app/core/ultis/helpers/helpers.dart';
 import '../../../../core/base_state/base_bloc.dart';
 import '../../../../core/base_state/rx_state.dart';
 import '../../domain/enums/test_question_type_enum.dart';
@@ -83,6 +84,7 @@ class TestDoingPageController extends BaseBloc<TestArchivedType> {
   }
 
   Future<void> submit() async {
+    Xlogger.d(userSelects.value);
     // if (countDownController.isRunning) countDownController.stop();
     // if (classTestId != null && classTestToken != null) {
     //   showLoading();

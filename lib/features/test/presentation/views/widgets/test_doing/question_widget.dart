@@ -133,11 +133,20 @@ class QuestionWidget extends StatelessWidget {
               height: 24,
             ),
           ] else if (_question.type == TestQuestionTypeEnum.FindMistake) ...[
-            TestQuestionChooseMistakeWidget(
-              question: _question,
-              questionIndex: index,
-              onAnswering: (val) => controller.answering(_question.id, [val]),
-              answered: const [],
+            BaseStreamWidget<Map<String, List<String>>>(
+              stream: controller.userSelects.stream,
+              builder: (context, selections) {
+                final selectedAnswerIds = selections[_question.id] ?? [];
+                return TestQuestionChooseMistakeWidget(
+                  question: _question,
+                  questionIndex: index,
+                  onAnswering: (val) =>
+                      controller.answering(_question.id, [val]),
+                  answered: [
+                    selectedAnswerIds.isNotEmpty ? selectedAnswerIds.first : ''
+                  ],
+                );
+              },
             ),
             const SizedBox(
               height: 24,
