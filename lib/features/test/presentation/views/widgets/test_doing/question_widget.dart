@@ -4,6 +4,7 @@ import '../../../../../../core/config/palette.dart';
 import '../../../../domain/enums/test_question_type_enum.dart';
 import '../../../../domain/models/test/test_type/test_type.dart';
 import '../../../controllers/test_doing_page_controller.dart';
+import '../test_question_types/test_question_choose_mistake_widget.dart';
 import '../test_question_types/test_question_input_widget.dart';
 import '../test_question_types/test_question_rearrange_widget.dart';
 import '../test_question_types/test_question_true_false_widget.dart';
@@ -125,6 +126,16 @@ class QuestionWidget extends StatelessWidget {
                   ],
                 );
               },
+            ),
+            const SizedBox(
+              height: 24,
+            ),
+          ] else if (_question.type == TestQuestionTypeEnum.FindMistake) ...[
+            TestQuestionChooseMistakeWidget(
+              question: _question,
+              questionIndex: index,
+              onAnswering: (val) => controller.answering(_question.id, [val]),
+              answered: const [],
             ),
             const SizedBox(
               height: 24,

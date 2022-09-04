@@ -1,315 +1,317 @@
 {
-    "id": 159,
-    "testId": 1160,
-    "testVersion": 2,
-    "testType": "test",
-    "title": "Bài tập dạng Match + Choose Mistake",
-    "duration": 15,
-    "grade": "sixthGrade",
-    "totalQuestions": 4,
-    "systemRewardPoint": 300,
-    "createdAt": "2022-09-02T00:08:03.485432+07:00",
-    "sections": [
-      {
-        "id": 3587,
-        "extraData": "{\"answerColumnType\": \"text\", \"questionColumnType\": \"text\"}",
-        "type": "match",
-        "name": {
-          "operations": [
-            {
-              "content": "Match item in column A with the item in column B",
-              "type": "text"
-            }
-          ],
-          "html": "<p>Match item in column A with the item in column B</p>"
-        },
-        "totalScore": 5,
-        "questions": [
+  "id": 163,
+  "testId": 1160,
+  "testVersion": 3,
+  "testType": "test",
+  "title": "Bài tập dạng Match + Choose Mistake",
+  "duration": 15,
+  "grade": "sixthGrade",
+  "totalQuestions": 6,
+  "systemRewardPoint": 300,
+  "createdAt": "2022-09-04T09:38:47.0924428+07:00",
+  "sections": [
+    {
+      "id": 3587,
+      "extraData": "{\"answerColumnType\": \"text\", \"questionColumnType\": \"text\"}",
+      "type": "match",
+      "name": {
+        "operations": [
           {
-            "id": "d211497e-3fd3-45be-b49b-162fde8faa68",
-            "extraData": "{\"answerColumnType\": \"text\", \"questionColumnType\": \"text\"}",
-            "name": {
-              "operations": [
-                {
-                  "content": "Please pick me up early",
-                  "type": "text"
-                }
-              ],
-              "html": "<p>Please pick me up early</p>"
-            },
-            "type": "match",
-            "layout": "default",
-            "testSectionId": 3587,
-            "score": 1.6666666269302368,
-            "answers": [
-              {
-                "id": "21365531",
-                "content": {
-                  "operations": [
-                    {
-                      "content": "so that we can get there on time.",
-                      "type": "text"
-                    }
-                  ],
-                  "html": "<p>so that we can get there on time.</p>"
-                },
-                "isCorrect": false
-              }
-            ]
-          },
-          {
-            "id": "394c7940-f122-4e99-90de-8709b7a6317c",
-            "extraData": "{\"answerColumnType\": \"text\", \"questionColumnType\": \"text\"}",
-            "name": {
-              "operations": [
-                {
-                  "content": "Although the film is late,",
-                  "type": "text"
-                }
-              ],
-              "html": "<p>Although the film is late,</p>"
-            },
-            "type": "match",
-            "layout": "default",
-            "testSectionId": 3587,
-            "score": 1.6666666269302368,
-            "answers": [
-              {
-                "id": "40305337",
-                "content": {
-                  "operations": [
-                    {
-                      "content": "I will wait for it",
-                      "type": "text"
-                    }
-                  ],
-                  "html": "<p>I will wait for it</p>"
-                },
-                "isCorrect": false
-              }
-            ]
-          },
-          {
-            "id": "17060045-4492-4c55-a1fe-2b4d48f79a22",
-            "extraData": "{\"answerColumnType\": \"text\", \"questionColumnType\": \"text\"}",
-            "name": {
-              "operations": [
-                {
-                  "content": "I can't buy a new jacket",
-                  "type": "text"
-                }
-              ],
-              "html": "<p>I can't buy a new jacket</p>"
-            },
-            "type": "match",
-            "layout": "default",
-            "testSectionId": 3587,
-            "score": 1.6666666269302368,
-            "answers": [
-              {
-                "id": "21121200",
-                "content": {
-                  "operations": [
-                    {
-                      "content": "because I don't have money",
-                      "type": "text"
-                    }
-                  ],
-                  "html": "<p>because I don't have money</p>"
-                },
-                "isCorrect": false
-              }
-            ]
-          },
-          {
-            "id": "2d12e8cb-019c-4787-9617-dad514213bcc",
-            "extraData": "{\"answerColumnType\": \"text\", \"questionColumnType\": \"text\"}",
-            "name": {
-              "operations": [
-                {
-                  "content": "We can also reuse plastic bags",
-                  "type": "text"
-                }
-              ],
-              "html": "<p>We can also reuse plastic bags</p>"
-            },
-            "type": "match",
-            "layout": "default",
-            "testSectionId": 3587,
-            "score": 1.6666666269302368,
-            "answers": [
-              {
-                "id": "02500460",
-                "content": {
-                  "operations": [
-                    {
-                      "content": "To reduce the amount of waste.",
-                      "type": "text"
-                    }
-                  ],
-                  "html": "<p>To reduce the amount of waste.</p>"
-                },
-                "isCorrect": false
-              }
-            ]
+            "content": "Match item in column A with the item in column B",
+            "type": "text"
           }
-        ]
+        ],
+        "html": "<p>Match item in column A with the item in column B</p>"
       },
-      {
-        "id": 8550,
-        "type": "findMistake",
-        "name": {
-          "operations": [
-            {
-              "content": "Find the mistake",
-              "type": "text"
-            }
-          ],
-          "html": "<p>Find the mistake</p>"
-        },
-        "totalScore": 5,
-        "questions": [
-          {
-            "id": "c6f13635-a7a8-43d4-a6b8-348d2b3eef97",
-            "name": {
-              "operations": [
-                {
-                  "content": "The children feeled excited before their holiday",
-                  "type": "text"
-                }
-              ],
-              "html": "<p>The children feeled excited before their holiday</p>"
-            },
-            "type": "findMistake",
-            "layout": "default",
-            "testSectionId": 8550,
-            "score": 1.6666666269302368,
-            "answers": [
+      "totalScore": 5,
+      "questions": [
+        {
+          "id": "d211497e-3fd3-45be-b49b-162fde8faa68",
+          "extraData": "{\"answerColumnType\": \"text\", \"questionColumnType\": \"text\"}",
+          "name": {
+            "operations": [
               {
-                "id": "76121061",
-                "content": {
-                  "operations": [
-                    {
-                      "content": "children",
-                      "type": "text"
-                    }
-                  ],
-                  "html": "children"
-                },
-                "isCorrect": false
-              },
-              {
-                "id": "46457277",
-                "content": {
-                  "operations": [
-                    {
-                      "content": "feeled",
-                      "type": "text"
-                    }
-                  ],
-                  "html": "feeled"
-                },
-                "isCorrect": false
-              },
-              {
-                "id": "15714320",
-                "content": {
-                  "operations": [
-                    {
-                      "content": "excited",
-                      "type": "text"
-                    }
-                  ],
-                  "html": "excited"
-                },
-                "isCorrect": false
-              },
-              {
-                "id": "16737165",
-                "content": {
-                  "operations": [
-                    {
-                      "content": "their",
-                      "type": "text"
-                    }
-                  ],
-                  "html": "their"
-                },
-                "isCorrect": false
+                "content": "Please pick me up early",
+                "type": "text"
               }
-            ]
+            ],
+            "html": "<p>Please pick me up early</p>"
           },
-          {
-            "id": "b17044a6-cb7c-4dfc-bf0f-2e319b3d84ed",
-            "name": {
-              "operations": [
-                {
-                  "content": "Do you take part in the marathon last Sunday?",
-                  "type": "text"
-                }
-              ],
-              "html": "<p>Do you take part in the marathon last Sunday?</p>"
-            },
-            "type": "findMistake",
-            "layout": "default",
-            "testSectionId": 8550,
-            "score": 1.6666666269302368,
-            "answers": [
-              {
-                "id": "74743666",
-                "content": {
-                  "operations": [
-                    {
-                      "content": "Do",
-                      "type": "text"
-                    }
-                  ],
-                  "html": "Do"
-                },
-                "isCorrect": false
+          "type": "match",
+          "layout": "default",
+          "testSectionId": 3587,
+          "score": 1.6666666269302368,
+          "answers": [
+            {
+              "id": "21365531",
+              "content": {
+                "operations": [
+                  {
+                    "content": "so that we can get there on time.",
+                    "type": "text"
+                  }
+                ],
+                "html": "<p>so that we can get there on time.</p>"
               },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": "394c7940-f122-4e99-90de-8709b7a6317c",
+          "extraData": "{\"answerColumnType\": \"text\", \"questionColumnType\": \"text\"}",
+          "name": {
+            "operations": [
               {
-                "id": "31432206",
-                "content": {
-                  "operations": [
-                    {
-                      "content": "part",
-                      "type": "text"
-                    }
-                  ],
-                  "html": "part"
-                },
-                "isCorrect": false
-              },
-              {
-                "id": "44432451",
-                "content": {
-                  "operations": [
-                    {
-                      "content": "marathon",
-                      "type": "text"
-                    }
-                  ],
-                  "html": "marathon"
-                },
-                "isCorrect": false
-              },
-              {
-                "id": "60547536",
-                "content": {
-                  "operations": [
-                    {
-                      "content": "Sunday",
-                      "type": "text"
-                    }
-                  ],
-                  "html": "Sunday"
-                },
-                "isCorrect": false
+                "content": "Although the film is late,",
+                "type": "text"
               }
-            ]
+            ],
+            "html": "<p>Although the film is late,</p>"
+          },
+          "type": "match",
+          "layout": "default",
+          "testSectionId": 3587,
+          "score": 1.6666666269302368,
+          "answers": [
+            {
+              "id": "40305337",
+              "content": {
+                "operations": [
+                  {
+                    "content": "I will wait for it",
+                    "type": "text"
+                  }
+                ],
+                "html": "<p>I will wait for it</p>"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": "17060045-4492-4c55-a1fe-2b4d48f79a22",
+          "extraData": "{\"answerColumnType\": \"text\", \"questionColumnType\": \"text\"}",
+          "name": {
+            "operations": [
+              {
+                "content": "I can't buy a new jacket",
+                "type": "text"
+              }
+            ],
+            "html": "<p>I can't buy a new jacket</p>"
+          },
+          "type": "match",
+          "layout": "default",
+          "testSectionId": 3587,
+          "score": 1.6666666269302368,
+          "answers": [
+            {
+              "id": "21121200",
+              "content": {
+                "operations": [
+                  {
+                    "content": "because I don't have money",
+                    "type": "text"
+                  }
+                ],
+                "html": "<p>because I don't have money</p>"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": "2d12e8cb-019c-4787-9617-dad514213bcc",
+          "extraData": "{\"answerColumnType\": \"text\", \"questionColumnType\": \"text\"}",
+          "name": {
+            "operations": [
+              {
+                "content": "We can also reuse plastic bags",
+                "type": "text"
+              }
+            ],
+            "html": "<p>We can also reuse plastic bags</p>"
+          },
+          "type": "match",
+          "layout": "default",
+          "testSectionId": 3587,
+          "score": 1.6666666269302368,
+          "answers": [
+            {
+              "id": "02500460",
+              "content": {
+                "operations": [
+                  {
+                    "content": "To reduce the amount of waste.",
+                    "type": "text"
+                  }
+                ],
+                "html": "<p>To reduce the amount of waste.</p>"
+              },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 8550,
+      "type": "findMistake",
+      "name": {
+        "operations": [
+          {
+            "content": "Find the mistake",
+            "type": "text"
           }
-        ]
-      }
-    ]
-  }
+        ],
+        "html": "<p>Find the mistake</p>"
+      },
+      "totalScore": 5,
+      "questions": [
+        {
+          "id": "c6f13635-a7a8-43d4-a6b8-348d2b3eef97",
+          "extraData": "{\"text\": \"The children feeled excited before their holiday\", \"parts\": [{\"type\": \"text\", \"value\": \"The \", \"indexType\": 0}, {\"type\": \"underlined\", \"value\": \"children\", \"indexType\": 0, \"correction\": \"\"}, {\"type\": \"text\", \"value\": \" \", \"indexType\": 1}, {\"type\": \"underlined\", \"value\": \"feeled\", \"indexType\": 1, \"correction\": \"\"}, {\"type\": \"text\", \"value\": \" \", \"indexType\": 2}, {\"type\": \"underlined\", \"value\": \"excited\", \"indexType\": 2, \"correction\": \"\"}, {\"type\": \"text\", \"value\": \" before \", \"indexType\": 3}, {\"type\": \"underlined\", \"value\": \"their\", \"indexType\": 3, \"correction\": \"\"}, {\"type\": \"text\", \"value\": \" holiday\", \"indexType\": 4}]}",
+          "name": {
+            "operations": [
+              {
+                "content": "The children feeled excited before their holiday",
+                "type": "text"
+              }
+            ],
+            "html": "<p>The children feeled excited before their holiday</p>"
+          },
+          "type": "findMistake",
+          "layout": "default",
+          "testSectionId": 8550,
+          "score": 1.6666666269302368,
+          "answers": [
+            {
+              "id": "67464775",
+              "content": {
+                "operations": [
+                  {
+                    "content": "children",
+                    "type": "text"
+                  }
+                ],
+                "html": "children"
+              },
+              "isCorrect": false
+            },
+            {
+              "id": "37352133",
+              "content": {
+                "operations": [
+                  {
+                    "content": "feeled",
+                    "type": "text"
+                  }
+                ],
+                "html": "feeled"
+              },
+              "isCorrect": false
+            },
+            {
+              "id": "06774304",
+              "content": {
+                "operations": [
+                  {
+                    "content": "excited",
+                    "type": "text"
+                  }
+                ],
+                "html": "excited"
+              },
+              "isCorrect": false
+            },
+            {
+              "id": "54577554",
+              "content": {
+                "operations": [
+                  {
+                    "content": "their",
+                    "type": "text"
+                  }
+                ],
+                "html": "their"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "id": "b17044a6-cb7c-4dfc-bf0f-2e319b3d84ed",
+          "extraData": "{\"text\": \"Do you take part in the marathon last Sunday?\", \"parts\": [{\"type\": \"underlined\", \"value\": \"Do\", \"indexType\": 0, \"correction\": \"\"}, {\"type\": \"text\", \"value\": \" you take \", \"indexType\": 0}, {\"type\": \"underlined\", \"value\": \"part\", \"indexType\": 1, \"correction\": \"\"}, {\"type\": \"text\", \"value\": \" in the \", \"indexType\": 1}, {\"type\": \"underlined\", \"value\": \"marathon\", \"indexType\": 2, \"correction\": \"\"}, {\"type\": \"text\", \"value\": \" last \", \"indexType\": 2}, {\"type\": \"underlined\", \"value\": \"Sunday\", \"indexType\": 3, \"correction\": \"\"}, {\"type\": \"text\", \"value\": \"?\", \"indexType\": 3}]}",
+          "name": {
+            "operations": [
+              {
+                "content": "Do you take part in the marathon last Sunday?",
+                "type": "text"
+              }
+            ],
+            "html": "<p>Do you take part in the marathon last Sunday?</p>"
+          },
+          "type": "findMistake",
+          "layout": "default",
+          "testSectionId": 8550,
+          "score": 1.6666666269302368,
+          "answers": [
+            {
+              "id": "15016176",
+              "content": {
+                "operations": [
+                  {
+                    "content": "Do",
+                    "type": "text"
+                  }
+                ],
+                "html": "Do"
+              },
+              "isCorrect": false
+            },
+            {
+              "id": "07650346",
+              "content": {
+                "operations": [
+                  {
+                    "content": "part",
+                    "type": "text"
+                  }
+                ],
+                "html": "part"
+              },
+              "isCorrect": false
+            },
+            {
+              "id": "74706512",
+              "content": {
+                "operations": [
+                  {
+                    "content": "marathon",
+                    "type": "text"
+                  }
+                ],
+                "html": "marathon"
+              },
+              "isCorrect": false
+            },
+            {
+              "id": "31532637",
+              "content": {
+                "operations": [
+                  {
+                    "content": "Sunday",
+                    "type": "text"
+                  }
+                ],
+                "html": "Sunday"
+              },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
