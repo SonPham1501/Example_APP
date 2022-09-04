@@ -2,51 +2,10 @@ import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 
-import '../../../../../../core/common/models/app_file_attachment/app_file_attachment.dart';
-import '../../../../../../core/config/app_text_style.dart';
-import '../../../../../../core/config/palette.dart';
-import '../../../../../../core/widgets/layouts/adaptive_loading_widget.dart';
-
-class TestAudioPlayerModal extends StatefulWidget {
-  final AppFileAttachmentType file;
-  TestAudioPlayerModal(this.file);
-
-  @override
-  State<TestAudioPlayerModal> createState() => _TestAudioPlayerModalState();
-}
-
-class _TestAudioPlayerModalState extends State<TestAudioPlayerModal> {
-  late AudioPlayer _audioPlayer;
-  @override
-  void initState() {
-    _audioPlayer = AudioPlayer();
-    _audioPlayer.setUrl(widget.file.path ?? "");
-    _audioPlayer.play();
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    print('TestAudioPlayerModal disposed');
-    _audioPlayer.stop();
-    _audioPlayer.dispose();
-
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: AppColors.primary,
-      width: MediaQuery.of(context).size.width,
-      height: 160,
-      padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-      child: Center(
-        child: PlayerButtons(_audioPlayer),
-      ),
-    );
-  }
-}
+import '../../common/models/app_file_attachment/app_file_attachment.dart';
+import '../../config/app_text_style.dart';
+import '../../config/palette.dart';
+import '../layouts/adaptive_loading_widget.dart';
 
 class AppAudioPlayer extends StatefulWidget {
   final AppFileAttachmentType file;
@@ -68,7 +27,7 @@ class _AppAudioPlayerState extends State<AppAudioPlayer> {
 
   @override
   void dispose() {
-    print('TestAudioPlayerModal disposed');
+    // print('TestAudioPlayerModal disposed');
     _audioPlayer.stop();
     _audioPlayer.dispose();
 
@@ -79,7 +38,7 @@ class _AppAudioPlayerState extends State<AppAudioPlayer> {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 8),
-      constraints: BoxConstraints(minHeight: 48),
+      constraints: const BoxConstraints(minHeight: 48),
       decoration: BoxDecoration(
         color: AppColors.primary,
         borderRadius: BorderRadius.circular(24),

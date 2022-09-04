@@ -14,7 +14,7 @@ class GroupQuestionWidget extends StatefulWidget {
   final int index;
   final TestSectionType section;
   final TestDoingPageController controller;
-  GroupQuestionWidget({
+  const GroupQuestionWidget({
     required this.index,
     required this.section,
     required this.controller,
@@ -40,18 +40,19 @@ class _GroupQuestionWidgetState extends State<GroupQuestionWidget>
         children: [
           QuillContentWidget(
             widget.section.name.operations,
-            fontWeight: FontWeight.w500,
-            fontSize: DefaultTextStyle.of(context).style.fontSize,
-            color: Color(0xff2559bf),
-            prefix: TextSpan(
-              text: 'Bài ${widget.index + 1}: ',
-              style: AppTextStyle.w700(
-                color: AppColors.primary,
-                fontFamily: 'Roboto',
-                lineHeight: 1.5,
-                fontSize: DefaultTextStyle.of(context).style.fontSize,
-              ),
-            ),
+            fontWeight: FontWeight.w600,
+            fontSize: (DefaultTextStyle.of(context).style.fontSize ?? 14) + 2,
+            // color: const Color(0xff2559bf),
+            color: AppColors.primary,
+            // prefix: TextSpan(
+            //   text: 'Bài ${widget.index + 1}: ',
+            //   style: AppTextStyle.w700(
+            //     color: AppColors.primary,
+            //     fontFamily: 'Roboto',
+            //     lineHeight: 1.5,
+            //     fontSize: DefaultTextStyle.of(context).style.fontSize,
+            //   ),
+            // ),
           ),
           if ((widget.section.audios ?? []).isNotEmpty) ...[
             const SizedBox(height: 16),

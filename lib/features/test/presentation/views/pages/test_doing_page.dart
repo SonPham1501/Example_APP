@@ -51,169 +51,154 @@ class TestDoingPage extends BaseView<TestDoingPageController> {
           },
           child: GestureDetector(
             onTap: () => AppUtils.dismissKeyboard(),
-            child: Scaffold(
-              appBar: _buildAppBar(context, controller),
-              floatingActionButtonLocation:
-                  FloatingActionButtonLocation.centerDocked,
-              resizeToAvoidBottomInset: false,
-              floatingActionButton: Container(
-                height: 70,
-                width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.3),
-                      spreadRadius: 2,
-                      blurRadius: 4,
-                      offset: Offset(0, 3), // changes position of shadow
-                    ),
-                  ],
-                ),
-                child: BaseStreamWidget<int>(
-                  stream: controller.currentIndex.stream,
-                  builder: (_, currentSlide) => Column(
-                    children: [
-                      BaseStreamWidget<int>(
-                        stream: controller.totalAnswered.stream,
-                        builder: (context, data) {
-                          return LinearProgressIndicator(
-                            value: data / controller.userSelects.value.length,
-                            color: AppColors.primary,
-                            minHeight: 2,
-                            backgroundColor: AppColors.text400,
-                          );
-                        },
-                      ),
-                      const SizedBox(
-                        height: 8,
-                      ),
-                      Expanded(
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 16),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: AnimatedOpacity(
-                                  duration: const Duration(milliseconds: 300),
-                                  opacity: currentSlide > 0 ? 1 : .4,
-                                  child: AppButtons.outlined(
-                                    customSize: const Size(48, 42),
-                                    label: "Quay lại",
-                                    onPressed: () {
-                                      if (currentSlide > 0) {
-                                        controller.previousSlide();
-                                      }
-                                    },
-                                    textStyle: AppTextStyle.w600(
-                                      color: AppColors.text700,
+            child: DefaultTabController(
+              length: controller.test.sections.length,
+              child: Scaffold(
+                appBar: _buildAppBar(context, controller),
+                // floatingActionButtonLocation:
+                //     FloatingActionButtonLocation.centerDocked,
+                resizeToAvoidBottomInset: false,
+                // floatingActionButton: Container(
+                //   height: 70,
+                //   width: MediaQuery.of(context).size.width,
+                //   decoration: BoxDecoration(
+                //     color: Colors.white,
+                //     boxShadow: [
+                //       BoxShadow(
+                //         color: Colors.grey.withOpacity(0.3),
+                //         spreadRadius: 2,
+                //         blurRadius: 4,
+                //         offset: Offset(0, 3), // changes position of shadow
+                //       ),
+                //     ],
+                //   ),
+                //   child: BaseStreamWidget<int>(
+                //     stream: controller.currentIndex.stream,
+                //     builder: (_, currentSlide) => Column(
+                //       children: [
+                //         BaseStreamWidget<int>(
+                //           stream: controller.totalAnswered.stream,
+                //           builder: (context, data) {
+                //             return LinearProgressIndicator(
+                //               value: data / controller.userSelects.value.length,
+                //               color: AppColors.primary,
+                //               minHeight: 2,
+                //               backgroundColor: AppColors.text400,
+                //             );
+                //           },
+                //         ),
+                //         const SizedBox(
+                //           height: 8,
+                //         ),
+                //         Expanded(
+                //           child: Padding(
+                //             padding: const EdgeInsets.symmetric(horizontal: 16),
+                //             child: Row(
+                //               children: [
+                //                 Expanded(
+                //                   child: AnimatedOpacity(
+                //                     duration: const Duration(milliseconds: 300),
+                //                     opacity: currentSlide > 0 ? 1 : .4,
+                //                     child: AppButtons.outlined(
+                //                       customSize: const Size(48, 42),
+                //                       label: "Quay lại",
+                //                       onPressed: () {
+                //                         if (currentSlide > 0) {
+                //                           controller.previousSlide();
+                //                         }
+                //                       },
+                //                       textStyle: AppTextStyle.w600(
+                //                         color: AppColors.text700,
+                //                       ),
+                //                       borderColor: AppColors.text500,
+                //                     ),
+                //                   ),
+                //                 ),
+                //                 const SizedBox(
+                //                   width: 16,
+                //                 ),
+                //                 Expanded(
+                //                   child: AnimatedOpacity(
+                //                     duration: const Duration(milliseconds: 300),
+                //                     opacity: currentSlide <
+                //                             controller.test.sections.length - 1
+                //                         ? 1
+                //                         : .4,
+                //                     child: AppButtons.rounded(
+                //                       customSize: const Size(48, 42),
+                //                       label: "Tiếp theo",
+                //                       borderRadius: 360,
+                //                       onPressed: () {
+                //                         if (currentSlide <
+                //                             controller.test.sections.length - 1) {
+                //                           controller.nextSlide();
+                //                         }
+                //                       },
+                //                       textStyle: AppTextStyle.w600(
+                //                         color: Colors.white,
+                //                       ),
+                //                       backgroundColor:
+                //                           Color.fromARGB(255, 36, 142, 89),
+                //                     ),
+                //                   ),
+                //                 ),
+                //               ],
+                //             ),
+                //           ),
+                //         ),
+                //       ],
+                //     ),
+                //   ),
+                // ),
+                body: SafeArea(
+                  child: Container(
+                    color: const Color(0xfff3f6fd),
+                    child: StreamBuilder<BlocState>(
+                      stream: controller.stateStream,
+                      builder: (context, snapshot) {
+                        return snapshot.data is SuccessState
+                            ? TabBarView(
+                                children: List.generate(
+                                    controller.test.sections.length,
+                                    (sectionIndex) {
+                                  return SingleChildScrollView(
+                                    padding: const EdgeInsets.only(
+                                      top: 16,
+                                      bottom: 86,
                                     ),
-                                    borderColor: AppColors.text500,
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(
-                                width: 16,
-                              ),
-                              Expanded(
-                                child: AnimatedOpacity(
-                                  duration: const Duration(milliseconds: 300),
-                                  opacity: currentSlide <
-                                          controller.test.sections.length - 1
-                                      ? 1
-                                      : .4,
-                                  child: AppButtons.rounded(
-                                    customSize: const Size(48, 42),
-                                    label: "Tiếp theo",
-                                    borderRadius: 360,
-                                    onPressed: () {
-                                      if (currentSlide <
-                                          controller.test.sections.length - 1) {
-                                        controller.nextSlide();
-                                      }
-                                    },
-                                    textStyle: AppTextStyle.w600(
-                                      color: Colors.white,
-                                    ),
-                                    backgroundColor:
-                                        Color.fromARGB(255, 36, 142, 89),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              body: SafeArea(
-                child: Container(
-                  color: const Color(0xfff3f6fd),
-                  child: Column(
-                    children: [
-                      Expanded(
-                        child: StreamBuilder<BlocState>(
-                          stream: controller.stateStream,
-                          builder: (context, snapshot) {
-                            return snapshot.data is SuccessState
-                                ? PageView.builder(
-                                    physics:
-                                        const NeverScrollableScrollPhysics(),
-                                    itemCount: controller.test.sections.length,
-                                    onPageChanged: controller.onSlideChanged,
-                                    controller: controller.pageController,
-                                    itemBuilder: (context, sectionIndex) {
-                                      // final position =
-                                      //     controller.testSlideData[index];
-                                      // final _scrollController =
-                                      //     position.section?.type ==
-                                      //             TestQuestionTypeEnum.Match
-                                      //         ? ScrollController()
-                                      //         : null;
-                                      return SingleChildScrollView(
-                                        //  controller: _scrollController,
-                                        padding: const EdgeInsets.only(
-                                            top: 16, bottom: 86),
-                                        child: Column(
-                                          children: [
-                                            GroupQuestionWidget(
-                                              index: sectionIndex,
-                                              section: controller
-                                                  .test.sections[sectionIndex],
-                                              controller: controller,
-                                            ),
-                                            const SizedBox(
-                                              height: 16,
-                                            ),
-                                            ...List.generate(
-                                              controller
-                                                  .test
-                                                  .sections[sectionIndex]
-                                                  .questions
-                                                  .length,
-                                              (qIndex) => QuestionWidget(
-                                                qIndex,
-                                                controller
-                                                    .test
-                                                    .sections[sectionIndex]
-                                                    .questions[qIndex],
-                                                controller: controller,
-                                              ),
-                                            ),
-                                          ],
+                                    child: Column(
+                                      children: [
+                                        GroupQuestionWidget(
+                                          index: sectionIndex,
+                                          section: controller
+                                              .test.sections[sectionIndex],
+                                          controller: controller,
                                         ),
-                                      );
-                                    },
-                                  )
-                                : const Center(
-                                    child: ApdaptiveLoadingWidget(),
+                                        const SizedBox(
+                                          height: 16,
+                                        ),
+                                        ...List.generate(
+                                          controller.test.sections[sectionIndex]
+                                              .questions.length,
+                                          (qIndex) => QuestionWidget(
+                                            qIndex,
+                                            controller
+                                                .test
+                                                .sections[sectionIndex]
+                                                .questions[qIndex],
+                                            controller: controller,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   );
-                          },
-                        ),
-                      ),
-                    ],
+                                }),
+                              )
+                            : const Center(
+                                child: ApdaptiveLoadingWidget(),
+                              );
+                      },
+                    ),
                   ),
                 ),
               ),
@@ -245,7 +230,7 @@ class TestDoingPage extends BaseView<TestDoingPageController> {
         onPressed: () {
           Navigator.maybePop(context);
         },
-        icon: Icon(
+        icon: const Icon(
           Icons.close,
           size: 24,
         ),
@@ -329,29 +314,29 @@ class TestDoingPage extends BaseView<TestDoingPageController> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(CupertinoIcons.clock, size: 18, color: Colors.black),
+                const Icon(CupertinoIcons.clock, size: 18, color: Colors.black),
                 const SizedBox(width: 4),
-                // SizedBox(
-                //   //width: 50,
-                //   child: CountDownWidget(
-                //     widgetOnTimeEnd: Text(
-                //       '--:--',
-                //       style: TextStyle(
-                //         fontWeight: FontWeight.w700,
-                //         color: Colors.black,
-                //         fontSize: 16,
-                //         fontFamily: 'Roboto',
-                //       ),
-                //     ),
-                //     controller: controller.countDownController,
-                //     textStyle: TextStyle(
-                //       fontWeight: FontWeight.w500,
-                //       fontSize: 16,
-                //       fontFamily: 'Roboto',
-                //       color: Colors.black,
-                //     ),
-                //   ),
-                // ),
+                SizedBox(
+                  //width: 50,
+                  child: CountDownWidget(
+                    widgetOnTimeEnd: const Text(
+                      '--:--',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        color: Colors.black,
+                        fontSize: 14,
+                        fontFamily: 'Roboto',
+                      ),
+                    ),
+                    controller: controller.countDownController,
+                    textStyle: const TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 14,
+                      fontFamily: 'Roboto',
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
@@ -411,6 +396,16 @@ class TestDoingPage extends BaseView<TestDoingPageController> {
           ),
         ),
       ],
+      bottom: TabBar(
+        indicatorColor: AppColors.primary,
+        labelStyle: AppTextStyle.w600(fontSize: 14),
+        tabs: List.generate(
+          controller.test.sections.length,
+          (index) => Tab(
+            text: "Bài ${index + 1}",
+          ),
+        ),
+      ),
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test_app/features/test/domain/models/test/test_type/test_type.dart';
+import 'package:test_app/features/test/presentation/views/widgets/common/test_button_shape.dart';
 
 import '../../../../../../core/config/app_text_style.dart';
 import '../../../../../../core/config/palette.dart';
@@ -49,24 +50,27 @@ class TestQuestionTrueFalseWidget extends BaseTestQuestionWidget {
             height: 12,
           ),
         ],
-        Row(
-          children: List.generate(
-            question.answers.length,
-            (index) {
-              return Padding(
-                padding: const EdgeInsets.only(right: 12),
-                child: GestureDetector(
+        SizedBox(
+          width: double.infinity,
+          child: Wrap(
+            crossAxisAlignment: WrapCrossAlignment.start,
+            alignment: WrapAlignment.start,
+            spacing: 16,
+            children: List.generate(
+              question.answers.length,
+              (index) {
+                return GestureDetector(
                   onTap: () {
                     onAnswering(question.answers[index].id);
                   },
-                  child: _TrueFalseOptionButton(
-                    index: index,
-                    answer: question.answers[index],
+                  child: TestButtonShape(
+                    border: true,
+                    title: index == 0 ? "True" : "False",
                     selected: answered.contains(question.answers[index].id),
                   ),
-                ),
-              );
-            },
+                );
+              },
+            ),
           ),
         )
       ],
