@@ -5,7 +5,6 @@ import 'package:test_app/features/exercises/domain/section_types/choices.dart';
 import 'package:test_app/features/exercises/domain/enums/exercise_type_enum.dart';
 
 import '../../controllers/exercise_wrapper_page_controller.dart';
-import '../widgets/buttons/contained_button.dart';
 import '../widgets/exercise_types/exercise_choices_widget.dart';
 import '../widgets/page_slider.dart';
 import '../widgets/time_count_down_widget.dart';
@@ -27,45 +26,26 @@ class ExerciseWrapperPage extends BaseView<ExerciseWrapperPageController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: BaseStreamWidget<bool>(
-        stream: controller.doneSteam,
-        builder: (context, snapshot) {
-          return snapshot
-              ? _buildFloatingActionButtonEndPage()
-              : _buildFloatingActionButton();
-        },
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       appBar: _buildAppBar(context),
       body: Builder(builder: (context) {
         switch (controller.model.dataType) {
           case ExerciseTypeEnum.choices:
             final data = controller.model.data as ChoicesExerciseData;
-
             return PageSlider(
               pageController: controller.pageController,
               onPageChanged: controller.onPageChanged,
               page: List.generate((data.questions ?? []).length, (qIndex) {
                 final _q = data.questions![qIndex];
-                return BaseStreamWidget<bool>(
-                  stream: controller.doneSteam,
-                  builder: (context, isDone) {
-                    return BaseStreamWidget<List<String?>>(
-                      stream: controller.userSelectionsStream,
-                      builder: (context, selectedItem) {
-                        return ExerciseChoiceWidget(
-                          id: _q.index.toString(),
-                          content: _q.content ?? "",
-                          items: _q.options
-                                  ?.map((elem) => elem.content ?? "")
-                                  .toList() ??
-                              [],
-                          anwser: _q.correctOption ?? "",
-                          done: isDone,
-                          onSelected: (v) => controller.onSelectItem(qIndex, v),
-                          selectedItem: controller.userSelections[qIndex],
-                        );
-                      },
+                return BaseStreamWidget<List<String?>>(
+                  stream: controller.userSelectionsStream,
+                  builder: (context, selectedItem) {
+                    return ExerciseChoiceWidget(
+                      id: _q.index.toString(),
+                      content: _q.content ?? "",
+                      items: _q.options?.map((elem) => elem.content ?? "").toList() ?? [],
+                      anwser: _q.options?.firstWhere((element) => element.id == _q.correctOption, orElse: () => ChoiceQuestionOption()).content ?? '',
+                      onSelected: (v) => controller.onSelectItem(qIndex, v),
+                      selectedItem: controller.userSelections[qIndex],
                     );
                   },
                 );
@@ -121,64 +101,6 @@ class ExerciseWrapperPage extends BaseView<ExerciseWrapperPageController> {
       label: CountDownTimer(controller.time, finish: (value) {
         controller.onTimeEnd();
       }),
-    );
-  }
-
-  Widget _buildFloatingActionButton() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12),
-      child: Row(
-        children: <Widget>[
-          Expanded(
-            child: ContainedButton(
-              text: 'Quay lại',
-              size: const Size(0, 45),
-              radius: 10,
-              color: Colors.white,
-              textColor: Colors.blue,
-              press: () async {
-                controller.pageController.previousPage(
-                  duration: const Duration(milliseconds: 300),
-                  curve: Curves.easeIn,
-                );
-                //  _currentPage = _pageController.page!.toInt() - 1;
-                //  setState(() {});
-              },
-            ),
-          ),
-          const SizedBox(width: 10),
-          Expanded(
-            child: ContainedButton(
-              text: 'Tiếp theo',
-              size: const Size(0, 45),
-              radius: 10,
-              color: Colors.purple,
-              press: () async {
-                controller.pageController.nextPage(
-                  duration: const Duration(milliseconds: 300),
-                  curve: Curves.easeIn,
-                );
-                // _currentPage = _pageController.page!.toInt() + 1;
-                //setState(() {});
-              },
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildFloatingActionButtonEndPage() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12),
-      child: ContainedButton(
-        text: 'Làm lại',
-        size: const Size(double.infinity, 45),
-        radius: 10,
-        color: Colors.white,
-        textColor: Colors.green,
-        press: controller.replay,
-      ),
     );
   }
 

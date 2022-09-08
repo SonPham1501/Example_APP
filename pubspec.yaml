@@ -58,6 +58,9 @@ dependencies:
   flutter_svg:
   audio_video_progress_bar:
 
+  #UI
+  gap: ^2.0.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

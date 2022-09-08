@@ -19,10 +19,8 @@ class ExerciseWrapperPageController extends BaseBloc<TextbookExerciseData> {
   Stream<List<String?>> get userSelectionsStream =>
       _userSelections.value.stream;
 
-  final RxState<bool> _done = RxState<bool>(false);
   final RxState<int> _time = RxState<int>(60);
 
-  Stream<bool> get doneSteam => _done.value.stream;
   Stream<int> get timeSteam => _time.value.stream;
 
   int get time => _time.value.value;
@@ -54,7 +52,6 @@ class ExerciseWrapperPageController extends BaseBloc<TextbookExerciseData> {
   }
 
   Future<void> replay() async {
-    _done.emit(false);
     _time.emit(60);
     pageController.jumpTo(0);
   }
@@ -63,7 +60,6 @@ class ExerciseWrapperPageController extends BaseBloc<TextbookExerciseData> {
 
   onTimeEnd() {
     _time.emit(0);
-    _done.emit(true);
   }
 
   onSelectItem(int questionId, String value) {

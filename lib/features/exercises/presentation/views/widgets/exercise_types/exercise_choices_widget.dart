@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_app/features/exercises/presentation/views/widgets/bottomsheet/bottomsheet_noti_result.dart';
 
 class ExerciseChoiceWidget extends StatelessWidget {
   const ExerciseChoiceWidget({
@@ -9,7 +10,6 @@ class ExerciseChoiceWidget extends StatelessWidget {
     required this.anwser,
     required this.onSelected,
     this.selectedItem,
-    required this.done,
   }) : super(key: key);
 
   final String id;
@@ -17,7 +17,6 @@ class ExerciseChoiceWidget extends StatelessWidget {
   final String content, anwser;
   final String? selectedItem;
   final Function(String value) onSelected;
-  final bool done;
 
   @override
   Widget build(BuildContext context) {
@@ -25,18 +24,19 @@ class ExerciseChoiceWidget extends StatelessWidget {
   }
 
   Widget _buildBody(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const SizedBox(height: 20),
-          _content(context),
-          const SizedBox(height: 60),
-          Expanded(child: _listAnwser(context)),
-          const SizedBox(height: 30),
-        ],
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const SizedBox(height: 20),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 12),
+          child: _content(context),
+        ),
+        const SizedBox(height: 60),
+        Expanded(child: _listAnwser(context)),
+        const SizedBox(height: 5),
+        BottomSheetNotiResult(isCorrect: false, answer: anwser, onPress: () async {}),
+      ],
     );
   }
 
@@ -54,42 +54,36 @@ class ExerciseChoiceWidget extends StatelessWidget {
       );
 
   Widget _itemAnwser(BuildContext context, int index) {
-    return GestureDetector(
-      onTap: done ? null : () => onSelected(items[index]),
-      child: Container(
-        width: double.infinity,
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 15),
-        decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(10),
-            border: items[index] == selectedItem
-                ? Border.all(
-                    color: !done
-                        ? Colors.blue
-                        : selectedItem != anwser
-                            ? Colors.red
-                            : Colors.green,
-                    width: 1,
-                  )
-                : null,
-            boxShadow: [
-              BoxShadow(
-                offset: const Offset(0, 3),
-                blurRadius: 6,
-                spreadRadius: 0,
-                color: Colors.grey.shade100,
-              ),
-            ]),
-        child: Text(
-          items[index],
-          textAlign: TextAlign.center,
-          style: Theme.of(context).textTheme.subtitle1!.copyWith(color: items[index] == selectedItem
-                ? !done
-                    ? Colors.blue
-                    : selectedItem != anwser
-                        ? Colors.red
-                        : Colors.green
-                : null,),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 12),
+      child: GestureDetector(
+        onTap: () => onSelected(items[index]),
+        child: Container(
+          width: double.infinity,
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 20),
+          decoration: BoxDecoration(
+              color: items[index] == selectedItem
+                ? anwser == selectedItem
+                  ? Colors.green
+                  : Colors.red
+                : Colors.white,
+              borderRadius: BorderRadius.circular(10),
+              boxShadow: [
+                BoxShadow(
+                  offset: const Offset(0, 0),
+                  blurRadius: 6,
+                  spreadRadius: 0,
+                  color: Theme.of(context).shadowColor,
+                ),
+              ]),
+          child: Text(
+            items[index],
+            textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.subtitle1!.copyWith(color: items[index] == selectedItem
+              ? Colors.white
+              : null,
+            ),
+          ),
         ),
       ),
     );

@@ -125,6 +125,8 @@ class App extends StatelessWidget {
             .copyWith(color: AppColors.text300, thickness: 1),
         primaryColor: Colors.white,
 
+        shadowColor: Colors.black26,
+
         // accentColor: Palette.secondColor,
         textTheme: const TextTheme(
           caption: TextStyle(
@@ -135,11 +137,19 @@ class App extends StatelessWidget {
             fontSize: 28.0,
             fontWeight: FontWeight.w700,
           ),
+          headline4: TextStyle(
+            fontSize: 18.0,
+            fontWeight: FontWeight.w700,
+          ),
           bodyText1: TextStyle(
             color: Palette.textBlack,
             fontSize: 16.0,
           ),
           subtitle1: TextStyle(
+            color: Palette.subTextColor,
+            fontSize: 14,
+          ),
+          subtitle2: TextStyle(
             color: Palette.subTextColor,
             fontSize: 12,
           ),
