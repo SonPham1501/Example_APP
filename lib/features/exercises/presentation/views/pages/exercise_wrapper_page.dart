@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:test_app/core/base_state/base_bloc.dart';
-import 'package:test_app/core/base_state/base_state.dart';
 import 'package:test_app/core/base_state/di.dart';
 import 'package:test_app/core/widgets/empty_widget.dart';
 import 'package:test_app/features/exercises/domain/section_types/choices.dart';
 import 'package:test_app/features/exercises/domain/enums/exercise_type_enum.dart';
 
-import '../../../domain/base_exercise_model.dart';
 import '../../controllers/exercise_wrapper_page_controller.dart';
 import '../widgets/buttons/contained_button.dart';
 import '../widgets/exercise_types/exercise_choices_widget.dart';

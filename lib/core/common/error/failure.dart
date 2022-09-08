@@ -20,13 +20,14 @@ class CommonFailure extends Failure with _$CommonFailure {
 
   factory CommonFailure.fromException(Exception e) {
     if (e.runtimeType.toString() == 'NetWorkException') {
-      return NoInternetFailure();
+      return const NoInternetFailure();
     } else if (e.runtimeType.toString() == 'TimeoutException') {
-      return TimeoutFailure();
+      return const TimeoutFailure();
     } else if (e.runtimeType.toString() == 'ServerValidationException') {
       return ServerValidationFailure((e as ServerValidationException));
-    } else
-      return ServerFailure();
+    } else {
+      return const ServerFailure();
+    }
   }
 }
 

@@ -5,7 +5,7 @@ part 'file_attachment.g.dart';
 @freezed
 class FileAttachment with _$FileAttachment {
   const factory FileAttachment({
-    required String id,
+    required dynamic id,
     double? size,
     String? name,
     required String path,

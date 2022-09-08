@@ -22,25 +22,26 @@ class ApiResponseWrapper<T> {
           status: json["status"],
           message: json["message"] ?? "",
           data: json["data"] ?? {},
-          errorCode: json["errorCode"] ?? null);
+          errorCode: json["errorCode"]);
 
   Map<String, dynamic> toJson() => {
-        "status": this.status,
+        "status": status,
         "message": message,
         "data": jsonEncode(data),
         "errorCode": errorCode,
       };
 
-  bool isSuccess() => this.status == 1;
-  bool isFailed() => this.status == 0;
-  bool isError() => this.status == -1;
-  bool isSpecial() => this.status > 1;
+  bool isSuccess() => status == 1;
+  bool isFailed() => status == 0;
+  bool isError() => status == -1;
+  bool isSpecial() => status > 1;
 
   Either<Failure, T> getFailure() {
-    if (this.isFailed()) {
-      if (this.errorCode != null)
-        return left(CommonFailure.apiFailureWithErrorCode(this.errorCode!));
-      return left(CommonFailure.apiFailure(this.message));
+    if (isFailed()) {
+      if (errorCode != null) {
+        return left(CommonFailure.apiFailureWithErrorCode(errorCode!));
+      }
+      return left(CommonFailure.apiFailure(message));
     } else {
       return left(const CommonFailure.serverFailure());
     }

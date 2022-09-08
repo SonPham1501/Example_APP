@@ -13,11 +13,17 @@ import 'dart:convert';
 //       _$CommonFilterListItemFromJson(json);
 // }
 class CommonFilterListItem extends CommonFilterListItemGeneric<int> {
+  @override
   final int id;
+  @override
   final String name;
+  @override
   final String? data;
+  @override
   final String? icon;
+  @override
   final String? description;
+  @override
   final String? thumbnail;
   CommonFilterListItem({
     required this.id,
@@ -68,10 +74,10 @@ class CommonFilterListItemGeneric<T> {
     return CommonFilterListItemGeneric<T>(
       id: map['id'],
       name: map['name'],
-      data: map['data'] != null ? map['data'] : null,
-      icon: map['icon'] != null ? map['icon'] : null,
-      description: map['description'] != null ? map['description'] : null,
-      thumbnail: map['thumbnail'] != null ? map['thumbnail'] : null,
+      data: map['data'],
+      icon: map['icon'],
+      description: map['description'],
+      thumbnail: map['thumbnail'],
     );
   }
 

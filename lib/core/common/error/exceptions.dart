@@ -43,16 +43,16 @@ class ValidationExceptionBody implements Exception {
 
   List<String> getMessages(List<String> fields) {
     List<String> messages = [];
-    if (this.errors.length == 0) return messages;
+    if (errors.isEmpty) return messages;
     for (final f in fields) {
-      if (this.errors[f] != null) messages.add(this.errors[f]?.first);
+      if (errors[f] != null) messages.add(errors[f]?.first);
     }
     return messages;
   }
 
   String getMessageAsString() {
     String message = '';
-    for (final e in this.errors.values) {
+    for (final e in errors.values) {
       message += e.join('\n') + '\n';
     }
     return message;

@@ -20,7 +20,7 @@ FileAttachment _$FileAttachmentFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FileAttachment {
-  String get id => throw _privateConstructorUsedError;
+  dynamic get id => throw _privateConstructorUsedError;
   double? get size => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   String get path => throw _privateConstructorUsedError;
@@ -40,7 +40,7 @@ abstract class $FileAttachmentCopyWith<$Res> {
           FileAttachment value, $Res Function(FileAttachment) then) =
       _$FileAttachmentCopyWithImpl<$Res>;
   $Res call(
-      {String id,
+      {dynamic id,
       double? size,
       String? name,
       String path,
@@ -72,7 +72,7 @@ class _$FileAttachmentCopyWithImpl<$Res>
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as dynamic,
       size: size == freezed
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
@@ -109,7 +109,7 @@ abstract class _$$_FileAttachmentCopyWith<$Res>
       __$$_FileAttachmentCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String id,
+      {dynamic id,
       double? size,
       String? name,
       String path,
@@ -143,7 +143,7 @@ class __$$_FileAttachmentCopyWithImpl<$Res>
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as dynamic,
       size: size == freezed
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
@@ -188,7 +188,7 @@ class _$_FileAttachment implements _FileAttachment {
       _$$_FileAttachmentFromJson(json);
 
   @override
-  final String id;
+  final dynamic id;
   @override
   final double? size;
   @override
@@ -250,7 +250,7 @@ class _$_FileAttachment implements _FileAttachment {
 
 abstract class _FileAttachment implements FileAttachment {
   const factory _FileAttachment(
-      {required final String id,
+      {required final dynamic id,
       final double? size,
       final String? name,
       required final String path,
@@ -262,7 +262,7 @@ abstract class _FileAttachment implements FileAttachment {
       _$_FileAttachment.fromJson;
 
   @override
-  String get id;
+  dynamic get id;
   @override
   double? get size;
   @override

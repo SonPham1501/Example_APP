@@ -13,9 +13,9 @@ class ApiListResponseWrapper<T> {
   });
 
   factory ApiListResponseWrapper.fromJson(Map<String, dynamic>? json,
-          List<T>? fromJson(List<dynamic>? items)) =>
+          List<T>? Function(List<dynamic>? items) fromJson) =>
       json == null
-          ? new ApiListResponseWrapper(items: [])
+          ? const ApiListResponseWrapper(items: [])
           : ApiListResponseWrapper(
               start: json["start"],
               limit: json["limit"],
@@ -25,7 +25,7 @@ class ApiListResponseWrapper<T> {
                   : fromJson(json["items"] as List<dynamic>?) ?? [],
             );
 
-  factory ApiListResponseWrapper.empty() => ApiListResponseWrapper();
+  factory ApiListResponseWrapper.empty() => const ApiListResponseWrapper();
   Map<String, dynamic> toJson() => {
         "start": start,
         "limit": limit,

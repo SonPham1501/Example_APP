@@ -22,19 +22,19 @@ class ApiPagedResponseWrapper<T> {
       );
 
   Map<String, dynamic> toJson() => {
-        "status": this.status,
+        "status": status,
         "message": message,
         "data": jsonEncode(data),
       };
 
-  bool isSuccess() => this.status == 1;
-  bool isFailed() => this.status == 0;
-  bool isError() => this.status == -1;
-  bool isSpecial() => this.status > 1;
+  bool isSuccess() => status == 1;
+  bool isFailed() => status == 0;
+  bool isError() => status == -1;
+  bool isSpecial() => status > 1;
 
   Either<Failure, T> getFailure() {
-    if (this.isFailed()) {
-      return left(CommonFailure.apiFailure(this.message));
+    if (isFailed()) {
+      return left(CommonFailure.apiFailure(message));
     } else {
       // print('Failure ------------------');
       return left(const CommonFailure.serverFailure());

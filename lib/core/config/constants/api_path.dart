@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 class Api {
   //! For Testing only
   static const String FOR_TESTING = 'fortest';

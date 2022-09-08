@@ -8,7 +8,7 @@ part of 'file_attachment.dart';
 
 _$_FileAttachment _$$_FileAttachmentFromJson(Map<String, dynamic> json) =>
     _$_FileAttachment(
-      id: json['id'] as String,
+      id: json['id'],
       size: (json['size'] as num?)?.toDouble(),
       name: json['name'] as String?,
       path: json['path'] as String,
