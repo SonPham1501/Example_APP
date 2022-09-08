@@ -1,5 +1,7 @@
 
 
+// ignore_for_file: non_constant_identifier_names
+
 class AppDataConfig {
   //danh sách môn học
   //static const List<ListItem> subjects;

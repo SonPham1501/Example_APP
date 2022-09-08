@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'palette.dart';
 
 class AppTextStyle {
-  static const appBarTextStyle = const TextStyle(
+  static const appBarTextStyle = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.bold,
     color: Palette.neutral_800,
@@ -11,7 +11,7 @@ class AppTextStyle {
   //TODO sua textstyle
   //
   static const modalBottomSheetTextStyle =
-      const TextStyle(fontSize: 14, color: Palette.neutral_800);
+      TextStyle(fontSize: 14, color: Palette.neutral_800);
 
   static TextStyle w400({
     double? fontSize,
@@ -22,7 +22,7 @@ class AppTextStyle {
     return TextStyle(
       fontSize: fontSize ?? 14,
       fontWeight: FontWeight.w400,
-      color: color ?? Color(0xFF363853),
+      color: color ?? const Color(0xFF363853),
       fontFamily: fontFamily,
       height: lineHeight,
     );
@@ -38,7 +38,7 @@ class AppTextStyle {
     return TextStyle(
       fontSize: fontSize ?? 14,
       fontWeight: FontWeight.w500,
-      color: color ?? Color(0xFF363853),
+      color: color ?? const Color(0xFF363853),
       fontFamily: fontFamily,
       height: lineHeight,
       fontStyle: fontStyle,
@@ -54,7 +54,7 @@ class AppTextStyle {
     return TextStyle(
       fontSize: fontSize ?? 14,
       fontWeight: FontWeight.w600,
-      color: color ?? Color(0xFF363853),
+      color: color ?? const Color(0xFF363853),
       fontFamily: fontFamily,
       height: lineHeight,
     );
@@ -69,7 +69,7 @@ class AppTextStyle {
     return TextStyle(
       fontSize: fontSize ?? 14,
       fontWeight: FontWeight.w700,
-      color: color ?? Color(0xFF363853),
+      color: color ?? const Color(0xFF363853),
       fontFamily: fontFamily,
       height: lineHeight,
     );
@@ -84,19 +84,19 @@ class AppTextStyle {
     return TextStyle(
       fontSize: fontSize ?? 14,
       fontWeight: FontWeight.w900,
-      color: color ?? Color(0xFF363853),
+      color: color ?? const Color(0xFF363853),
       fontFamily: fontFamily,
       height: lineHeight,
     );
   }
 
-  static const textButtonInAppBarStyle = const TextStyle(
+  static const textButtonInAppBarStyle = TextStyle(
     fontSize: 15.0,
     fontWeight: FontWeight.bold,
     color: Palette.primaryColor_700,
   );
 
-  static const disableTextButtonInAppBarStyle = const TextStyle(
+  static const disableTextButtonInAppBarStyle = TextStyle(
     fontSize: 15.0,
     fontWeight: FontWeight.bold,
     color: Palette.neutral_500,

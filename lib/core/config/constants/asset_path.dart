@@ -1,4 +1,6 @@
 //faces
+// ignore_for_file: constant_identifier_names
+
 const String face_crying = 'assets/images/faces/crying.png';
 const String face_worry = 'assets/images/faces/worried.png';
 const String face_question = 'assets/images/faces/question.png';

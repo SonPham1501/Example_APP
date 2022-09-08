@@ -10,35 +10,13 @@ import '../widgets/exercise_types/exercise_choices_widget.dart';
 import '../widgets/page_slider.dart';
 import '../widgets/time_count_down_widget.dart';
 
-// class ExerciseWrapperPage extends StatefulWidget {
-//   //final BaseTextBookExercise model;
-//   const ExerciseWrapperPage({
-//     Key? key,
-//     //required this.model,
-//   }) : super(key: key);
-
-//   // const ExerciseWrapperPage({
-//   //   Key? key,
-//   // }) : super(key: key);
-
-//   @override
-//   State<ExerciseWrapperPage> createState() => _ExerciseWrapperPageState();
-// }
-
 class ExerciseWrapperPage extends BaseView<ExerciseWrapperPageController> {
-  //   extends BaseState<ExerciseWrapperPage, ExerciseWrapperPageController> {
-  // _ExerciseWrapperPageState() : super(ExerciseWrapperPageController());
-  // @override
-  // void setState(VoidCallback fn) {
-  //   if (mounted) super.setState(fn);
-  // }
+  ExerciseWrapperPage({Key? key}) : super(key: key);
 
   @override
   void onInit() {
     controller.initUserSelection();
     super.onInit();
-
-    //   WidgetsBinding.instance.addPostFrameCallback((_) {});
   }
 
   @override

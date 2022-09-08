@@ -1,3 +1,5 @@
+// ignore_for_file: no_logic_in_create_state
+
 import 'package:flutter/material.dart';
 import '../../../injection.dart';
 import '../base_bloc.dart';
@@ -13,14 +15,14 @@ class BaseBlocBuilder<B extends BaseBloc> extends StatefulWidget {
   /// Sử dụng khi cần sử dụng lặp lại nhiều Bloc
   ///
   /// Giống với [GetX] trong [GetX]
-  BaseBlocBuilder({
+  BaseBlocBuilder({Key? key, 
     required this.bloc,
     this.onInit,
     this.onClose,
     required this.builder,
     this.tag,
     this.autoDispose = true,
-  }) {
+  }) : super(key: key) {
     if (!getIt.isRegistered<B>(instanceName: tag)) {
       getIt.registerFactory<B>(() => bloc, instanceName: tag);
     }
