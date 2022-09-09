@@ -2,7 +2,26 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
+import '../../../../../../core/ultis/helpers/bottomsheet_util.dart';
 import '../buttons/contained_button.dart';
+
+abstract class BottomSheetNotiResultBuilder {
+  static Future<bool> show(BuildContext context , {
+    required String answer,
+    required bool isCorrect,
+  }) async {
+    final result = await BottomSheetUtil.buildBaseButtonSheet<bool>(
+      context,
+      barrierColor: Colors.transparent,
+      child: BottomSheetNotiResult(
+        isCorrect: isCorrect,
+        answer: answer,
+        onPress: () async => Navigator.of(context).pop(true),
+      ),
+    );
+    return result ?? false;
+  }
+}
 
 class BottomSheetNotiResult extends StatelessWidget {
   const BottomSheetNotiResult({
@@ -37,6 +56,7 @@ class BottomSheetNotiResult extends StatelessWidget {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           const Gap(15),
           isCorrect ? correct(context) : incorrect(context),

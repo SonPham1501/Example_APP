@@ -1,12 +1,15 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:test_app/core/base_state/di.dart';
 import 'package:test_app/core/widgets/empty_widget.dart';
 import 'package:test_app/features/exercises/domain/section_types/choices.dart';
 import 'package:test_app/features/exercises/domain/enums/exercise_type_enum.dart';
+import 'package:test_app/features/exercises/presentation/views/widgets/total_score.dart';
+import 'package:test_app/injection.dart';
 
 import '../../controllers/exercise_wrapper_page_controller.dart';
 import '../widgets/exercise_types/exercise_choices_widget.dart';
-import '../widgets/page_slider.dart';
 import '../widgets/time_count_down_widget.dart';
 
 class ExerciseWrapperPage extends BaseView<ExerciseWrapperPageController> {
@@ -31,25 +34,38 @@ class ExerciseWrapperPage extends BaseView<ExerciseWrapperPageController> {
         switch (controller.model.dataType) {
           case ExerciseTypeEnum.choices:
             final data = controller.model.data as ChoicesExerciseData;
-            return PageSlider(
-              pageController: controller.pageController,
-              onPageChanged: controller.onPageChanged,
-              page: List.generate((data.questions ?? []).length, (qIndex) {
+            List<String> answers = (data.questions!.map((e) => e.options?.firstWhere((element) => element.id == e.correctOption,orElse: () => ChoiceQuestionOption()).content ?? '')).toList();
+            return BaseStreamWidget<int>(
+              stream: controller.qIndexStream,
+              builder: (context, qIndex) {
                 final _q = data.questions![qIndex];
                 return BaseStreamWidget<List<String?>>(
                   stream: controller.userSelectionsStream,
                   builder: (context, selectedItem) {
+                    String answer = _q.options?.firstWhere((element) => element.id == _q.correctOption,orElse: () => ChoiceQuestionOption()).content ?? '';
+                    List<String> items = _q.options?.map((elem) => elem.content ?? "").toList() ?? [];
                     return ExerciseChoiceWidget(
-                      id: _q.index.toString(),
+                      id: _q.index ?? 0,
                       content: _q.content ?? "",
-                      items: _q.options?.map((elem) => elem.content ?? "").toList() ?? [],
-                      anwser: _q.options?.firstWhere((element) => element.id == _q.correctOption, orElse: () => ChoiceQuestionOption()).content ?? '',
+                      items: items,
+                      answer: answer,
                       onSelected: (v) => controller.onSelectItem(qIndex, v),
                       selectedItem: controller.userSelections[qIndex],
+                      onNextQuestion: (v) {
+                        if (v <= items.length)  controller.nextQuestion(v);
+                        if ((_q.index ?? 0) > (_q.options ?? []).length) {
+                          int countCorrect = 0;
+                          for (int i = 0; i < selectedItem.length; i++) {
+                            if (answers[i] == selectedItem[i]) countCorrect++;
+                          }
+                          appRouter.pop();
+                          appRouter.push(TotalScore(sum: answers.length, core: countCorrect));
+                        }
+                      },
                     );
                   },
                 );
-              }),
+              }
             );
           default:
             return const EmptyWidget();
@@ -59,24 +75,21 @@ class ExerciseWrapperPage extends BaseView<ExerciseWrapperPageController> {
   }
 
   AppBar _buildAppBar(BuildContext context) => AppBar(
-        // leading: const Icon(Icons.close, color: Colors.blue),
-        actions: _actionAppBar(context),
-      );
+    // leading: const Icon(Icons.close, color: Colors.blue),
+    actions: _actionAppBar(context),
+  );
 
   List<Widget> _actionAppBar(BuildContext context) => [
-        _donotAction(context),
-        const SizedBox(width: 10),
-        _downTime(),
-        const SizedBox(width: 10),
-      ];
+    _donotAction(context),
+    const SizedBox(width: 10),
+    _downTime(),
+    const SizedBox(width: 10),
+  ];
 
   Widget _donotAction(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        controller.pageController.nextPage(
-          duration: const Duration(milliseconds: 300),
-          curve: Curves.easeIn,
-        );
+        log(controller.userSelections.toString());
       },
       child: Chip(
         label: Text(

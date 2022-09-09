@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+
 import 'package:test_app/features/exercises/domain/section_types/choices.dart';
 
 import '../../../../core/base_state/base_bloc.dart';
@@ -10,7 +10,6 @@ class ExerciseWrapperPageController extends BaseBloc<TextbookExerciseData> {
   ExerciseWrapperPageController(this.model);
   final BaseTextBookExercise model;
 
-  int currentPage = 0;
   final result = <String, String>{};
 
   final RxState<List<String?>> _userSelections = RxState<List<String?>>([]);
@@ -25,17 +24,17 @@ class ExerciseWrapperPageController extends BaseBloc<TextbookExerciseData> {
 
   int get time => _time.value.value;
   //int time = 60;
-  final pageController = PageController();
+
+  final RxState<int> _qIndex = RxState<int>(0);
+  Stream<int> get qIndexStream => _qIndex.value.stream;
 
   @override
   void onInit() {
-    // TODO: implement onInit
     super.onInit();
   }
 
   @override
   void dispose() {
-    pageController.dispose();
     super.dispose();
   }
 
@@ -53,7 +52,6 @@ class ExerciseWrapperPageController extends BaseBloc<TextbookExerciseData> {
 
   Future<void> replay() async {
     _time.emit(60);
-    pageController.jumpTo(0);
   }
 
   submit() {}
@@ -68,5 +66,8 @@ class ExerciseWrapperPageController extends BaseBloc<TextbookExerciseData> {
     _userSelections.emit(tmp);
   }
 
-  onPageChanged(int value) {}
+  nextQuestion(int index) {
+    _qIndex.emit(index);
+  }
+
 }
